@@ -31,6 +31,7 @@ RUNS = (
     ('2021-05-23', 17.0, 10.7, "LongRun"),  # 18
     ('2021-05-25', 6.2, 12.4, "ShortRun"),  # 19
     ('2021-05-27', 6.2, 12.8, "ShortRun"),  # 20
+    ('2021-05-28', 13.6, 12.4, "LongRun"),  # 21
 )
 
 # for weekly milage stats
@@ -80,8 +81,13 @@ weekly_dates = [tup[0] for tup in weekly_data]
 weekly_distances = [tup[1] for tup in weekly_data]
 
 #
-# Plot
+# Plot and print
 #
+
+print("Month  Distance (km)")
+for m in range(3, 10):
+    ds = [tup[1] for tup in RUNS if tup[0].month == m]
+    print("%2d     %5d" % (m, sum(ds)))
 
 ddist_per_week = (30-5)/((8-3.5)*(4.33-1))  # dist / (months * week_per_months)
 print("ddist_per_week: %.1f km" % ddist_per_week)
@@ -98,7 +104,13 @@ plt.plot([START, parse_date("2021-08-15")], [5, 30], color="gray")
 plt.plot([parse_date("2021-08-15"), parse_date("2021-10-15")], [30, 25], color="gray")
 plt.plot([START, parse_date("2021-08-15")], [3, 15], color="gray")
 plt.plot([parse_date("2021-08-15"), parse_date("2021-10-15")], [15, 12], color="gray")
-plt.plot(dates, distances, 'x')
+for dt, dist, kind in zip(dates, distances, is_long_runs):
+    color = {
+        "ShortRun": "blue",
+        "LongRun": "green",
+        "Strides": "red",
+    }[kind]
+    plt.plot(dt, dist, 'x', color=color)
 
 plt.subplot(3, 1, 2, sharex=plt.gca())
 plt.ylabel("Speed (km/h)")
