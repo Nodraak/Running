@@ -1,140 +1,172 @@
 #!/usr/bin/env python3
 
 from datetime import datetime, timedelta
+from dateutil import rrule
 from matplotlib import pyplot as plt
+from sklearn.linear_model import LinearRegression
 
+from data import RUNS_2022 as RUNS, RunLong
 
-#
-# Data
-#
-
-# date, distance (km), speed (km/h), kind
-RUNS = (
-    ('2021-03-27', 4.14, 10.6, "ShortRun"),
-    ('2021-04-02', 6.42, 11.2, "ShortRun"),
-    ('2021-04-08', 6.45, 11.4, "ShortRun"),
-    ('2021-04-11', 7.24, 11.0, "LongRun"),
-    ('2021-04-14', 3.9, 7.5, "ShortRun"),
-    ('2021-04-18', 3.3, 10.0, "LongRun"),
-    ('2021-04-22', 7.8, 11.9, "ShortRun"),
-    ('2021-04-24', 11.3, 11.8, "LongRun"),  # 8
-    ('2021-04-27', 6.6, 11.6, "ShortRun"),  # 9
-
-    ('2021-05-01', 13.5, 12.0, "LongRun"),  # 10
-    ('2021-05-06', 6.0, 12.4, "ShortRun"),  # 11
-    ('2021-05-08', 14.4, 11.9, "LongRun"),  # 12
-    ('2021-05-12', 5.8, 12.3, "ShortRun"),  # 13
-    ('2021-05-14', 6.4, 12.6, "ShortRun"),  # 14
-    ('2021-05-15', 15.0, 11.4, "LongRun"),  # 15
-    ('2021-05-18', 5.8, 12.0, "ShortRun"),  # 16
-    ('2021-05-20', 4, 12, "Strides"),       # 17
-    ('2021-05-23', 17.0, 10.7, "LongRun"),  # 18
-    ('2021-05-25', 6.2, 12.4, "ShortRun"),  # 19
-    ('2021-05-27', 6.2, 12.8, "ShortRun"),  # 20
-    ('2021-05-28', 13.6, 12.4, "LongRun"),  # 21
-)
-
-# for weekly milage stats
-START = '2021-03-22'  # Monday
-
-
-#
-# Parse/prepare
-#
 
 def parse_date(s):
     return datetime.strptime(s, '%Y-%m-%d').date()
 
+# for weekly milage stats
+#START = parse_date('2021-03-22')  # Monday
+#MID = parse_date("2021-08-15")
+#END = parse_date("2021-10-15")
+START = parse_date('2022-01-03')  # Monday
+MID = parse_date("2022-08-15")
+END = parse_date("2022-10-15")
 
-def get_week_from_start(d):
-    return d.isocalendar()[1] - START.isocalendar()[1]
+
+def plot_grid(dates_weekly):
+    plt.axhline(0, color="#E0E0E0", label='_nolegend_')
+
+    for d in dates_weekly:
+        plt.axvline(d, color="#E0E0E0", label='_nolegend_')
 
 
-# parse dates
+def plot_milage(subplot_args, dates_monthly, dates_weekly):
+    plt.subplot(*subplot_args, sharex=plt.gca())
+    plot_grid(dates_weekly)
+    plt.ylabel("Distance (km)")
 
-START = parse_date(START)
-RUNS = [
-    (parse_date(tup[0]), *tup[1:])
-    for tup in RUNS
-]
+    plt.axhline(40, color="#E0E0E0")
+    plt.axhline(50, color="#E0E0E0")
 
-# prepare date for plot 1
+    plt.axhline(160, color="#E0E0E0")
+    plt.axhline(200, color="#E0E0E0")
 
-dates = [tup[0] for tup in RUNS]
-distances = [tup[1] for tup in RUNS]
-speeds = [tup[2] for tup in RUNS]
-is_long_runs = [tup[3] for tup in RUNS]
+    xs = dates_monthly
+    ys = [
+        sum([r.distance for r in RUNS if r.date.month==d.month])
+        for d in dates_monthly
+    ]
+    plt.plot(xs, ys, 'x-')
 
-# prepare date for plot 2
+    xs = dates_weekly
+    ys = [
+        sum([r.distance for r in RUNS if r.date.isocalendar()[1]==d.isocalendar()[1]])
+        for d in dates_weekly
+    ]
+    plt.plot(xs, ys, 'x-')
 
-# date (week), milage
-weekly_data = {}
-for date, dist, _, _ in RUNS:
-    k = START + timedelta(weeks=get_week_from_start(date))
-    if k not in weekly_data:
-        weekly_data[k] = 0
-    weekly_data[k] += dist
+    plt.legend(["Monthly", "Weekly"])
 
-weekly_data = sorted(weekly_data.items())
 
-weekly_dates = [tup[0] for tup in weekly_data]
-weekly_distances = [tup[1] for tup in weekly_data]
+def plot_distance(subplot_args, dates_monthly, dates_weekly):
+    plt.subplot(*subplot_args, sharex=plt.gca())
+    plot_grid(dates_weekly)
+    plt.ylabel("Distance (km)")
 
-#
-# Plot and print
-#
+    plt.axhline(6, color="#E0E0E0")
+    plt.axhline(12, color="#E0E0E0")
+    plt.axhline(18, color="#E0E0E0")
+    plt.axhline(21, color="#E0E0E0")
 
-print("Month  Distance (km)")
-for m in range(3, 10):
-    ds = [tup[1] for tup in RUNS if tup[0].month == m]
-    print("%2d     %5d" % (m, sum(ds)))
+    # plt.plot([START, MID], [5, 30], color="#E0E0E0")
+    # plt.plot([MID, END], [30, 25], color="#E0E0E0")
+    # plt.plot([START, MID], [3, 15], color="#E0E0E0")
+    # plt.plot([MID, END], [15, 12], color="#E0E0E0")
 
-ddist_per_week = (30-5)/((8-3.5)*(4.33-1))  # dist / (months * week_per_months)
-print("ddist_per_week: %.1f km" % ddist_per_week)
-dmilage_per_week = (60-5)/((8-3.5)*(4.33-1))
-print("dmilage_per_week: %.1f km" % dmilage_per_week)
-# env +10% per week, we're ok
+    dates = [tup.date for tup in RUNS]
+    distances = [tup.distance for tup in RUNS]
+    speeds = [tup.speed for tup in RUNS]
+    is_long_runs = [isinstance(tup, RunLong) for tup in RUNS]
 
-plt.subplot(3, 1, 1)
-plt.ylabel("Distance (km)")
-for x in weekly_dates:
-    plt.axvline(x, color="#E0E0E0")
-plt.axhline(0, color="gray")
-plt.plot([START, parse_date("2021-08-15")], [5, 30], color="gray")
-plt.plot([parse_date("2021-08-15"), parse_date("2021-10-15")], [30, 25], color="gray")
-plt.plot([START, parse_date("2021-08-15")], [3, 15], color="gray")
-plt.plot([parse_date("2021-08-15"), parse_date("2021-10-15")], [15, 12], color="gray")
-for dt, dist, kind in zip(dates, distances, is_long_runs):
-    color = {
-        "ShortRun": "blue",
-        "LongRun": "green",
-        "Strides": "red",
-    }[kind]
-    plt.plot(dt, dist, 'x', color=color)
+    for dt, dist, is_long_run in zip(dates, distances, is_long_runs):
+        color = {
+            False: "blue",
+            True: "green",
+        }[is_long_run]
+        plt.plot(dt, dist, 'x', color=color)
 
-plt.subplot(3, 1, 2, sharex=plt.gca())
-plt.ylabel("Speed (km/h)")
-for x in weekly_dates:
-    plt.axvline(x, color="#E0E0E0")
-plt.axhline(0, color="gray")
-plt.axhline(12, color="gray")
-plt.gca().set_ylim((0, 15))
-for d, s, kind in zip(dates, speeds, is_long_runs):
-    color = {
-        "ShortRun": "blue",
-        "LongRun": "green",
-        "Strides": "red",
-    }[kind]
-    plt.plot(d, s, 'x', color=color)
 
-plt.subplot(3, 1, 3, sharex=plt.gca())
-plt.ylabel("Weekly milage (km)")
-for x in weekly_dates:
-    plt.axvline(x, color="#E0E0E0")
-plt.axhline(0, color="gray")
-plt.plot([START, parse_date("2021-05-01")], [8, 16], color="gray")
-plt.plot([parse_date("2021-05-01"), parse_date("2021-08-15")], [16, 15+15+30], color="gray")
-plt.plot([parse_date("2021-08-15"), parse_date("2021-10-15")], [15+15+30, 12+12+25], color="gray")
-plt.plot([d+timedelta(days=3) for d in weekly_dates], weekly_distances, 'x-')  # plot on the middle of the week
+def plot_speed(subplot_args, dates_monthly, dates_weekly):
+    plt.subplot(*subplot_args, sharex=plt.gca())
+    plot_grid(dates_weekly)
+    plt.ylabel("Speed (km/h)")
+    plt.ylim((10, 15))
 
-plt.show()
+    plt.axhline(12, color="#E0E0E0")
+    plt.axhline(13, color="#E0E0E0")
+    plt.axhline(14, color="#E0E0E0")
+
+    dates = [tup.date for tup in RUNS]
+    distances = [tup.distance for tup in RUNS]
+    speeds = [tup.speed for tup in RUNS]
+    is_long_runs = [isinstance(tup, RunLong) for tup in RUNS]
+
+    for d, s, is_long_run in zip(dates, speeds, is_long_runs):
+        color = {
+            False: "blue",
+            True: "green",
+        }[is_long_run]
+        plt.plot(d, s, 'x', color=color)
+
+
+def plot_4():
+    def is_plus_minus_10_percent(ref, dist):
+        return abs(ref/dist - 1) < 0.10
+
+    ref_dists = [6, 9, 12, 15, 18, 21, 24]
+
+    plt.axhline(12.0, color='#E0E0E0', label='_nolegend_')
+    plt.axhline(12.5, color='#E0E0E0', label='_nolegend_')
+    plt.axhline(13.0, color='#E0E0E0', label='_nolegend_')
+    plt.axhline(13.5, color='#E0E0E0', label='_nolegend_')
+    plt.axhline(14.0, color='#E0E0E0', label='_nolegend_')
+    plt.axvline(parse_date('2022-03-01'), color='#E0E0E0', label='_nolegend_')
+    plt.axvline(parse_date('2022-04-01'), color='#E0E0E0', label='_nolegend_')
+    plt.axvline(parse_date('2022-05-01'), color='#E0E0E0', label='_nolegend_')
+    plt.axvline(parse_date('2022-06-01'), color='#E0E0E0', label='_nolegend_')
+
+    print("d (km)  progress (km/h) in 1 month")
+    patches = []
+    for ref_dist in ref_dists:
+        runs = [r for r in RUNS if is_plus_minus_10_percent(ref_dist, r.distance)]
+
+        xs, ys = [r.date for r in runs], [r.speed for r in runs]
+
+        def date2datetime(d):
+            return datetime.fromordinal(d.toordinal())
+
+        model = LinearRegression().fit([[date2datetime(x).timestamp()] for x in xs], [[y] for y in ys])
+
+        x0 = date2datetime(START) # date2datetime(parse_date('2022-03-01'))
+        x1 = date2datetime(END) # date2datetime(parse_date('2022-11-01'))
+        y0 = model.coef_[0][0]*x0.timestamp() + model.intercept_[0]
+        y1 = model.coef_[0][0]*x1.timestamp() + model.intercept_[0]
+
+        p, = plt.plot(xs, ys, 'x-')
+        plt.plot([x0, x1], [y0, y1], '--', color=p.get_color())
+        patches.append(p)
+
+        print("%4.1f   %5.2f" % (ref_dist, model.coef_[0][0]*86400*365/12))
+
+    plt.legend(patches, ref_dists)
+
+
+def main():
+    start_weekly = START.replace(day=START.day-START.weekday())
+    start_monthly = START.replace(day=1)
+
+    dates_weekly = [d.date() for d in rrule.rrule(rrule.WEEKLY, dtstart=start_weekly, until=END)]
+    dates_monthly = [d.date() for d in rrule.rrule(rrule.MONTHLY, dtstart=start_monthly, until=END)]
+
+    plt.figure()
+    plt.xlim((START, MID))
+    plot_milage((3, 1, 1), dates_monthly, dates_weekly)
+    plot_distance((3, 1, 2), dates_monthly, dates_weekly)
+    plot_speed((3, 1, 3), dates_monthly, dates_weekly)
+
+    plt.figure()
+    plt.xlim((START, END))
+    plot_4()
+
+    plt.show()
+
+
+if __name__ == "__main__":
+    main()
