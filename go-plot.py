@@ -11,13 +11,16 @@ from data import RUNS_2022 as RUNS, RunLong
 def parse_date(s):
     return datetime.strptime(s, '%Y-%m-%d').date()
 
+def date2datetime(d):
+    return datetime.fromordinal(d.toordinal())
+
 # for weekly milage stats
 #START = parse_date('2021-03-22')  # Monday
 #MID = parse_date("2021-08-15")
 #END = parse_date("2021-10-15")
 START = parse_date('2022-01-03')  # Monday
 MID = parse_date("2022-08-15")
-END = parse_date("2022-10-15")
+END = parse_date("2023-05-01")
 
 
 def plot_grid(dates_weekly):
@@ -32,11 +35,12 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
     plot_grid(dates_weekly)
     plt.ylabel("Distance (km)")
 
-    plt.axhline(40, color="#E0E0E0")
-    plt.axhline(50, color="#E0E0E0")
+    plt.axhline(40, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(50, color="#E0E0E0", label='_nolegend_')
 
-    plt.axhline(160, color="#E0E0E0")
-    plt.axhline(200, color="#E0E0E0")
+    plt.axhline(160, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(200, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(240, color="#E0E0E0", label='_nolegend_')
 
     xs = dates_monthly
     ys = [
@@ -44,6 +48,9 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
         for d in dates_monthly
     ]
     plt.plot(xs, ys, 'x-')
+    print("\n== Milage (monthly) ==")
+    for x, y in zip(xs, ys):
+        print("%s %d" % (x, y))
 
     xs = dates_weekly
     ys = [
@@ -51,6 +58,9 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
         for d in dates_weekly
     ]
     plt.plot(xs, ys, 'x-')
+    print("\n== Milage (weekly) ==")
+    for x, y in zip(xs, ys):
+        print("%s %d" % (x, y))
 
     plt.legend(["Monthly", "Weekly"])
 
@@ -83,15 +93,14 @@ def plot_distance(subplot_args, dates_monthly, dates_weekly):
         plt.plot(dt, dist, 'x', color=color)
 
 
-def plot_speed(subplot_args, dates_monthly, dates_weekly):
+def plot_speed_simple(subplot_args, dates_monthly, dates_weekly):
     plt.subplot(*subplot_args, sharex=plt.gca())
     plot_grid(dates_weekly)
     plt.ylabel("Speed (km/h)")
     plt.ylim((10, 15))
 
-    plt.axhline(12, color="#E0E0E0")
-    plt.axhline(13, color="#E0E0E0")
-    plt.axhline(14, color="#E0E0E0")
+    for s in range(11, 14+1):
+        plt.axhline(s, color="#E0E0E0")
 
     dates = [tup.date for tup in RUNS]
     distances = [tup.distance for tup in RUNS]
@@ -106,31 +115,40 @@ def plot_speed(subplot_args, dates_monthly, dates_weekly):
         plt.plot(d, s, 'x', color=color)
 
 
-def plot_4():
+def plot_speed_prog():
     def is_plus_minus_10_percent(ref, dist):
         return abs(ref/dist - 1) < 0.10
 
-    ref_dists = [6, 9, 12, 15, 18, 21, 24]
+    REF_DISTS = [6, 9, 12, 15, 18, 21, 24]
 
-    plt.axhline(12.0, color='#E0E0E0', label='_nolegend_')
-    plt.axhline(12.5, color='#E0E0E0', label='_nolegend_')
-    plt.axhline(13.0, color='#E0E0E0', label='_nolegend_')
-    plt.axhline(13.5, color='#E0E0E0', label='_nolegend_')
-    plt.axhline(14.0, color='#E0E0E0', label='_nolegend_')
-    plt.axvline(parse_date('2022-03-01'), color='#E0E0E0', label='_nolegend_')
-    plt.axvline(parse_date('2022-04-01'), color='#E0E0E0', label='_nolegend_')
-    plt.axvline(parse_date('2022-05-01'), color='#E0E0E0', label='_nolegend_')
-    plt.axvline(parse_date('2022-06-01'), color='#E0E0E0', label='_nolegend_')
+    legend = []
 
-    print("d (km)  progress (km/h) in 1 month")
-    patches = []
-    for ref_dist in ref_dists:
+    for v in range(120, 150+1, 5):
+        plt.axhline(v/10, color='#E0E0E0', label='_nolegend_')
+
+    hline = plt.axhline(20.0/1.5, ls="--", color='#808080')
+    legend.append((hline, "20 km / 1h30 = %.2f" % (20.0/1.5)))
+    hline = plt.axhline(42.2/3.0, ls="--", color='#808080')
+    legend.append((hline, "42.2 km / 3h00 = %.2f" % (42.2/3.0)))
+    hline = plt.axhline(42.2/3.25, ls="--", color='#808080')
+    legend.append((hline, "42.2 km / 3h15 = %.2f" % (42.2/3.25)))
+    hline = plt.axhline(42.2/3.5, ls="--", color='#808080')
+    legend.append((hline, "42.2 km / 3h30 = %.2f" % (42.2/3.5)))
+
+    for m in range(3, 12+1):
+        plt.axvline(parse_date('2022-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+    for m in range(1, 4+1):
+        plt.axvline(parse_date('2023-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+
+    plt.plot(parse_date('2022-07-24'), 20*60/90, 'o', color='#808080', label='_nolegend_')
+    plt.plot(parse_date('2022-11-15'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
+    plt.plot(parse_date('2023-04-01'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
+
+    print("\n== Progress ==\nd (km)  progress (km/h) in 1 month")
+    for ref_dist in REF_DISTS:
         runs = [r for r in RUNS if is_plus_minus_10_percent(ref_dist, r.distance)]
 
         xs, ys = [r.date for r in runs], [r.speed for r in runs]
-
-        def date2datetime(d):
-            return datetime.fromordinal(d.toordinal())
 
         model = LinearRegression().fit([[date2datetime(x).timestamp()] for x in xs], [[y] for y in ys])
 
@@ -139,13 +157,32 @@ def plot_4():
         y0 = model.coef_[0][0]*x0.timestamp() + model.intercept_[0]
         y1 = model.coef_[0][0]*x1.timestamp() + model.intercept_[0]
 
-        p, = plt.plot(xs, ys, 'x-')
+        p, = plt.plot(xs, ys, 'o-')
         plt.plot([x0, x1], [y0, y1], '--', color=p.get_color())
-        patches.append(p)
+        legend.append((p, ref_dist))
 
         print("%4.1f   %5.2f" % (ref_dist, model.coef_[0][0]*86400*365/12))
 
-    plt.legend(patches, ref_dists)
+    plt.xlim((date2datetime(parse_date('2022-02-01')), date2datetime(parse_date('2023-05-01'))))
+    plt.ylim((11.5, 15.5))
+
+    plt.legend([tup[0] for tup in legend], [tup[1] for tup in legend])
+
+
+def plot_temp():
+
+    plt.axhline(5, color='#E0E0E0')
+    plt.axhline(15, color='#E0E0E0')
+
+    for m in range(3, 12+1):
+        plt.axvline(parse_date('2022-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+    for m in range(1, 4+1):
+        plt.axvline(parse_date('2023-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+
+    xs, ys = [r.date for r in RUNS], [r.temp for r in RUNS]
+    plt.plot(xs, ys, 'o-')
+
+    plt.xlim((date2datetime(parse_date('2022-02-01')), date2datetime(parse_date('2023-05-01'))))
 
 
 def main():
@@ -159,11 +196,15 @@ def main():
     plt.xlim((START, MID))
     plot_milage((3, 1, 1), dates_monthly, dates_weekly)
     plot_distance((3, 1, 2), dates_monthly, dates_weekly)
-    plot_speed((3, 1, 3), dates_monthly, dates_weekly)
+    plot_speed_simple((3, 1, 3), dates_monthly, dates_weekly)
 
     plt.figure()
     plt.xlim((START, END))
-    plot_4()
+    plot_speed_prog()
+
+    plt.figure()
+    plt.xlim((START, END))
+    plot_temp()
 
     plt.show()
 
