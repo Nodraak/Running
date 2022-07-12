@@ -42,22 +42,30 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
     plt.axhline(200, color="#E0E0E0", label='_nolegend_')
     plt.axhline(240, color="#E0E0E0", label='_nolegend_')
 
+    def date_ym_eq(a, b):
+        return (a.year == b.year) and (a.month == b.month)
+
+    def isocal_ym_eq(a, b):
+        a_y, a_weekn, _ = a.isocalendar()
+        b_y, b_weekn, _ = b.isocalendar()
+        return (a_y == b_y) and (a_weekn == b_weekn)
+
     xs = dates_monthly
     ys = [
-        sum([r.distance for r in RUNS if r.date.month==d.month])
+        sum([r.distance for r in RUNS if date_ym_eq(r.date, d)])
         for d in dates_monthly
     ]
-    plt.plot(xs, ys, 'x-')
+    plt.bar(xs, ys)
     print("\n== Milage (monthly) ==")
     for x, y in zip(xs, ys):
         print("%s %d" % (x, y))
 
     xs = dates_weekly
     ys = [
-        sum([r.distance for r in RUNS if r.date.isocalendar()[1]==d.isocalendar()[1]])
+        sum([r.distance for r in RUNS if isocal_ym_eq(r.date, d)])
         for d in dates_weekly
     ]
-    plt.plot(xs, ys, 'x-')
+    plt.bar(xs, ys)
     print("\n== Milage (weekly) ==")
     for x, y in zip(xs, ys):
         print("%s %d" % (x, y))
@@ -90,7 +98,7 @@ def plot_distance(subplot_args, dates_monthly, dates_weekly):
             False: "blue",
             True: "green",
         }[is_long_run]
-        plt.plot(dt, dist, 'x', color=color)
+        plt.bar(dt, dist,  color=color)
 
 
 def plot_speed_simple(subplot_args, dates_monthly, dates_weekly):
@@ -126,23 +134,35 @@ def plot_speed_prog():
     for v in range(120, 150+1, 5):
         plt.axhline(v/10, color='#E0E0E0', label='_nolegend_')
 
-    hline = plt.axhline(20.0/1.5, ls="--", color='#808080')
-    legend.append((hline, "20 km / 1h30 = %.2f" % (20.0/1.5)))
-    hline = plt.axhline(42.2/3.0, ls="--", color='#808080')
-    legend.append((hline, "42.2 km / 3h00 = %.2f" % (42.2/3.0)))
-    hline = plt.axhline(42.2/3.25, ls="--", color='#808080')
-    legend.append((hline, "42.2 km / 3h15 = %.2f" % (42.2/3.25)))
-    hline = plt.axhline(42.2/3.5, ls="--", color='#808080')
-    legend.append((hline, "42.2 km / 3h30 = %.2f" % (42.2/3.5)))
-
     for m in range(3, 12+1):
         plt.axvline(parse_date('2022-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
     for m in range(1, 4+1):
         plt.axvline(parse_date('2023-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
 
+    # hline = plt.axhline(20.0/1.5, ls="--", color='#808080')
+    # legend.append((hline, "20 km / 1h30 = %.2f" % (20.0/1.5)))
+    # hline = plt.axhline(42.2/3.0, ls="--", color='#808080')
+    # legend.append((hline, "42.2 km / 3h00 = %.2f" % (42.2/3.0)))
+    # hline = plt.axhline(42.2/3.25, ls="--", color='#808080')
+    # legend.append((hline, "42.2 km / 3h15 = %.2f" % (42.2/3.25)))
+    # hline = plt.axhline(42.2/3.5, ls="--", color='#808080')
+    # legend.append((hline, "42.2 km / 3h30 = %.2f" % (42.2/3.5)))
+
+    """
+        04     : 12.0
+        07 (+3): 13.5 -> 0.50/m
+        11 (+4): 14.5 -> 0.33/m
+        03 (+4): 15.0 -> 0.25/m
+    """
+    plt.plot(
+        [parse_date('2022-04-24'), parse_date('2022-07-24'), parse_date('2022-11-27'), parse_date('2023-04-02')],
+        [12.00, 13.50, 14.50, 15.00],
+        '--', color='#808080',
+    )
+
     plt.plot(parse_date('2022-07-24'), 20*60/90, 'o', color='#808080', label='_nolegend_')
-    plt.plot(parse_date('2022-11-15'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
-    plt.plot(parse_date('2023-04-01'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
+    plt.plot(parse_date('2022-11-27'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
+    plt.plot(parse_date('2023-04-02'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
 
     print("\n== Progress ==\nd (km)  progress (km/h) in 1 month")
     for ref_dist in REF_DISTS:
@@ -161,7 +181,7 @@ def plot_speed_prog():
         plt.plot([x0, x1], [y0, y1], '--', color=p.get_color())
         legend.append((p, ref_dist))
 
-        print("%4.1f   %5.2f" % (ref_dist, model.coef_[0][0]*86400*365/12))
+        print("* Reg %d km: vel(t) = %3d*10**-9 * t + %.3f km/h => %5.2f km/h / month" % (ref_dist, model.coef_[0][0]*10**9, model.intercept_[0], model.coef_[0][0]*86400*365/12))
 
     plt.xlim((date2datetime(parse_date('2022-02-01')), date2datetime(parse_date('2023-05-01'))))
     plt.ylim((11.5, 15.5))

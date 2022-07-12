@@ -35,6 +35,9 @@ RUNS_2021 = (
     RunShort(pd('2021-05-25'), 6.2, 12.4, None),  # 19
     RunShort(pd('2021-05-27'), 6.2, 12.8, None),  # 20
     RunLong(pd('2021-05-28'), 13.6, 12.4, None),  # 21
+
+    # 09 - 17 km
+    # 10 - 30 km
 )
 
 RUNS_2022 = (
@@ -89,8 +92,15 @@ RUNS_2022 = (
     # 10-12 runs - 150-170 km (TBC)
     RunShort(pd('2022-07-01'), 12, 13.70, 23),
     RunLong(pd('2022-07-02'), 18, 13.31, 21),
+    RunShort(pd('2022-07-05'), 12, 13.90, 19),
+    RunShort(pd('2022-07-08'), 12, 14.45, 15), # PB 12k
+    RunShort(pd('2022-07-09'), 15, 13.50, 18),
+    RunLong(pd('2022-07-12'), 18, 13.42, 16), # PB 18k
+
 
 
     # 12 runs - 200-220 km (TBC)
 
+    # 2022-11-27 half marathon Boulogne
+    # 2023-04-02 Marathon Paris
 )
