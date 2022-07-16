@@ -1,6 +1,7 @@
 from collections import namedtuple
 from datetime import datetime
 
+
 def pd(s):
     return datetime.strptime(s, '%Y-%m-%d').date()
 
@@ -9,7 +10,7 @@ RunShort = namedtuple("RunShort", ("date", "distance", "speed", "temp"))
 RunLong = namedtuple("RunLong", ("date", "distance", "speed", "temp"))
 
 
-RUNS_2021 = (
+RUNS = (
     RunShort(pd('2021-03-27'), 4.14, 10.6, None),
 
     # 8 runs - 55 km
@@ -37,10 +38,14 @@ RUNS_2021 = (
     RunLong(pd('2021-05-28'), 13.6, 12.4, None),  # 21
 
     # 09 - 17 km
-    # 10 - 30 km
-)
+    RunLong(pd('2021-09-18'), 7, 12.2, None),
+    RunLong(pd('2021-09-25'), 9.6, 10.7, None),
 
-RUNS_2022 = (
+    # 10 - 30 km
+    RunLong(pd('2021-10-02'), 10.6, 11.8, 15),
+    RunLong(pd('2021-10-09'), 11.7, 11.5, 12),
+    RunLong(pd('2021-10-17'), 7.9, 12.2, 11),
+
     # 2 runs - 15 km
     RunShort(pd('2022-01-02'), 7.8, 11.2, 13),
     RunShort(pd('2022-01-09'), 7.8, 11.2, None),
@@ -78,7 +83,7 @@ RUNS_2022 = (
     RunLong(pd('2022-05-28'), 18.0, 11.9, 12),
     RunShort(pd('2022-05-31'), 6, 13.7, 10),
 
-    # 10 runs - 130 km (TBC)
+    # 9 runs - 110 km
     RunShort(pd('2022-06-02'), 9, 13.0, 18),
     RunLong(pd('2022-06-04'), 18.0, 12.0, 19),
     RunShort(pd('2022-06-09'), 11.7, 13.5, 18),
@@ -89,17 +94,21 @@ RUNS_2022 = (
     RunLong(pd('2022-06-25'), 18, 12.5, 21),
     RunShort(pd('2022-06-28'), 12, 14.03, 24),
 
-    # 10-12 runs - 150-170 km (TBC)
+    # 11 runs - 150 km (TBC)
     RunShort(pd('2022-07-01'), 12, 13.70, 23),
     RunLong(pd('2022-07-02'), 18, 13.31, 21),
     RunShort(pd('2022-07-05'), 12, 13.90, 19),
     RunShort(pd('2022-07-08'), 12, 14.45, 15), # PB 12k
     RunShort(pd('2022-07-09'), 15, 13.50, 18),
     RunLong(pd('2022-07-12'), 18, 13.42, 16), # PB 18k
+    RunShort(pd('2022-07-16'), 9, 12.85, 22),
 
 
 
-    # 12 runs - 200-220 km (TBC)
+    # 08: 12 runs - 200-220 km (TBC)
+    # 09: 12 runs - 240 km (TBC)
+    # 10: 12 runs - 240 km (TBC)
+    # 11: 12 runs - 160 km (TBC)
 
     # 2022-11-27 half marathon Boulogne
     # 2023-04-02 Marathon Paris
