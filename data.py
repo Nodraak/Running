@@ -8,6 +8,7 @@ def pd(s):
 
 RunShort = namedtuple("RunShort", ("date", "distance", "speed", "temp"))
 RunLong = namedtuple("RunLong", ("date", "distance", "speed", "temp"))
+RunRace = namedtuple("RunRace", ("date", "distance", "speed", "temp"))
 
 
 RUNS = (
@@ -68,7 +69,7 @@ RUNS = (
     RunShort(pd('2022-04-13'), 7.5, 12.1, None),
     RunLong(pd('2022-04-15'), 18, 12, 10),
     RunShort(pd('2022-04-18'), 11.9, 12.3, 15),
-    RunLong(pd('2022-04-24'), 21.1, 11.99, 14),  # half marathon
+    RunRace(pd('2022-04-24'), 21.1, 11.99, 14),  # Race - half marathon
     RunShort(pd('2022-04-26'), 6, 12.4, 14),
     RunShort(pd('2022-04-28'), 6, 13.1, 14),
     RunLong(pd('2022-04-30'), 18.55, 12.3, 16),
@@ -98,12 +99,14 @@ RUNS = (
     RunShort(pd('2022-07-01'), 12, 13.70, 23),
     RunLong(pd('2022-07-02'), 18, 13.31, 21),
     RunShort(pd('2022-07-05'), 12, 13.90, 19),
-    RunShort(pd('2022-07-08'), 12, 14.45, 15), # PB 12k
+    RunShort(pd('2022-07-08'), 12, 14.45, 15), # PB - 12k
     RunShort(pd('2022-07-09'), 15, 13.50, 18),
-    RunLong(pd('2022-07-12'), 18, 13.42, 16), # PB 18k
-    RunShort(pd('2022-07-16'), 9, 12.85, 22),
+    RunLong(pd('2022-07-12'), 18, 13.42, 16), # PB - 18k
+    RunShort(pd('2022-07-16'), 9, 12.85, 22),  # Note - mauvaise respiration
+    RunShort(pd('2022-07-18'), 12, 13.60, 18),  # Note - mauvaise respiration
+    RunShort(pd('2022-07-22'), 6, 13.90, 20),  # Note - 2x 25 m de denivele
 
-    RunShort(pd('2022-07-18'), 12, 13.60, 18),
+    RunRace(pd('2022-07-24'), 20, 13.4, 24), # TBC - Race - 20 km CDGR
 
 
 

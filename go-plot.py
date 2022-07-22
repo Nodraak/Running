@@ -7,7 +7,7 @@ from dateutil import rrule
 from matplotlib import pyplot as plt
 from sklearn.linear_model import LinearRegression
 
-from data import pd, RunLong, RUNS
+from data import pd, RunShort, RunLong, RunRace, RUNS
 
 
 def date2datetime(d):
@@ -24,13 +24,23 @@ END = pd("2023-05-01")
 TODAY = datetime.today()
 
 
+RUN2COLORS = {
+    RunShort: "blue",
+    RunLong: "green",
+    RunRace: "brown",
+}
+
+C_LINE = "#E0E0E0"
+C_TODAY = "#FF0000"
+
+
 def plot_grid(dates_weekly):
-    plt.axhline(0, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(0, color=C_LINE, label='_nolegend_')
 
     for d in dates_weekly:
-        plt.axvline(d, color="#E0E0E0", label='_nolegend_')
+        plt.axvline(d, color=C_LINE, label='_nolegend_')
 
-    plt.axvline(TODAY, color="#800000", label='_nolegend_')
+    plt.axvline(TODAY, color=C_TODAY, label='_nolegend_')
 
 
 def plot_milage(subplot_args, dates_monthly, dates_weekly):
@@ -38,15 +48,15 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
     plot_grid(dates_weekly)
     plt.ylabel("Distance (km)")
 
-    plt.axhline(30, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(40, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(50, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(60, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(30, color=C_LINE, label='_nolegend_')
+    plt.axhline(40, color=C_LINE, label='_nolegend_')
+    plt.axhline(50, color=C_LINE, label='_nolegend_')
+    plt.axhline(60, color=C_LINE, label='_nolegend_')
 
-    plt.axhline(120, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(160, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(200, color="#E0E0E0", label='_nolegend_')
-    plt.axhline(240, color="#E0E0E0", label='_nolegend_')
+    plt.axhline(120, color=C_LINE, label='_nolegend_')
+    plt.axhline(160, color=C_LINE, label='_nolegend_')
+    plt.axhline(200, color=C_LINE, label='_nolegend_')
+    plt.axhline(240, color=C_LINE, label='_nolegend_')
 
     def date_ym_eq(a, b):
         return (a.year == b.year) and (a.month == b.month)
@@ -85,27 +95,19 @@ def plot_distance(subplot_args, dates_monthly, dates_weekly):
     plot_grid(dates_weekly)
     plt.ylabel("Distance (km)")
 
-    plt.axhline(6, color="#E0E0E0")
-    plt.axhline(12, color="#E0E0E0")
-    plt.axhline(18, color="#E0E0E0")
-    plt.axhline(21, color="#E0E0E0")
+    plt.axhline(6, color=C_LINE)
+    plt.axhline(12, color=C_LINE)
+    plt.axhline(18, color=C_LINE)
+    plt.axhline(21, color=C_LINE)
 
-    # plt.plot([START, MID], [5, 30], color="#E0E0E0")
-    # plt.plot([MID, END], [30, 25], color="#E0E0E0")
-    # plt.plot([START, MID], [3, 15], color="#E0E0E0")
-    # plt.plot([MID, END], [15, 12], color="#E0E0E0")
+    # plt.plot([START, MID], [5, 30], color=C_LINE)
+    # plt.plot([MID, END], [30, 25], color=C_LINE)
+    # plt.plot([START, MID], [3, 15], color=C_LINE)
+    # plt.plot([MID, END], [15, 12], color=C_LINE)
 
-    dates = [tup.date for tup in RUNS]
-    distances = [tup.distance for tup in RUNS]
-    speeds = [tup.speed for tup in RUNS]
-    is_long_runs = [isinstance(tup, RunLong) for tup in RUNS]
-
-    for dt, dist, is_long_run in zip(dates, distances, is_long_runs):
-        color = {
-            False: "blue",
-            True: "green",
-        }[is_long_run]
-        plt.bar(dt, dist, align='edge', width=1, color=color)
+    for run in RUNS:
+        color = RUN2COLORS[run.__class__]
+        plt.bar(run.date, run.distance, align='edge', width=1, color=color)
 
 
 def plot_speed_simple(subplot_args, dates_monthly, dates_weekly):
@@ -115,19 +117,11 @@ def plot_speed_simple(subplot_args, dates_monthly, dates_weekly):
     plt.ylim((10.0, 15.5))
 
     for s in range(11, 14+1):
-        plt.axhline(s, color="#E0E0E0")
+        plt.axhline(s, color=C_LINE)
 
-    dates = [tup.date for tup in RUNS]
-    distances = [tup.distance for tup in RUNS]
-    speeds = [tup.speed for tup in RUNS]
-    is_long_runs = [isinstance(tup, RunLong) for tup in RUNS]
-
-    for d, s, is_long_run in zip(dates, speeds, is_long_runs):
-        color = {
-            False: "blue",
-            True: "green",
-        }[is_long_run]
-        plt.plot(d, s, 'x', color=color)
+    for run in RUNS:
+        color = RUN2COLORS[run.__class__]
+        plt.plot(run.date, run.speed, 'x', color=color)
 
 
 def plot_speed_prog(subplot_args):
@@ -143,12 +137,12 @@ def plot_speed_prog(subplot_args):
     legend = []
 
     for v in range(120, 150+1, 5):
-        plt.axhline(v/10, color='#E0E0E0', label='_nolegend_')
+        plt.axhline(v/10, color=C_LINE, label='_nolegend_')
 
     for m in range(3, 12+1):
-        plt.axvline(pd('2022-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+        plt.axvline(pd('2022-%02d-01' % m), color=C_LINE, label='_nolegend_')
     for m in range(1, 4+1):
-        plt.axvline(pd('2023-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+        plt.axvline(pd('2023-%02d-01' % m), color=C_LINE, label='_nolegend_')
 
     # hline = plt.axhline(20.0/1.5, ls="--", color='#808080')
     # legend.append((hline, "20 km / 1h30 = %.2f" % (20.0/1.5)))
@@ -202,13 +196,13 @@ def plot_speed_prog(subplot_args):
 
 def plot_temp():
 
-    plt.axhline(5, color='#E0E0E0')
-    plt.axhline(15, color='#E0E0E0')
+    plt.axhline(5, color=C_LINE)
+    plt.axhline(15, color=C_LINE)
 
     for m in range(3, 12+1):
-        plt.axvline(pd('2022-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+        plt.axvline(pd('2022-%02d-01' % m), color=C_LINE, label='_nolegend_')
     for m in range(1, 4+1):
-        plt.axvline(pd('2023-%02d-01' % m), color='#E0E0E0', label='_nolegend_')
+        plt.axvline(pd('2023-%02d-01' % m), color=C_LINE, label='_nolegend_')
 
     xs, ys = [r.date for r in RUNS], [r.temp for r in RUNS]
     plt.plot(xs, ys, 'o-')
