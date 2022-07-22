@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<gpx version="1.0"
+creator="Viking 1.7 -- http://viking.sf.net/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.topografix.com/GPX/1/0"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<trk>
+  <name>Track-Berlin-North-06-km</name>
+  <trkseg>
+  <trkpt lat="52.54230982942868" lon="13.439825230550767">
+  </trkpt>
+  <trkpt lat="52.541844104061404" lon="13.439274036598206">
+  </trkpt>
+  <trkpt lat="52.54192240499411" lon="13.439070188713075">
+  </trkpt>
+  <trkpt lat="52.54531857354045" lon="13.43730261297226">
+  </trkpt>
+  <trkpt lat="52.553799691233635" lon="13.445274138164521">
+  </trkpt>
+  <trkpt lat="52.55306907484464" lon="13.448439144802094">
+  </trkpt>
+  <trkpt lat="52.55319954294917" lon="13.448761009883881">
+  </trkpt>
+  <trkpt lat="52.553127785539694" lon="13.44929745168686">
+  </trkpt>
+  <trkpt lat="52.55738084025066" lon="13.458116554927827">
+  </trkpt>
+  <trkpt lat="52.559520257926046" lon="13.460476898860932">
+  </trkpt>
+  <trkpt lat="52.56105953049584" lon="13.45701684923172">
+  </trkpt>
+  <trkpt lat="52.56212916267817" lon="13.454313182544709">
+  </trkpt>
+  <trkpt lat="52.55565227111554" lon="13.43955030412674">
+  </trkpt>
+  <trkpt lat="52.55541744137507" lon="13.4395610329628">
+  </trkpt>
+  <trkpt lat="52.55385840095104" lon="13.445161485385896">
+  </trkpt>
+  <trkpt lat="52.5464269203796" lon="13.438139462184907">
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

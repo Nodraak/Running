@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<gpx version="1.0"
+creator="Viking 1.7 -- http://viking.sf.net/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.topografix.com/GPX/1/0"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<trk hidden="hidden">
+  <name>Track-Berlin-Tiergarten-06-km-a</name>
+  <trkseg>
+  <trkpt lat="52.541853076049115" lon="13.439257943344117">
+  </trkpt>
+  <trkpt lat="52.536084524401005" lon="13.432648980331422">
+  </trkpt>
+  <trkpt lat="52.539034150029735" lon="13.424151742172242">
+  </trkpt>
+  <trkpt lat="52.531827116386275" lon="13.419749933624267">
+  </trkpt>
+  <trkpt lat="52.5327538798855" lon="13.417239385986328">
+  </trkpt>
+  <trkpt lat="52.527780455073575" lon="13.411402899169921">
+  </trkpt>
+  <trkpt lat="52.52821777354017" lon="13.409514624023437">
+  </trkpt>
+  <trkpt lat="52.52450369160494" lon="13.407883840942382">
+  </trkpt>
+  <trkpt lat="52.52296313665374" lon="13.406864601516723">
+  </trkpt>
+  <trkpt lat="52.521964358177804" lon="13.404633003616333">
+  </trkpt>
+  <trkpt lat="52.519320423185754" lon="13.397133547210693">
+  </trkpt>
+  <trkpt lat="52.519627258370846" lon="13.39671512260437">
+  </trkpt>
+  <trkpt lat="52.51932042318567" lon="13.39470883026123">
+  </trkpt>
+  <trkpt lat="52.51904622822834" lon="13.390610414886474">
+  </trkpt>
+  <trkpt lat="52.51886343063942" lon="13.390288549804687">
+  </trkpt>
+  <trkpt lat="52.5178449730067" lon="13.376877504730224">
+  </trkpt>
+  <trkpt lat="52.516199722343586" lon="13.37599774017334">
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>

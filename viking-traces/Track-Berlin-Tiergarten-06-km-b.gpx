@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<gpx version="1.0"
+creator="Viking 1.7 -- http://viking.sf.net/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.topografix.com/GPX/1/0"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<trk>
+  <name>Track-Berlin-Tiergarten-06-km-b</name>
+  <trkseg>
+  <trkpt lat="52.51769481379461" lon="13.376695114517211">
+  </trkpt>
+  <trkpt lat="52.517720928477075" lon="13.369903761291503">
+  </trkpt>
+  <trkpt lat="52.51729003423197" lon="13.369142013931274">
+  </trkpt>
+  <trkpt lat="52.5176295270206" lon="13.361717659378051">
+  </trkpt>
+  <trkpt lat="52.51687872214681" lon="13.357082802200317">
+  </trkpt>
+  <trkpt lat="52.51700276905422" lon="13.354797560119628">
+  </trkpt>
+  <trkpt lat="52.51520079009825" lon="13.351149755859375">
+  </trkpt>
+  <trkpt lat="52.515409718982" lon="13.349819380187988">
+  </trkpt>
+  <trkpt lat="52.515044092783505" lon="13.34876795425415">
+  </trkpt>
+  <trkpt lat="52.514626230545595" lon="13.348446089172363">
+  </trkpt>
+  <trkpt lat="52.51475681292179" lon="13.346804577255249">
+  </trkpt>
+  <trkpt lat="52.51446300202961" lon="13.343317705535888">
+  </trkpt>
+  <trkpt lat="52.51420836433395" lon="13.341976601028442">
+  </trkpt>
+  <trkpt lat="52.51421162892911" lon="13.339889842414856">
+  </trkpt>
+  <trkpt lat="52.51414307237941" lon="13.33903153553009">
+  </trkpt>
+  <trkpt lat="52.51386558049037" lon="13.338001567268371">
+  </trkpt>
+  <trkpt lat="52.51350320609106" lon="13.337990838432312">
+  </trkpt>
+  <trkpt lat="52.51333344408329" lon="13.33802838935852">
+  </trkpt>
+  <trkpt lat="52.513470559602005" lon="13.341697651290893">
+  </trkpt>
+  <trkpt lat="52.51345750099961" lon="13.343714672470092">
+  </trkpt>
+  <trkpt lat="52.51336609067417" lon="13.344229656600952">
+  </trkpt>
+  <trkpt lat="52.51380355265198" lon="13.345227438354492">
+  </trkpt>
+  <trkpt lat="52.51391454977455" lon="13.347351747894287">
+  </trkpt>
+  <trkpt lat="52.51416592457437" lon="13.348381716156005">
+  </trkpt>
+  <trkpt lat="52.513813346526895" lon="13.349186378860473">
+  </trkpt>
+  <trkpt lat="52.51363052716631" lon="13.350323635482788">
+  </trkpt>
+  <trkpt lat="52.51397004823058" lon="13.351160484695434">
+  </trkpt>
+  <trkpt lat="52.5144401499888" lon="13.351847130203247">
+  </trkpt>
+  <trkpt lat="52.51444014998884" lon="13.353284794235229">
+  </trkpt>
+  <trkpt lat="52.514420562515994" lon="13.354561525726318">
+  </trkpt>
+  <trkpt lat="52.51471437369195" lon="13.359378773117065">
+  </trkpt>
+  <trkpt lat="52.51537380940062" lon="13.369817930603027">
+  </trkpt>
+  <trkpt lat="52.515491331557214" lon="13.37198515548706">
+  </trkpt>
+  <trkpt lat="52.515785135573516" lon="13.375461298370361">
+  </trkpt>
+  <trkpt lat="52.5160201773721" lon="13.376609283828735">
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>
