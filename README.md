@@ -40,3 +40,13 @@ https://github.com/viking-gps/viking
 **Trackpoint editing**
 
 * Click `Tool`, `Edit trackpoint`
+
+## Quickstart
+
+```bash
+python3 go-plot.py
+```
+
+![](Figure_1.png)
+
+![](Figure_2.png)
