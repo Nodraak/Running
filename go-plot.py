@@ -232,9 +232,9 @@ def main():
     plot_speed_simple((2, 1, 1), dates_monthly, dates_weekly)
     plot_speed_prog((2, 1, 2))
 
-    plt.figure()
-    plt.xlim((START, END))
-    plot_temp()
+    #plt.figure()
+    #plt.xlim((START, END))
+    #plot_temp()
 
     plt.show()
 
