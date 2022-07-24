@@ -17,8 +17,8 @@ P_TITLE_42 = "42,195 km Marathon-Lauf Teilnehmerlimit: 300 Sportler\nPokale für
 FILEPATH_RESULTS_21 = "./data/Auswertung Gesamt (Brutto) 20. Spreewaldmarathon - 21,1 km Halbmarathon-Lauf - portal.lausitz-timing.de.html"
 FILEPATH_RESULTS_42 = "./data/Auswertung Gesamt (Brutto) 20. Spreewaldmarathon - 42,195 km Marathon-Lauf - portal.lausitz-timing.de.html"
 
-FILEPATH_OUT_OLD = "./data.json"
-FILEPATH_OUT_21 = "./data-21km.json"
+FILEPATH_OUT_OLD = "./data-old.json"
+FILEPATH_OUT_21 = "./data.json"
 
 
 def open_and_parse(filepath):
@@ -151,13 +151,20 @@ def main():
 
     data_21 = []
     for k, d in data["21"].items():
+        # fix registered but not running
         if (d[1] is None) or (d[1][0] is ''):
+            continue
+
+        t = conv_time(d[1][2])
+
+        # fix edge case
+        if t == 103:
             continue
 
         data_21.append({
             "name": k,
             "gender": d[0][0],
-            "time_raw": conv_time(d[1][2]),
+            "time_raw": t,
             "place_global": int(d[1][0]),
         })
 

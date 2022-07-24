@@ -51,14 +51,14 @@ py go-plot.py
 ![](build/perso-Figure_2.png)
 
 ```bash
-py race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/data-21km.json
+py race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/
 ```
 
 ![](build/results-2022-04-24-Spreewald-Figure_1.png)
 ![](build/results-2022-04-24-Spreewald-Figure_2.png)
 
 ```bash
-py race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/data.json
+py race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/
 ```
 
 ![](build/results-2022-07-24-20km-CDGR-Figure_1.png)
