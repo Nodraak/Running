@@ -105,8 +105,7 @@ RUNS = (
     RunShort(pd('2022-07-16'), 9, 12.85, 22),  # Note - mauvaise respiration
     RunShort(pd('2022-07-18'), 12, 13.60, 18),  # Note - mauvaise respiration
     RunShort(pd('2022-07-22'), 6, 13.90, 20),  # Note - 2x 25 m de denivele
-
-    RunRace(pd('2022-07-24'), 20, 13.4, 24), # TBC - Race - 20 km CDGR
+    RunRace(pd('2022-07-24'), 20, 13.45, 22), # Race - 20 km CDGR
 
 
 
