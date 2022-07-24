@@ -7,8 +7,8 @@ import numpy as np
 
 
 # TODO: automate
-ME_TIME = 3600 + 46*60 + 0  # Spreewald
-#ME_TIME = 3600 + 29*60 + 20  # 20 km CDGR
+#ME_TIME = 3600 + 46*60 + 0  # Spreewald
+ME_TIME = 3600 + 29*60 + 20  # 20 km CDGR
 
 
 def main():
