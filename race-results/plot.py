@@ -61,7 +61,7 @@ def main():
     plt.plot(times_all)
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
         legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
-        plt.plot(i, t, "x", label=legend, color=c)
+        plt.plot(int(i), t, "x", label=legend, color=c)
 
     plt.axhline(ME_TIME, label=ME_LEGEND, color="orange")
 

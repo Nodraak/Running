@@ -111,9 +111,11 @@ def parse_results(filepath, data_key, data):
 
         row_key = "%s %s" % (firstname, lastname)
         if row_key not in data[data_key]:
-            print("WARN: Expected key '%s' not found" % row_key)
-            continue
-        #assert row_key in data[data_key], "Expected key '%s' not found" % row_key
+            print("WARN: runner '%s' not found in Meldeliste" % row_key)
+            row_key = "%s %s" % (firstname, lastname)
+            data[data_key][row_key] = [(None, None, None), None]
+
+        assert row_key in data[data_key]
 
         if speed:
             speed = float(speed.replace(",", "."))
@@ -157,8 +159,8 @@ def main():
 
         t = conv_time(d[1][2])
 
-        # fix edge case
-        if t == 103:
+        # fix edge cases
+        if (t == 15) or (t == 103):
             continue
 
         data_21.append({
