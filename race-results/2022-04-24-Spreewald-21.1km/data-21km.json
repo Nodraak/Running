@@ -1,0 +1,1928 @@
+[
+  {
+    "gender": "m",
+    "name": "Sebastian Nitsche",
+    "place_global": 1,
+    "time_raw": 4172
+  },
+  {
+    "gender": "m",
+    "name": "Rene Schulz",
+    "place_global": 4,
+    "time_raw": 5007
+  },
+  {
+    "gender": "m",
+    "name": "Christian Krug",
+    "place_global": 7,
+    "time_raw": 5144
+  },
+  {
+    "gender": "m",
+    "name": "Christian Eife",
+    "place_global": 8,
+    "time_raw": 5277
+  },
+  {
+    "gender": "m",
+    "name": "Sven Rusch",
+    "place_global": 12,
+    "time_raw": 5395
+  },
+  {
+    "gender": "m",
+    "name": "Sebastian Siebecke",
+    "place_global": 13,
+    "time_raw": 5429
+  },
+  {
+    "gender": "m",
+    "name": "Paul Werner",
+    "place_global": 14,
+    "time_raw": 5441
+  },
+  {
+    "gender": "m",
+    "name": "Carsten Voigt",
+    "place_global": 17,
+    "time_raw": 5467
+  },
+  {
+    "gender": "m",
+    "name": "Marco Pra\u00dfe",
+    "place_global": 18,
+    "time_raw": 5471
+  },
+  {
+    "gender": "m",
+    "name": "Holger Lachmann",
+    "place_global": 19,
+    "time_raw": 5538
+  },
+  {
+    "gender": "m",
+    "name": "Alexander Lohse",
+    "place_global": 20,
+    "time_raw": 5591
+  },
+  {
+    "gender": "m",
+    "name": "Steffen Radke",
+    "place_global": 21,
+    "time_raw": 5601
+  },
+  {
+    "gender": "m",
+    "name": "Andre Schmidtchen",
+    "place_global": 22,
+    "time_raw": 5604
+  },
+  {
+    "gender": "m",
+    "name": "Marc Prewitz",
+    "place_global": 23,
+    "time_raw": 5607
+  },
+  {
+    "gender": "m",
+    "name": "Tobias Tabor",
+    "place_global": 24,
+    "time_raw": 5610
+  },
+  {
+    "gender": "m",
+    "name": "Michael Grondei",
+    "place_global": 26,
+    "time_raw": 5673
+  },
+  {
+    "gender": "m",
+    "name": "Christian Kulke",
+    "place_global": 27,
+    "time_raw": 5679
+  },
+  {
+    "gender": "w",
+    "name": "Clarissa Lehmeyer",
+    "place_global": 28,
+    "time_raw": 5680
+  },
+  {
+    "gender": "m",
+    "name": "Madeleine Levy",
+    "place_global": 29,
+    "time_raw": 5693
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Osterhues",
+    "place_global": 30,
+    "time_raw": 5709
+  },
+  {
+    "gender": "m",
+    "name": "Boris Schr\u00f6der",
+    "place_global": 31,
+    "time_raw": 5710
+  },
+  {
+    "gender": "w",
+    "name": "Viktoria Grosse",
+    "place_global": 32,
+    "time_raw": 5741
+  },
+  {
+    "gender": "m",
+    "name": "Philipp  Bosch",
+    "place_global": 33,
+    "time_raw": 5742
+  },
+  {
+    "gender": "m",
+    "name": "Ingo Kr\u00fcger",
+    "place_global": 35,
+    "time_raw": 5762
+  },
+  {
+    "gender": "m",
+    "name": "Jochen Rosenberger",
+    "place_global": 36,
+    "time_raw": 5776
+  },
+  {
+    "gender": "m",
+    "name": "David Wagner",
+    "place_global": 37,
+    "time_raw": 5791
+  },
+  {
+    "gender": "m",
+    "name": "Andr\u00e9 Gerdes",
+    "place_global": 38,
+    "time_raw": 5801
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Lehnert",
+    "place_global": 40,
+    "time_raw": 5848
+  },
+  {
+    "gender": "m",
+    "name": "Sven Richter",
+    "place_global": 41,
+    "time_raw": 5859
+  },
+  {
+    "gender": "m",
+    "name": "Timm Rubert",
+    "place_global": 42,
+    "time_raw": 5864
+  },
+  {
+    "gender": "m",
+    "name": "Ralph N\u00f6the",
+    "place_global": 45,
+    "time_raw": 5914
+  },
+  {
+    "gender": "m",
+    "name": "Ralf Haydn",
+    "place_global": 46,
+    "time_raw": 5935
+  },
+  {
+    "gender": "m",
+    "name": "Martin Bichlmaier",
+    "place_global": 47,
+    "time_raw": 5935
+  },
+  {
+    "gender": "w",
+    "name": "Tina Lippert",
+    "place_global": 48,
+    "time_raw": 5961
+  },
+  {
+    "gender": "m",
+    "name": "Robert Viehweg",
+    "place_global": 49,
+    "time_raw": 5983
+  },
+  {
+    "gender": "m",
+    "name": "Mario Hauffe",
+    "place_global": 54,
+    "time_raw": 6053
+  },
+  {
+    "gender": "m",
+    "name": "Ren\u00e9 Mitzschke",
+    "place_global": 55,
+    "time_raw": 6085
+  },
+  {
+    "gender": "m",
+    "name": "Kai Knegendorf",
+    "place_global": 56,
+    "time_raw": 6090
+  },
+  {
+    "gender": "m",
+    "name": "Philip Berghoff",
+    "place_global": 57,
+    "time_raw": 6117
+  },
+  {
+    "gender": "m",
+    "name": "Holger Lipske",
+    "place_global": 61,
+    "time_raw": 6143
+  },
+  {
+    "gender": "m",
+    "name": "Christoph G\u00f6ller",
+    "place_global": 64,
+    "time_raw": 6174
+  },
+  {
+    "gender": "m",
+    "name": "Mirko Petrick",
+    "place_global": 65,
+    "time_raw": 6196
+  },
+  {
+    "gender": "m",
+    "name": "Tino Koch",
+    "place_global": 67,
+    "time_raw": 6217
+  },
+  {
+    "gender": "m",
+    "name": "Tomas Faltin",
+    "place_global": 70,
+    "time_raw": 6242
+  },
+  {
+    "gender": "m",
+    "name": "Jiri Rejthar",
+    "place_global": 71,
+    "time_raw": 6242
+  },
+  {
+    "gender": "m",
+    "name": "Olaf Dietz",
+    "place_global": 72,
+    "time_raw": 6243
+  },
+  {
+    "gender": "m",
+    "name": "Stephan  Renner",
+    "place_global": 73,
+    "time_raw": 6245
+  },
+  {
+    "gender": "m",
+    "name": "Dirk Walter",
+    "place_global": 74,
+    "time_raw": 6253
+  },
+  {
+    "gender": "m",
+    "name": "Roberto H\u00e4nsch",
+    "place_global": 75,
+    "time_raw": 6286
+  },
+  {
+    "gender": "m",
+    "name": "Nicky Fahrenkrug",
+    "place_global": 77,
+    "time_raw": 6302
+  },
+  {
+    "gender": "m",
+    "name": "Karlheinz Wild",
+    "place_global": 78,
+    "time_raw": 6310
+  },
+  {
+    "gender": "m",
+    "name": "Sven Knappe",
+    "place_global": 79,
+    "time_raw": 6310
+  },
+  {
+    "gender": "m",
+    "name": "Alexander Witt",
+    "place_global": 80,
+    "time_raw": 6315
+  },
+  {
+    "gender": "m",
+    "name": "Andreas Freudenberg",
+    "place_global": 81,
+    "time_raw": 6320
+  },
+  {
+    "gender": "m",
+    "name": "Andreas Stolz",
+    "place_global": 82,
+    "time_raw": 6330
+  },
+  {
+    "gender": "w",
+    "name": "Manuela Viehweg",
+    "place_global": 84,
+    "time_raw": 6353
+  },
+  {
+    "gender": "m",
+    "name": "Steve Thomasson",
+    "place_global": 88,
+    "time_raw": 6364
+  },
+  {
+    "gender": "m",
+    "name": "Axel Greune",
+    "place_global": 89,
+    "time_raw": 6372
+  },
+  {
+    "gender": "m",
+    "name": "Michael Rabes",
+    "place_global": 92,
+    "time_raw": 6422
+  },
+  {
+    "gender": "m",
+    "name": "Fred Chollee",
+    "place_global": 93,
+    "time_raw": 6426
+  },
+  {
+    "gender": "m",
+    "name": "Adrien Chardon",
+    "place_global": 94,
+    "time_raw": 6433
+  },
+  {
+    "gender": "m",
+    "name": "Karsten Born",
+    "place_global": 95,
+    "time_raw": 6455
+  },
+  {
+    "gender": "m",
+    "name": "Christoph Kiss",
+    "place_global": 96,
+    "time_raw": 6460
+  },
+  {
+    "gender": "m",
+    "name": "Christopher Hugler",
+    "place_global": 97,
+    "time_raw": 6462
+  },
+  {
+    "gender": "m",
+    "name": "Kay Dobbroch",
+    "place_global": 98,
+    "time_raw": 6477
+  },
+  {
+    "gender": "m",
+    "name": "Frank Lorenz",
+    "place_global": 99,
+    "time_raw": 6480
+  },
+  {
+    "gender": "m",
+    "name": "Marko Rex",
+    "place_global": 100,
+    "time_raw": 6487
+  },
+  {
+    "gender": "m",
+    "name": "Florian Rost",
+    "place_global": 101,
+    "time_raw": 6513
+  },
+  {
+    "gender": "m",
+    "name": "Guido Hesselmann",
+    "place_global": 102,
+    "time_raw": 6517
+  },
+  {
+    "gender": "w",
+    "name": "Maxi Schicho",
+    "place_global": 103,
+    "time_raw": 6524
+  },
+  {
+    "gender": "m",
+    "name": "Nils Wesoly",
+    "place_global": 104,
+    "time_raw": 6534
+  },
+  {
+    "gender": "m",
+    "name": "Ulrich Korthals",
+    "place_global": 105,
+    "time_raw": 6555
+  },
+  {
+    "gender": "m",
+    "name": "Uwe H\u00fcmmler",
+    "place_global": 106,
+    "time_raw": 6565
+  },
+  {
+    "gender": "m",
+    "name": "Carsten Scheetz",
+    "place_global": 107,
+    "time_raw": 6570
+  },
+  {
+    "gender": "m",
+    "name": "J\u00f6rg Hohlfeld",
+    "place_global": 109,
+    "time_raw": 6594
+  },
+  {
+    "gender": "m",
+    "name": "Daniel Noack",
+    "place_global": 111,
+    "time_raw": 6596
+  },
+  {
+    "gender": "m",
+    "name": "Carlos Calderon",
+    "place_global": 112,
+    "time_raw": 6599
+  },
+  {
+    "gender": "m",
+    "name": "Mike Lehmann",
+    "place_global": 113,
+    "time_raw": 6606
+  },
+  {
+    "gender": "m",
+    "name": "Tim Reinke",
+    "place_global": 116,
+    "time_raw": 6627
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Krokor",
+    "place_global": 117,
+    "time_raw": 6627
+  },
+  {
+    "gender": "m",
+    "name": "Jens Winkler",
+    "place_global": 118,
+    "time_raw": 6632
+  },
+  {
+    "gender": "m",
+    "name": "Silvio Nauck",
+    "place_global": 120,
+    "time_raw": 6661
+  },
+  {
+    "gender": "m",
+    "name": "Heiko Witte",
+    "place_global": 122,
+    "time_raw": 6693
+  },
+  {
+    "gender": "m",
+    "name": "Kevin Herzog",
+    "place_global": 123,
+    "time_raw": 6694
+  },
+  {
+    "gender": "m",
+    "name": "Reinhard Teuber",
+    "place_global": 124,
+    "time_raw": 6702
+  },
+  {
+    "gender": "w",
+    "name": "Cornelia Grunicke",
+    "place_global": 127,
+    "time_raw": 6725
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Cebulla",
+    "place_global": 128,
+    "time_raw": 6729
+  },
+  {
+    "gender": "w",
+    "name": "Franziska Schwella",
+    "place_global": 129,
+    "time_raw": 6730
+  },
+  {
+    "gender": "m",
+    "name": "Jens Hellmann",
+    "place_global": 131,
+    "time_raw": 6737
+  },
+  {
+    "gender": "m",
+    "name": "Tobias Klinke",
+    "place_global": 134,
+    "time_raw": 6765
+  },
+  {
+    "gender": "m",
+    "name": "Martin Fenski",
+    "place_global": 135,
+    "time_raw": 6782
+  },
+  {
+    "gender": "m",
+    "name": "G\u00fcnter Rohleder",
+    "place_global": 136,
+    "time_raw": 6787
+  },
+  {
+    "gender": "m",
+    "name": "Max Schiemenz",
+    "place_global": 137,
+    "time_raw": 6803
+  },
+  {
+    "gender": "w",
+    "name": "monika Wolter",
+    "place_global": 139,
+    "time_raw": 6836
+  },
+  {
+    "gender": "m",
+    "name": "Orhan G\u00fcnd\u00fcz",
+    "place_global": 140,
+    "time_raw": 6836
+  },
+  {
+    "gender": "m",
+    "name": "Robert S\u00fc\u00dfe",
+    "place_global": 141,
+    "time_raw": 6839
+  },
+  {
+    "gender": "m",
+    "name": "Maik Hampicke",
+    "place_global": 142,
+    "time_raw": 6844
+  },
+  {
+    "gender": "m",
+    "name": "Mathias Friedrich",
+    "place_global": 143,
+    "time_raw": 6844
+  },
+  {
+    "gender": "m",
+    "name": "Sebastian Noel",
+    "place_global": 144,
+    "time_raw": 6865
+  },
+  {
+    "gender": "m",
+    "name": "Torsten Thiem",
+    "place_global": 145,
+    "time_raw": 6865
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Schicho",
+    "place_global": 146,
+    "time_raw": 6889
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Binde",
+    "place_global": 147,
+    "time_raw": 6901
+  },
+  {
+    "gender": "m",
+    "name": "Silvio Gl\u00f6ckner",
+    "place_global": 148,
+    "time_raw": 6925
+  },
+  {
+    "gender": "m",
+    "name": "J\u00f6rg Dictus",
+    "place_global": 150,
+    "time_raw": 6940
+  },
+  {
+    "gender": "m",
+    "name": "Lars Spanger",
+    "place_global": 152,
+    "time_raw": 6968
+  },
+  {
+    "gender": "m",
+    "name": "Alexander Jonas",
+    "place_global": 153,
+    "time_raw": 6984
+  },
+  {
+    "gender": "m",
+    "name": "Philipp R\u00fcckheim",
+    "place_global": 154,
+    "time_raw": 7010
+  },
+  {
+    "gender": "m",
+    "name": "Sascha Reichelt",
+    "place_global": 155,
+    "time_raw": 7023
+  },
+  {
+    "gender": "m",
+    "name": "Michael Schuchard",
+    "place_global": 156,
+    "time_raw": 7029
+  },
+  {
+    "gender": "m",
+    "name": "Christian Mosler",
+    "place_global": 157,
+    "time_raw": 7033
+  },
+  {
+    "gender": "m",
+    "name": "Jamie Young",
+    "place_global": 158,
+    "time_raw": 7037
+  },
+  {
+    "gender": "m",
+    "name": "Sven Reuter",
+    "place_global": 160,
+    "time_raw": 7054
+  },
+  {
+    "gender": "w",
+    "name": "Nicole Schindler",
+    "place_global": 161,
+    "time_raw": 7061
+  },
+  {
+    "gender": "m",
+    "name": "Rico B\u00f6hme",
+    "place_global": 162,
+    "time_raw": 7061
+  },
+  {
+    "gender": "m",
+    "name": "J\u00f6rg Skarba",
+    "place_global": 163,
+    "time_raw": 7066
+  },
+  {
+    "gender": "m",
+    "name": "Harry Kretschmann",
+    "place_global": 164,
+    "time_raw": 7072
+  },
+  {
+    "gender": "m",
+    "name": "Torsten K\u00f6ppen",
+    "place_global": 165,
+    "time_raw": 7078
+  },
+  {
+    "gender": "m",
+    "name": "Matthias Manig",
+    "place_global": 166,
+    "time_raw": 7085
+  },
+  {
+    "gender": "m",
+    "name": "Nico Petzold",
+    "place_global": 167,
+    "time_raw": 7088
+  },
+  {
+    "gender": "m",
+    "name": "Michael Freund",
+    "place_global": 169,
+    "time_raw": 7103
+  },
+  {
+    "gender": "w",
+    "name": "Anita M\u00f6ller",
+    "place_global": 170,
+    "time_raw": 7104
+  },
+  {
+    "gender": "m",
+    "name": "Steve G\u00fcnther",
+    "place_global": 171,
+    "time_raw": 7105
+  },
+  {
+    "gender": "m",
+    "name": "Frank Blankenfeld",
+    "place_global": 172,
+    "time_raw": 7111
+  },
+  {
+    "gender": "m",
+    "name": "Michael Sch\u00e4fer",
+    "place_global": 174,
+    "time_raw": 7126
+  },
+  {
+    "gender": "m",
+    "name": "Robert Grabner",
+    "place_global": 175,
+    "time_raw": 7131
+  },
+  {
+    "gender": "m",
+    "name": "Bj\u00f6rn Schneider",
+    "place_global": 176,
+    "time_raw": 7131
+  },
+  {
+    "gender": "m",
+    "name": "Matthias Guttke",
+    "place_global": 177,
+    "time_raw": 7136
+  },
+  {
+    "gender": "w",
+    "name": "Linda Hellmuth",
+    "place_global": 179,
+    "time_raw": 7153
+  },
+  {
+    "gender": "m",
+    "name": "Torsten Nattke",
+    "place_global": 180,
+    "time_raw": 7160
+  },
+  {
+    "gender": "m",
+    "name": "Lars Vihernik",
+    "place_global": 181,
+    "time_raw": 7174
+  },
+  {
+    "gender": "w",
+    "name": "Heike Maixner",
+    "place_global": 182,
+    "time_raw": 7174
+  },
+  {
+    "gender": "m",
+    "name": "Oliver H\u00fcbsch",
+    "place_global": 185,
+    "time_raw": 7191
+  },
+  {
+    "gender": "w",
+    "name": "Kathrin Klemm",
+    "place_global": 186,
+    "time_raw": 7192
+  },
+  {
+    "gender": "w",
+    "name": "Nina R\u00f6ttgers",
+    "place_global": 187,
+    "time_raw": 7199
+  },
+  {
+    "gender": "m",
+    "name": "Christoph Schulze",
+    "place_global": 188,
+    "time_raw": 7200
+  },
+  {
+    "gender": "w",
+    "name": "Ulrike Kodlin",
+    "place_global": 189,
+    "time_raw": 7202
+  },
+  {
+    "gender": "m",
+    "name": "Enrico Hirche",
+    "place_global": 191,
+    "time_raw": 7213
+  },
+  {
+    "gender": "w",
+    "name": "Birgit Sander",
+    "place_global": 192,
+    "time_raw": 7219
+  },
+  {
+    "gender": "w",
+    "name": "Mandy Wolff",
+    "place_global": 193,
+    "time_raw": 7220
+  },
+  {
+    "gender": "m",
+    "name": "Lars M\u00f6glich",
+    "place_global": 194,
+    "time_raw": 7220
+  },
+  {
+    "gender": "m",
+    "name": "Stephan Thierbach",
+    "place_global": 195,
+    "time_raw": 7223
+  },
+  {
+    "gender": "m",
+    "name": "Frank Piater",
+    "place_global": 196,
+    "time_raw": 7238
+  },
+  {
+    "gender": "w",
+    "name": "Sabine K\u00f6nig",
+    "place_global": 197,
+    "time_raw": 7240
+  },
+  {
+    "gender": "w",
+    "name": "Katrin Kaps",
+    "place_global": 198,
+    "time_raw": 7256
+  },
+  {
+    "gender": "m",
+    "name": "Michael Latzke",
+    "place_global": 200,
+    "time_raw": 7260
+  },
+  {
+    "gender": "w",
+    "name": "Kerstin Thierfelder",
+    "place_global": 201,
+    "time_raw": 7282
+  },
+  {
+    "gender": "m",
+    "name": "Steven Heller",
+    "place_global": 202,
+    "time_raw": 7292
+  },
+  {
+    "gender": "m",
+    "name": "Frank Jatzlauk",
+    "place_global": 203,
+    "time_raw": 7296
+  },
+  {
+    "gender": "m",
+    "name": "Dieter Konieczny",
+    "place_global": 204,
+    "time_raw": 7303
+  },
+  {
+    "gender": "w",
+    "name": "Anja Wieland",
+    "place_global": 206,
+    "time_raw": 7327
+  },
+  {
+    "gender": "m",
+    "name": "Waldemar Marek",
+    "place_global": 207,
+    "time_raw": 7348
+  },
+  {
+    "gender": "m",
+    "name": "Rene Nakonzer",
+    "place_global": 208,
+    "time_raw": 7356
+  },
+  {
+    "gender": "w",
+    "name": "Constanze Dittmann",
+    "place_global": 209,
+    "time_raw": 7358
+  },
+  {
+    "gender": "m",
+    "name": "TOMASZ STASZEWSKI",
+    "place_global": 210,
+    "time_raw": 7367
+  },
+  {
+    "gender": "w",
+    "name": "Vera G\u00f6tze",
+    "place_global": 211,
+    "time_raw": 7376
+  },
+  {
+    "gender": "w",
+    "name": "Ute Vogel",
+    "place_global": 212,
+    "time_raw": 7384
+  },
+  {
+    "gender": "m",
+    "name": "Daniel Iwer",
+    "place_global": 213,
+    "time_raw": 7384
+  },
+  {
+    "gender": "m",
+    "name": "Maik Knobel",
+    "place_global": 214,
+    "time_raw": 7390
+  },
+  {
+    "gender": "m",
+    "name": "Christian Lindner",
+    "place_global": 216,
+    "time_raw": 7390
+  },
+  {
+    "gender": "w",
+    "name": "Daniela K\u00f6nen",
+    "place_global": 217,
+    "time_raw": 7398
+  },
+  {
+    "gender": "w",
+    "name": "Michaela Schmidt",
+    "place_global": 218,
+    "time_raw": 7398
+  },
+  {
+    "gender": "w",
+    "name": "Dagmar Wunderlich",
+    "place_global": 219,
+    "time_raw": 7404
+  },
+  {
+    "gender": "m",
+    "name": "Oliver Schmiedgen",
+    "place_global": 220,
+    "time_raw": 7424
+  },
+  {
+    "gender": "w",
+    "name": "Gesine Born",
+    "place_global": 221,
+    "time_raw": 7426
+  },
+  {
+    "gender": "w",
+    "name": "Susann H\u00f6ltzel",
+    "place_global": 222,
+    "time_raw": 7433
+  },
+  {
+    "gender": "m",
+    "name": "Rico  H\u00f6ltzel",
+    "place_global": 223,
+    "time_raw": 7433
+  },
+  {
+    "gender": "w",
+    "name": "Anika Schimtz",
+    "place_global": 226,
+    "time_raw": 7439
+  },
+  {
+    "gender": "m",
+    "name": "Marcel Martinek",
+    "place_global": 227,
+    "time_raw": 7443
+  },
+  {
+    "gender": "m",
+    "name": "Stefan Scharf",
+    "place_global": 228,
+    "time_raw": 7444
+  },
+  {
+    "gender": "m",
+    "name": "Jaron Melech",
+    "place_global": 229,
+    "time_raw": 7447
+  },
+  {
+    "gender": "m",
+    "name": "Herbert Dold",
+    "place_global": 231,
+    "time_raw": 7461
+  },
+  {
+    "gender": "m",
+    "name": "Richard Hempel",
+    "place_global": 232,
+    "time_raw": 7466
+  },
+  {
+    "gender": "w",
+    "name": "Daniela Dobbroch",
+    "place_global": 235,
+    "time_raw": 7481
+  },
+  {
+    "gender": "m",
+    "name": "Guido Giunta",
+    "place_global": 236,
+    "time_raw": 7481
+  },
+  {
+    "gender": "m",
+    "name": "Frank Krisch",
+    "place_global": 237,
+    "time_raw": 7494
+  },
+  {
+    "gender": "w",
+    "name": "Cindy B\u00fctzow",
+    "place_global": 239,
+    "time_raw": 7494
+  },
+  {
+    "gender": "w",
+    "name": "Andrea Kuschan",
+    "place_global": 240,
+    "time_raw": 7515
+  },
+  {
+    "gender": "m",
+    "name": "Stefan Lehmann",
+    "place_global": 244,
+    "time_raw": 7530
+  },
+  {
+    "gender": "w",
+    "name": "Heike Dreger",
+    "place_global": 246,
+    "time_raw": 7544
+  },
+  {
+    "gender": "w",
+    "name": "Sylvia  Stroech ",
+    "place_global": 247,
+    "time_raw": 7561
+  },
+  {
+    "gender": "m",
+    "name": "Enrico Scholze",
+    "place_global": 248,
+    "time_raw": 7561
+  },
+  {
+    "gender": "m",
+    "name": "Andr\u00e9 Scholz",
+    "place_global": 249,
+    "time_raw": 7561
+  },
+  {
+    "gender": "w",
+    "name": "Nicole J\u00e4nisch",
+    "place_global": 250,
+    "time_raw": 7566
+  },
+  {
+    "gender": "w",
+    "name": "Yvonne Wolf",
+    "place_global": 251,
+    "time_raw": 7571
+  },
+  {
+    "gender": "m",
+    "name": "Gerd Schneider",
+    "place_global": 252,
+    "time_raw": 7575
+  },
+  {
+    "gender": "w",
+    "name": "Sabine Koenig",
+    "place_global": 253,
+    "time_raw": 7583
+  },
+  {
+    "gender": "w",
+    "name": "Marlies Vater",
+    "place_global": 254,
+    "time_raw": 7592
+  },
+  {
+    "gender": "w",
+    "name": "Tatjana B\u00fcrger",
+    "place_global": 255,
+    "time_raw": 7606
+  },
+  {
+    "gender": "m",
+    "name": "Mario Nitschke ",
+    "place_global": 256,
+    "time_raw": 7616
+  },
+  {
+    "gender": "m",
+    "name": "Marian Neugebauer",
+    "place_global": 257,
+    "time_raw": 7632
+  },
+  {
+    "gender": "m",
+    "name": "Stefan Schleinitz",
+    "place_global": 258,
+    "time_raw": 7633
+  },
+  {
+    "gender": "m",
+    "name": "Mirko Pommerening",
+    "place_global": 259,
+    "time_raw": 7648
+  },
+  {
+    "gender": "m",
+    "name": "Frank Than",
+    "place_global": 262,
+    "time_raw": 7681
+  },
+  {
+    "gender": "m",
+    "name": "Roland Herrmann",
+    "place_global": 264,
+    "time_raw": 7690
+  },
+  {
+    "gender": "w",
+    "name": "Ana Carolina Braz",
+    "place_global": 266,
+    "time_raw": 7695
+  },
+  {
+    "gender": "w",
+    "name": "Nicole Kuhfeldt",
+    "place_global": 268,
+    "time_raw": 7704
+  },
+  {
+    "gender": "m",
+    "name": "Henri L\u00f6wenberg",
+    "place_global": 269,
+    "time_raw": 7722
+  },
+  {
+    "gender": "m",
+    "name": "Sergey Kovrigin",
+    "place_global": 271,
+    "time_raw": 7740
+  },
+  {
+    "gender": "m",
+    "name": "J\u00f6rg Dittmann",
+    "place_global": 272,
+    "time_raw": 7760
+  },
+  {
+    "gender": "m",
+    "name": "Holger Rasch",
+    "place_global": 273,
+    "time_raw": 7780
+  },
+  {
+    "gender": "w",
+    "name": "Yvonne Meisel",
+    "place_global": 275,
+    "time_raw": 7796
+  },
+  {
+    "gender": "m",
+    "name": "Jens Brand",
+    "place_global": 276,
+    "time_raw": 7796
+  },
+  {
+    "gender": "m",
+    "name": "Ronny Leonhardt",
+    "place_global": 277,
+    "time_raw": 7800
+  },
+  {
+    "gender": "m",
+    "name": "Alexander Golchert",
+    "place_global": 278,
+    "time_raw": 7805
+  },
+  {
+    "gender": "m",
+    "name": "Frank B\u00e4tz",
+    "place_global": 279,
+    "time_raw": 7806
+  },
+  {
+    "gender": "m",
+    "name": "Frank Pehla",
+    "place_global": 280,
+    "time_raw": 7809
+  },
+  {
+    "gender": "m",
+    "name": "Klaus Rusitschka ",
+    "place_global": 281,
+    "time_raw": 7823
+  },
+  {
+    "gender": "m",
+    "name": "Volker Noffke",
+    "place_global": 283,
+    "time_raw": 7860
+  },
+  {
+    "gender": "w",
+    "name": "Janet Wiecker",
+    "place_global": 284,
+    "time_raw": 7862
+  },
+  {
+    "gender": "m",
+    "name": "Frank R\u00f6sler",
+    "place_global": 285,
+    "time_raw": 7863
+  },
+  {
+    "gender": "w",
+    "name": "Sybille Schmidt",
+    "place_global": 287,
+    "time_raw": 7875
+  },
+  {
+    "gender": "m",
+    "name": "Clemens Nix",
+    "place_global": 288,
+    "time_raw": 7886
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Mannigel",
+    "place_global": 289,
+    "time_raw": 7886
+  },
+  {
+    "gender": "m",
+    "name": "Maik Hellmuth",
+    "place_global": 290,
+    "time_raw": 7886
+  },
+  {
+    "gender": "w",
+    "name": "Renate Lecke",
+    "place_global": 291,
+    "time_raw": 7887
+  },
+  {
+    "gender": "w",
+    "name": "Janine Paulick",
+    "place_global": 292,
+    "time_raw": 7889
+  },
+  {
+    "gender": "m",
+    "name": "Torsten Hempel",
+    "place_global": 293,
+    "time_raw": 7890
+  },
+  {
+    "gender": "w",
+    "name": "Sandra Rojo Pulze",
+    "place_global": 294,
+    "time_raw": 7893
+  },
+  {
+    "gender": "m",
+    "name": "Carmelo Rojo Baeza",
+    "place_global": 295,
+    "time_raw": 7893
+  },
+  {
+    "gender": "m",
+    "name": "Nico Spindler",
+    "place_global": 298,
+    "time_raw": 7918
+  },
+  {
+    "gender": "m",
+    "name": "Maik Drescher",
+    "place_global": 299,
+    "time_raw": 7919
+  },
+  {
+    "gender": "w",
+    "name": "Ines Gebes",
+    "place_global": 300,
+    "time_raw": 7934
+  },
+  {
+    "gender": "m",
+    "name": "Markus Walter",
+    "place_global": 301,
+    "time_raw": 7946
+  },
+  {
+    "gender": "w",
+    "name": "Paulina Lukarska",
+    "place_global": 302,
+    "time_raw": 7962
+  },
+  {
+    "gender": "w",
+    "name": "Frank Schreiber",
+    "place_global": 303,
+    "time_raw": 7967
+  },
+  {
+    "gender": "m",
+    "name": "Peter Liesegang",
+    "place_global": 304,
+    "time_raw": 7968
+  },
+  {
+    "gender": "m",
+    "name": "Uwe Dunst",
+    "place_global": 305,
+    "time_raw": 7973
+  },
+  {
+    "gender": "m",
+    "name": "Denis Handte",
+    "place_global": 306,
+    "time_raw": 7988
+  },
+  {
+    "gender": "m",
+    "name": "Axel Schneider",
+    "place_global": 307,
+    "time_raw": 7991
+  },
+  {
+    "gender": "m",
+    "name": "Frank Hildebrandt",
+    "place_global": 308,
+    "time_raw": 8001
+  },
+  {
+    "gender": "w",
+    "name": "Ursula Ernst",
+    "place_global": 311,
+    "time_raw": 8021
+  },
+  {
+    "gender": "w",
+    "name": "Sandra Worrack",
+    "place_global": 313,
+    "time_raw": 8043
+  },
+  {
+    "gender": "m",
+    "name": "Alexander Schmotz",
+    "place_global": 314,
+    "time_raw": 8064
+  },
+  {
+    "gender": "w",
+    "name": "Anke Kosytorz",
+    "place_global": 316,
+    "time_raw": 8082
+  },
+  {
+    "gender": "m",
+    "name": "Klaus-Dieter Pieth",
+    "place_global": 317,
+    "time_raw": 8095
+  },
+  {
+    "gender": "w",
+    "name": "Mathilde Liesegang",
+    "place_global": 320,
+    "time_raw": 8113
+  },
+  {
+    "gender": "w",
+    "name": "Kerstin Barnikol",
+    "place_global": 321,
+    "time_raw": 8121
+  },
+  {
+    "gender": "w",
+    "name": "Karolin Joost",
+    "place_global": 322,
+    "time_raw": 8126
+  },
+  {
+    "gender": "m",
+    "name": "Andreas Pehla",
+    "place_global": 324,
+    "time_raw": 8141
+  },
+  {
+    "gender": "w",
+    "name": "Sarah Franke",
+    "place_global": 325,
+    "time_raw": 8141
+  },
+  {
+    "gender": "m",
+    "name": "Matthias Diener",
+    "place_global": 326,
+    "time_raw": 8142
+  },
+  {
+    "gender": "m",
+    "name": "Danny Derbe",
+    "place_global": 327,
+    "time_raw": 8144
+  },
+  {
+    "gender": "w",
+    "name": "Gerlind Tietz",
+    "place_global": 329,
+    "time_raw": 8147
+  },
+  {
+    "gender": "m",
+    "name": "Sandro G\u00f6tze",
+    "place_global": 330,
+    "time_raw": 8155
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Merz",
+    "place_global": 331,
+    "time_raw": 8156
+  },
+  {
+    "gender": "w",
+    "name": "Cornelia Sch\u00e4fer",
+    "place_global": 334,
+    "time_raw": 8164
+  },
+  {
+    "gender": "m",
+    "name": "Jan Erdmann",
+    "place_global": 335,
+    "time_raw": 8179
+  },
+  {
+    "gender": "w",
+    "name": "Antje Blankertz-Teichert",
+    "place_global": 336,
+    "time_raw": 8213
+  },
+  {
+    "gender": "w",
+    "name": "Daniela Fremd",
+    "place_global": 338,
+    "time_raw": 8228
+  },
+  {
+    "gender": "w",
+    "name": "Stefanie Schostack",
+    "place_global": 339,
+    "time_raw": 8234
+  },
+  {
+    "gender": "w",
+    "name": "Jennifer Spreemann",
+    "place_global": 340,
+    "time_raw": 8234
+  },
+  {
+    "gender": "w",
+    "name": "Anne-Kathrin Knobloch",
+    "place_global": 342,
+    "time_raw": 8273
+  },
+  {
+    "gender": "w",
+    "name": "Ellen Lindner-Rhinow",
+    "place_global": 343,
+    "time_raw": 8275
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Thamm",
+    "place_global": 344,
+    "time_raw": 8283
+  },
+  {
+    "gender": "w",
+    "name": "Andrea Thamm",
+    "place_global": 345,
+    "time_raw": 8283
+  },
+  {
+    "gender": "w",
+    "name": "Daniela Bl\u00f6mer",
+    "place_global": 346,
+    "time_raw": 8286
+  },
+  {
+    "gender": "m",
+    "name": "Axel Frenzel",
+    "place_global": 347,
+    "time_raw": 8289
+  },
+  {
+    "gender": "m",
+    "name": "Gerhard Schumbach",
+    "place_global": 348,
+    "time_raw": 8324
+  },
+  {
+    "gender": "w",
+    "name": "Wiebke M\u00f6ller",
+    "place_global": 351,
+    "time_raw": 8403
+  },
+  {
+    "gender": "w",
+    "name": "Sylvi Klaue",
+    "place_global": 352,
+    "time_raw": 8446
+  },
+  {
+    "gender": "m",
+    "name": "Klaus Hoffmeister",
+    "place_global": 353,
+    "time_raw": 8489
+  },
+  {
+    "gender": "w",
+    "name": "Martyna Jaskiewicz",
+    "place_global": 356,
+    "time_raw": 8502
+  },
+  {
+    "gender": "m",
+    "name": "Jens Dreger",
+    "place_global": 358,
+    "time_raw": 8518
+  },
+  {
+    "gender": "w",
+    "name": "Elisabeth Winkler",
+    "place_global": 359,
+    "time_raw": 8569
+  },
+  {
+    "gender": "w",
+    "name": "Silvia Stetzkowski",
+    "place_global": 360,
+    "time_raw": 8569
+  },
+  {
+    "gender": "m",
+    "name": "Matthias  Mandsfeld ",
+    "place_global": 361,
+    "time_raw": 8604
+  },
+  {
+    "gender": "m",
+    "name": "Sascha Kaergel",
+    "place_global": 362,
+    "time_raw": 8604
+  },
+  {
+    "gender": "m",
+    "name": "Thomas K\u00f6hler",
+    "place_global": 363,
+    "time_raw": 8621
+  },
+  {
+    "gender": "w",
+    "name": "Anja Lorenz",
+    "place_global": 364,
+    "time_raw": 8636
+  },
+  {
+    "gender": "w",
+    "name": "Ramona Gottschald",
+    "place_global": 365,
+    "time_raw": 8639
+  },
+  {
+    "gender": "w",
+    "name": "Ute Hauffe",
+    "place_global": 366,
+    "time_raw": 8673
+  },
+  {
+    "gender": "m",
+    "name": "Daniel Wegner",
+    "place_global": 367,
+    "time_raw": 8686
+  },
+  {
+    "gender": "w",
+    "name": "Jenny Kley",
+    "place_global": 368,
+    "time_raw": 8708
+  },
+  {
+    "gender": "w",
+    "name": "Janina Heinemann",
+    "place_global": 369,
+    "time_raw": 8747
+  },
+  {
+    "gender": "m",
+    "name": "Christian Wohlgemuth",
+    "place_global": 370,
+    "time_raw": 8749
+  },
+  {
+    "gender": "w",
+    "name": "Antje Seiler",
+    "place_global": 371,
+    "time_raw": 8762
+  },
+  {
+    "gender": "m",
+    "name": "Klaus Roth",
+    "place_global": 372,
+    "time_raw": 8821
+  },
+  {
+    "gender": "w",
+    "name": "Doreen Zscherper",
+    "place_global": 373,
+    "time_raw": 8879
+  },
+  {
+    "gender": "m",
+    "name": "Andrey Vinogradov",
+    "place_global": 374,
+    "time_raw": 8882
+  },
+  {
+    "gender": "w",
+    "name": "Ivette Schall",
+    "place_global": 375,
+    "time_raw": 8887
+  },
+  {
+    "gender": "w",
+    "name": "Elfriede Krenz",
+    "place_global": 376,
+    "time_raw": 8918
+  },
+  {
+    "gender": "m",
+    "name": "Christian Wiedemeyer",
+    "place_global": 378,
+    "time_raw": 8950
+  },
+  {
+    "gender": "m",
+    "name": "Oliver Giese",
+    "place_global": 380,
+    "time_raw": 8958
+  },
+  {
+    "gender": "m",
+    "name": "Robert Siebke",
+    "place_global": 382,
+    "time_raw": 8994
+  },
+  {
+    "gender": "w",
+    "name": "Susi Spanger",
+    "place_global": 383,
+    "time_raw": 9030
+  },
+  {
+    "gender": "w",
+    "name": "Sabine Lopper",
+    "place_global": 386,
+    "time_raw": 9032
+  },
+  {
+    "gender": "w",
+    "name": "Janet Franz",
+    "place_global": 389,
+    "time_raw": 9101
+  },
+  {
+    "gender": "w",
+    "name": "Sophie Zurke",
+    "place_global": 390,
+    "time_raw": 9141
+  },
+  {
+    "gender": "w",
+    "name": "Anna Zurke",
+    "place_global": 391,
+    "time_raw": 9141
+  },
+  {
+    "gender": "w",
+    "name": "Benita Zurke",
+    "place_global": 392,
+    "time_raw": 9143
+  },
+  {
+    "gender": "m",
+    "name": "Tim Heckel",
+    "place_global": 393,
+    "time_raw": 9149
+  },
+  {
+    "gender": "m",
+    "name": "Rene Beau",
+    "place_global": 394,
+    "time_raw": 9178
+  },
+  {
+    "gender": "w",
+    "name": "Katrin J\u00e4ger",
+    "place_global": 395,
+    "time_raw": 9180
+  },
+  {
+    "gender": "m",
+    "name": "Stefan J\u00e4ger",
+    "place_global": 396,
+    "time_raw": 9181
+  },
+  {
+    "gender": "w",
+    "name": "Nicole Funke",
+    "place_global": 397,
+    "time_raw": 9237
+  },
+  {
+    "gender": "w",
+    "name": "Ewa Hajkowicz",
+    "place_global": 400,
+    "time_raw": 9342
+  },
+  {
+    "gender": "w",
+    "name": "Anna Kapela",
+    "place_global": 401,
+    "time_raw": 9342
+  },
+  {
+    "gender": "w",
+    "name": "Hanna Egbers",
+    "place_global": 402,
+    "time_raw": 9429
+  },
+  {
+    "gender": "w",
+    "name": "Jessica Harendt",
+    "place_global": 403,
+    "time_raw": 9461
+  },
+  {
+    "gender": "m",
+    "name": "Joerg Peters",
+    "place_global": 405,
+    "time_raw": 9573
+  },
+  {
+    "gender": "w",
+    "name": "Christin Beetz",
+    "place_global": 406,
+    "time_raw": 9583
+  },
+  {
+    "gender": "m",
+    "name": "Knuth Lippold",
+    "place_global": 410,
+    "time_raw": 10011
+  },
+  {
+    "gender": "w",
+    "name": "Anke Mandl",
+    "place_global": 411,
+    "time_raw": 10011
+  },
+  {
+    "gender": "w",
+    "name": "Monika Burger",
+    "place_global": 412,
+    "time_raw": 10136
+  },
+  {
+    "gender": "w",
+    "name": "Tatjana Jesche",
+    "place_global": 413,
+    "time_raw": 10138
+  },
+  {
+    "gender": "w",
+    "name": "Sabrina Gall",
+    "place_global": 415,
+    "time_raw": 10223
+  },
+  {
+    "gender": "w",
+    "name": "Ramona Peter",
+    "place_global": 416,
+    "time_raw": 10257
+  },
+  {
+    "gender": "w",
+    "name": "Ute Bertram",
+    "place_global": 417,
+    "time_raw": 10311
+  },
+  {
+    "gender": "m",
+    "name": "Eric H\u00fctter",
+    "place_global": 418,
+    "time_raw": 10437
+  },
+  {
+    "gender": "w",
+    "name": "Daniela Dilling",
+    "place_global": 419,
+    "time_raw": 10494
+  },
+  {
+    "gender": "w",
+    "name": "Alexandra R\u00f6hnisch",
+    "place_global": 420,
+    "time_raw": 10527
+  },
+  {
+    "gender": "w",
+    "name": "Leni Siebke",
+    "place_global": 421,
+    "time_raw": 10563
+  },
+  {
+    "gender": "m",
+    "name": "Mario Damm",
+    "place_global": 423,
+    "time_raw": 10667
+  },
+  {
+    "gender": "w",
+    "name": "Anette Timpner",
+    "place_global": 426,
+    "time_raw": 10809
+  },
+  {
+    "gender": "w",
+    "name": "Sabine Sabathil",
+    "place_global": 429,
+    "time_raw": 11047
+  },
+  {
+    "gender": "m",
+    "name": "Rainer Voigt",
+    "place_global": 430,
+    "time_raw": 11490
+  },
+  {
+    "gender": "m",
+    "name": "J\u00f6rg Seltmann",
+    "place_global": 431,
+    "time_raw": 11638
+  },
+  {
+    "gender": "m",
+    "name": "Eberhard M\u00fcller",
+    "place_global": 432,
+    "time_raw": 11753
+  },
+  {
+    "gender": "w",
+    "name": "Ruth Roth",
+    "place_global": 433,
+    "time_raw": 11778
+  },
+  {
+    "gender": "m",
+    "name": "Dietmar Wei\u00df",
+    "place_global": 434,
+    "time_raw": 12103
+  },
+  {
+    "gender": "m",
+    "name": "Thomas Sch\u00f6nborn",
+    "place_global": 436,
+    "time_raw": 103
+  }
+]
