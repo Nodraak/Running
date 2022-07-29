@@ -71,21 +71,33 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly):
         [r.distance for r in RUNS if date_ym_eq(r.date, d)]
         for d in dates_monthly
     ]
+    vss = [
+        [r.speed for r in RUNS if date_ym_eq(r.date, d)]
+        for d in dates_monthly
+    ]
     months_length = [monthrange(d.year, d.month)[1] for d in dates_monthly]
     plt.bar(xs, [sum(ds) for ds in dss], align='edge', width=months_length)
     print("\n== Milage (monthly) ==")
-    for x, ds in zip(xs, dss):
-        print("%s: %2dx - %3d km" % (x, len(ds), sum(ds)))
+    for x, ds, vs in zip(xs, dss, vss):
+        avg_d = sum(ds)/len(ds) if len(ds) else 0
+        avg_v = sum(vs)/len(vs) if len(vs) else 0
+        print("%s: %2dx - %3d km - AVG/run: %4.1f km - %4.1f km/h" % (x, len(ds), sum(ds), avg_d, avg_v))
 
     xs = dates_weekly
     dss = [
         [r.distance for r in RUNS if isocal_ym_eq(r.date, d)]
         for d in dates_weekly
     ]
+    vss = [
+        [r.speed for r in RUNS if isocal_ym_eq(r.date, d)]
+        for d in dates_weekly
+    ]
     plt.bar(xs, [sum(ds) for ds in dss], align='edge', width=7)
     print("\n== Milage (weekly) ==")
-    for x, ds in zip(xs, dss):
-        print("%s: %2dx - %3d km" % (x, len(ds), sum(ds)))
+    for x, ds, vs in zip(xs, dss, vss):
+        avg_d = sum(ds)/len(ds) if len(ds) else 0
+        avg_v = sum(vs)/len(vs) if len(vs) else 0
+        print("%s: %2dx - %3d km - AVG/run: %4.1f km - %4.1f km/h" % (x, len(ds), sum(ds), avg_d, avg_v))
 
     plt.legend(["Monthly", "Weekly"])
 
@@ -116,7 +128,7 @@ def plot_speed_simple(subplot_args, dates_monthly, dates_weekly):
     plt.ylabel("Speed (km/h)")
     plt.ylim((10.0, 15.5))
 
-    for s in range(11, 14+1):
+    for s in range(11, 15+1):
         plt.axhline(s, color=C_LINE)
 
     for run in RUNS:
@@ -169,32 +181,51 @@ def plot_speed_prog(subplot_args):
     plt.plot(pd('2022-11-27'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
     plt.plot(pd('2023-04-02'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
 
+    DIFF_REG = {}
+
     print("\n== Progress ==\nd (km)  progress (km/h) in 1 month")
     for ref_dist in REF_DISTS:
         runs = [
             r for r in RUNS
-            if r.date > pd('2022-03-15') and is_plus_minus_10_percent(ref_dist, r.distance)
+            if r.date > pd('2022-03-15')
+            and is_plus_minus_10_percent(ref_dist, r.distance)
         ]
 
-        xs, ys = [r.date for r in runs], [r.speed for r in runs]
-
-        model = LinearRegression().fit([[date2datetime(x).timestamp()] for x in xs], [[y] for y in ys])
+        model = LinearRegression().fit([[date2datetime(r.date).timestamp()] for r in runs], [[r.speed] for r in runs])
 
         x0 = date2datetime(START) # date2datetime(pd('2022-03-01'))
         x1 = date2datetime(END) # date2datetime(pd('2022-11-01'))
         y0 = model.coef_[0][0]*x0.timestamp() + model.intercept_[0]
         y1 = model.coef_[0][0]*x1.timestamp() + model.intercept_[0]
 
+        xs, ys = [r.date for r in runs], [r.speed for r in runs]
         p, = plt.plot(xs, ys, 'o-')
+
         plt.plot([x0, x1], [y0, y1], '--', color=p.get_color())
-        legend.append((p, ref_dist))
+
+        legend.append((p, "%d km" % ref_dist))
 
         print("* Reg %d km: vel(t) = %3d*10**-9 * t + %.3f km/h => %5.2f km/h / month" % (ref_dist, model.coef_[0][0]*10**9, model.intercept_[0], model.coef_[0][0]*86400*365/12))
 
+
+        # y = a*x + b
+        a = model.coef_[0][0]
+        b = model.intercept_[0]
+
+        for r in runs:
+            x = date2datetime(r.date).timestamp()
+            y = r.speed
+            d = y - (a*x + b)
+
+            DIFF_REG[r.date] = d
+
+
     plt.legend([tup[0] for tup in legend], [tup[1] for tup in legend])
 
+    return DIFF_REG
 
-def plot_temp():
+
+def plot_temp(DIFF_REG):
 
     plt.axhline(5, color=C_LINE)
     plt.axhline(15, color=C_LINE)
@@ -204,8 +235,24 @@ def plot_temp():
     for m in range(1, 4+1):
         plt.axvline(pd('2023-%02d-01' % m), color=C_LINE, label='_nolegend_')
 
-    xs, ys = [r.date for r in RUNS], [r.temp for r in RUNS]
-    plt.plot(xs, ys, 'o-')
+    for r in RUNS:
+        if (r.date not in DIFF_REG) or (r.temp is None):
+            continue
+
+        x, y = r.date, r.temp
+
+        d = DIFF_REG[r.date]
+        c = "gray"
+        if d < -0.30:
+            c = "red"
+        if d < -0.15:
+            c = "orange"
+        if d > +0.15:
+            c = "blue"
+        if d > +0.30:
+            c = "green"
+
+        plt.plot(x, y, 'o', color=c)
 
 
 def main():
@@ -217,18 +264,18 @@ def main():
 
     plt.figure()
     plt.xlim((START, MID))
-    plot_milage((2, 1, 1), dates_monthly, dates_weekly)
-    plot_distance((2, 1, 2), dates_monthly, dates_weekly)
+    plot_distance((2, 1, 1), dates_monthly, dates_weekly)
+    plot_milage((2, 2, 3), dates_monthly, dates_weekly)
 
     plt.figure()
     plt.xlim((START, END))
     #plt.xlim((date2datetime(pd('2022-02-01')), date2datetime(pd('2023-05-01'))))
     plot_speed_simple((2, 1, 1), dates_monthly, dates_weekly)
-    plot_speed_prog((2, 1, 2))
+    DIFF_REG = plot_speed_prog((2, 1, 2))
 
     #plt.figure()
     #plt.xlim((START, END))
-    #plot_temp()
+    #plot_temp(DIFF_REG)
 
     plt.show()
 
