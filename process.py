@@ -24,16 +24,14 @@ def process_mileage(runs, dates_monthly, dates_weekly):
     ret_monthly = {}
     for month in dates_monthly:
         ds = [r.distance for r in runs if date_ym_eq(r.date, month)]
-        vs = [r.speed for r in runs if date_ym_eq(r.date, month)]
+        ts = [r.time_h for r in runs if date_ym_eq(r.date, month)]
 
         avg_d = sum(ds)/len(ds) if len(ds) else 0
-        _ds = sum(ds)
-        _ts = sum([(d/v if v else 0) for d, v in zip(ds, vs)])
-        avg_v = _ds / _ts if _ts else 0
+        avg_v = sum(ds)/sum(ts) if len(ts) else 0
 
         ret_monthly[month] = {
             "dists": ds,
-            "speeds": vs,
+            "times": ts,
             "avg_dist": avg_d,
             "avg_speed": avg_v,
         }
@@ -41,18 +39,14 @@ def process_mileage(runs, dates_monthly, dates_weekly):
     ret_weekly = {}
     for week in dates_weekly:
         ds = [r.distance for r in runs if isocal_yw_eq(r.date, week)]
-        vs = [r.speed for r in runs if isocal_yw_eq(r.date, week)]
+        ts = [r.time_h for r in runs if isocal_yw_eq(r.date, week)]
 
         avg_d = sum(ds)/len(ds) if len(ds) else 0
-        avg_v = sum(vs)/len(vs) if len(vs) else 0
-
-        _ds = sum(ds)
-        _ts = sum([(d/v if v else 0) for d, v in zip(ds, vs)])
-        avg_v = _ds / _ts if _ts else 0
+        avg_v = sum(ds)/sum(ts) if len(ts) else 0
 
         ret_weekly[week] = {
             "dists": ds,
-            "speeds": vs,
+            "times": ts,
             "avg_dist": avg_d,
             "avg_speed": avg_v,
         }
