@@ -10,8 +10,7 @@ from process import process_mileage, process_speed
 
 #START = pd('2021-03-22')  # Monday
 START = pd('2022-01-03')  # Monday
-MID = pd("2022-08-15")
-#END = pd("2021-10-15")
+MID = pd("2022-10-15")
 END = pd("2023-05-01")
 
 
@@ -32,7 +31,7 @@ def main():
     plt.figure()
     plt.xlim((START, MID))
     plot_distance((2, 1, 1), dates_weekly, RUNS)
-    plot_milage((2, 2, 3), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
+    plot_milage((2, 1, 2), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
 
     plt.figure()
     plt.xlim((START, END))
