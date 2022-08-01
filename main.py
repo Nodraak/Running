@@ -4,7 +4,7 @@ from dateutil import rrule
 from matplotlib import pyplot as plt
 
 from data import date2datetime, pd, RUNS
-from plot import plot_distance, plot_milage, plot_speed_simple, plot_speed_prog, plot_temp
+from plot import plot_distance, plot_milage, plot_avg, plot_speed_simple, plot_speed_prog, plot_temp
 from process import process_mileage, process_speed
 
 
@@ -32,6 +32,10 @@ def main():
     plt.xlim((START, MID))
     plot_distance((2, 1, 1), dates_weekly, RUNS)
     plot_milage((2, 1, 2), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
+
+    plt.figure()
+    plt.xlim((START, MID))
+    plot_avg((1, 1, 1), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
 
     plt.figure()
     plt.xlim((START, END))

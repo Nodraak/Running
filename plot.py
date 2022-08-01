@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 from calendar import monthrange
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from matplotlib import pyplot as plt
 
@@ -91,6 +91,20 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
     plt.bar(dates_weekly, ys, align='edge', width=7)
 
     plt.legend(["Monthly", "Weekly"])
+
+
+def plot_avg(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage_weekly):
+    plt.subplot(*subplot_args, sharex=plt.gca())
+    plot_grid(dates_weekly)
+    plt.ylabel("Speed (km/h)")
+    plt.ylim((10.0, 15.5))
+
+    for m, dic in mileage_monthly.items():
+        month_length = monthrange(m.year, m.month)[1]
+        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]])
+
+    for w, dic in mileage_weekly.items():
+        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]])
 
 
 def plot_speed_simple(subplot_args, dates_weekly, runs):
