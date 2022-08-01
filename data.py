@@ -1,5 +1,11 @@
+#!/usr/bin/env python3
+
 from collections import namedtuple
 from datetime import datetime
+
+
+def date2datetime(d):
+    return datetime.fromordinal(d.toordinal())
 
 
 def pd(s):
