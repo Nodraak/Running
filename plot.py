@@ -101,10 +101,10 @@ def plot_avg(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage
 
     for m, dic in mileage_monthly.items():
         month_length = monthrange(m.year, m.month)[1]
-        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]])
+        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]], color="blue")
 
     for w, dic in mileage_weekly.items():
-        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]])
+        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]], color="orange")
 
 
 def plot_speed_simple(subplot_args, dates_weekly, runs):

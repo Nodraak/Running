@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import json
 import sys
 
@@ -6,9 +8,15 @@ from matplotlib import ticker
 import numpy as np
 
 
+FIGSIZE = (1200, 900)
+DPI = 100
+
+
 def main():
     FILEPATH_METADATA = "./%s/metadata.json" % sys.argv[1]
     FILEPATH_DATA = "./%s/data.json" % sys.argv[1]
+    FILEPATH_GRAPH_1 = "build/%s-Figure_1.png" % (sys.argv[1].replace("/", ""))
+    FILEPATH_GRAPH_2 = "build/%s-Figure_2.png" % (sys.argv[1].replace("/", ""))
 
     PERCENTS = [1, 5, 10, 15, 20, 50]
     COLORS = ["r", "r", "g", "g", "g", "orange"]
@@ -30,6 +38,7 @@ def main():
         data = json.load(f)
 
     ME_TIME = data["me_time"]
+    ME_RANK = data["me_rank"]
     ME_LEGEND = data["me_legend"]
 
     with open(FILEPATH_DATA) as f:
@@ -41,6 +50,7 @@ def main():
     # prepare
     #
 
+    xs = range(1, len(data)+1)
     times_all = [tup["time_raw"] for tup in data]
 
     indexes = [len(data)*p/100 for p in PERCENTS]
@@ -52,24 +62,27 @@ def main():
 
     # f1
 
-    plt.figure()
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
 
     plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(formatter))
     plt.ylabel("Time")
     plt.xlabel("Runners")
 
-    plt.plot(times_all)
+    plt.plot(xs, times_all)
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
         legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
         plt.plot(int(i), t, "x", label=legend, color=c)
 
     plt.axhline(ME_TIME, label=ME_LEGEND, color="orange")
+    plt.axvline(ME_RANK, label=ME_LEGEND, color="orange")
 
     plt.legend()
 
+    plt.savefig(FILEPATH_GRAPH_1)
+
     # f2
 
-    plt.figure()
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
 
     plt.ylabel("Runners (histogram)")
     plt.xlabel("Time")
@@ -80,6 +93,8 @@ def main():
     plt.axvline(ME_TIME, label=ME_LEGEND, color="orange")
 
     plt.legend()
+
+    plt.savefig(FILEPATH_GRAPH_2)
 
     # show
 

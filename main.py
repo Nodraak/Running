@@ -18,6 +18,10 @@ START_WEEKLY = START.replace(day=START.day-START.weekday())
 START_MONTHLY = START.replace(day=1)
 
 
+FIGSIZE = (1200, 900)
+DPI = 100
+
+
 def main():
     dates_monthly = [d.date() for d in rrule.rrule(rrule.MONTHLY, dtstart=START_MONTHLY, until=END)]
     dates_weekly = [d.date() for d in rrule.rrule(rrule.WEEKLY, dtstart=START_WEEKLY, until=END)]
@@ -28,24 +32,28 @@ def main():
     mileage_monthly, mileage_weekly = process_mileage(RUNS, dates_monthly, dates_weekly)
     speed_regressions = process_speed(RUNS, t0, t1)
 
-    plt.figure()
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
     plt.xlim((START, MID))
     plot_distance((2, 1, 1), dates_weekly, RUNS)
     plot_milage((2, 1, 2), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
+    plt.savefig("build/trainings-1-milage.png")
 
-    plt.figure()
-    plt.xlim((START, MID))
-    plot_avg((1, 1, 1), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
-
-    plt.figure()
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
     plt.xlim((START, END))
     #plt.xlim((date2datetime(pd('2022-02-01')), date2datetime(pd('2023-05-01'))))
     plot_speed_simple((2, 1, 1), dates_weekly, RUNS)
     plot_speed_prog((2, 1, 2), speed_regressions)
+    plt.savefig("build/trainings-2-speed-prog.png")
 
-    plt.figure()
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.xlim((START, MID))
+    plot_avg((1, 1, 1), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
+    plt.savefig("build/trainings-3-speed-avg.png")
+
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
     plt.xlim((START, END))
     plot_temp(speed_regressions)
+    plt.savefig("build/trainings-4-temp.png")
 
     plt.show()
 
