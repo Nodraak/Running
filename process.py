@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from sklearn.linear_model import LinearRegression
+from sklearn.preprocessing import PolynomialFeatures
 
 from data import date2datetime, pd
 
@@ -97,3 +98,20 @@ def process_speed(RUNS, t0, t1):
         }
 
     return ret_regressions
+
+
+def process_predict_times(runs):
+    def estimate_time(d1, t1, d2):
+        b = 1.06
+        t2 = t1 * (d2 / d1)**b
+        return t2
+
+    DATE_START = pd('2022-03-15')
+
+    runs = [r for r in runs if DATE_START < r.date]
+
+    return {
+        'xs': [r.date for r in runs],
+        'ys_42': [estimate_time(r.distance, r.time_h, 42.2) for r in runs],
+        'ys_21': [estimate_time(r.distance, r.time_h, 21.1) for r in runs],
+    }

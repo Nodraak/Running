@@ -81,6 +81,10 @@ python3 main.py
 
 ![](build/trainings-4-temp.png)
 
+**Predicted marathon and half-marathon times**
+
+![](build/trainings-5-predict-marathon.png)
+
 ### Races summary
 
 **Achieved and anticipated performances**

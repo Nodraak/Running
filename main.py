@@ -4,10 +4,11 @@ from dateutil import rrule
 from matplotlib import pyplot as plt
 
 from data import date2datetime, pd, RUNS
-from plot import plot_distance, plot_milage, plot_avg, plot_speed_simple, plot_speed_prog, plot_temp
-from process import process_mileage, process_speed
+from plot import plot_distance, plot_milage, plot_avg, plot_speed_simple, plot_speed_prog, plot_temp, plot_predict_times
+from process import process_mileage, process_speed, process_predict_times
 
 
+#START = pd('2020-11-23')  # Monday
 #START = pd('2021-03-22')  # Monday
 START = pd('2022-01-03')  # Monday
 MID = pd("2022-10-15")
@@ -31,6 +32,7 @@ def main():
 
     mileage_monthly, mileage_weekly = process_mileage(RUNS, dates_monthly, dates_weekly)
     speed_regressions = process_speed(RUNS, t0, t1)
+    predicted_times = process_predict_times(RUNS)
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
     plt.suptitle("Milage")
@@ -58,6 +60,12 @@ def main():
     plt.xlim((START, END))
     plot_temp(speed_regressions)
     plt.savefig("build/trainings-4-temp.png")
+
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Predicted marathon and half-marathon times")
+    plt.xlim((START, END))
+    plot_predict_times(predicted_times)
+    plt.savefig("build/trainings-5-predict-marathon.png")
 
     plt.show()
 

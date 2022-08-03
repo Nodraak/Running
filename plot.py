@@ -4,6 +4,7 @@ from calendar import monthrange
 from datetime import datetime, timedelta
 
 from matplotlib import pyplot as plt
+from matplotlib.ticker import FuncFormatter
 
 from data import date2datetime, pd, RunShort, RunLong, RunRace
 
@@ -245,3 +246,40 @@ def plot_temp(speed_regressions):
             plt.plot(x, y, 'o', color=c, label=l)
 
     plot_legend()
+
+
+def plot_predict_times(predicted_times):
+    def formatter(x, pos):
+        h = int(x)
+        mn = int((x-h)*60)
+        return f'{h}:{mn:02d}'
+
+    #
+    # Marathon
+    #
+
+    plt.subplot(2, 1, 1, sharex=plt.gca())
+    plt.ylabel("Predicted time (h)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
+
+    plt.ylim((2.50, 4.00))
+
+    for y in range(250, 400+1, 25):
+        plt.axhline(y/100, color=C_LINE)
+
+    plt.plot(predicted_times['xs'], predicted_times['ys_42'], 'o')
+
+    #
+    # Half-marathon
+    #
+
+    plt.subplot(2, 1, 2, sharex=plt.gca())
+    plt.ylabel("Predicted time (h)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
+
+    plt.ylim((1.25, 2.00))
+
+    for y in range(125, 200+1, 25):
+        plt.axhline(y/100, color=C_LINE)
+
+    plt.plot(predicted_times['xs'], predicted_times['ys_21'], 'o')
