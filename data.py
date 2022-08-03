@@ -27,6 +27,23 @@ class RunRace(Run): pass
 
 
 RUNS = (
+    #
+    # 2020
+    # Carrera de las empresas
+    #
+
+    RunShort(pd('2020-11-29'), 4.7, 25, None),
+    RunShort(pd('2020-12-02'), 3.0, 20, None),
+    RunShort(pd('2020-12-04'), 6.6, 34, None),
+    RunShort(pd('2020-12-09'), 6.7, 40, None),
+    RunShort(pd('2020-12-11'), 5.2, 27, None),
+    RunRace(pd('2020-12-15'), 6.5, 33, None),
+
+    #
+    # 2021
+    # Marathon try 1 - Too much, too quickly
+    #
+
     RunShort(pd('2021-03-27'), 4.14, 23.00, None),
 
     # 8 runs - 55 km
@@ -63,6 +80,11 @@ RUNS = (
     RunLong(pd('2021-10-02'), 10.6, 54.00, 15),
     RunLong(pd('2021-10-09'), 11.7, 61.00, 12),
     RunLong(pd('2021-10-17'), 7.9, 38.00, 11),
+
+    #
+    # 2022
+    # Several half-marathon. Ready for Marathon, but too late for Berlin, waiting Paris 2023-04.
+    #
 
     # 2 runs - 15 km
     RunShort(pd('2022-01-02'), 7.8, 42.00, 13),
