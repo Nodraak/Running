@@ -4,7 +4,6 @@ from calendar import monthrange
 import statistics
 
 from sklearn.linear_model import LinearRegression
-from sklearn.preprocessing import PolynomialFeatures
 
 from data import date2datetime, pd
 

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
-from calendar import monthrange
-from datetime import datetime, timedelta
+from datetime import datetime
 
 from matplotlib import pyplot as plt
 from matplotlib.dates import date2num
@@ -98,7 +97,7 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
         )
 
     ys = [sum(mileage_monthly[month]["dists"]) for month in dates_monthly]
-    months_length = [monthrange(month.year, month.month)[1] for month in dates_monthly]
+    months_length = [mileage_monthly[month]["length"] for month in dates_monthly]
     plt.bar(dates_monthly, ys, align='edge', width=months_length, label="Montly")
 
     print("\n== Milage (weekly) ==")
