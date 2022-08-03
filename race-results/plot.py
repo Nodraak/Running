@@ -50,7 +50,6 @@ def main():
     # prepare
     #
 
-    xs = range(1, len(data)+1)
     times_all = [tup["time_raw"] for tup in data]
 
     indexes = [len(data)*p/100 for p in PERCENTS]
@@ -68,10 +67,10 @@ def main():
     plt.ylabel("Time")
     plt.xlabel("Runners")
 
-    plt.plot(xs, times_all)
+    plt.plot(range(1, len(times_all)+1), times_all)
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
         legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
-        plt.plot(int(i), t, "x", label=legend, color=c)
+        plt.plot(int(i)+1, t, "x", label=legend, color=c)
 
     plt.axhline(ME_TIME, label=ME_LEGEND, color="orange")
     plt.axvline(ME_RANK, label=ME_LEGEND, color="orange")
