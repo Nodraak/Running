@@ -267,7 +267,12 @@ def plot_predict_times(predicted_times):
     for y in range(250, 400+1, 25):
         plt.axhline(y/100, color=C_LINE)
 
-    plt.plot(predicted_times['xs'], predicted_times['ys_42'], 'o')
+    for p in predicted_times:
+        color = RUN2COLORS[p["run"].__class__]
+        label = RUN2LABEL[p["run"].__class__]
+        plt.plot(p["run"].date, p['p42'], 'o', color=color, label=label)
+
+    plot_legend()
 
     #
     # Half-marathon
@@ -282,4 +287,9 @@ def plot_predict_times(predicted_times):
     for y in range(125, 200+1, 25):
         plt.axhline(y/100, color=C_LINE)
 
-    plt.plot(predicted_times['xs'], predicted_times['ys_21'], 'o')
+    for p in predicted_times:
+        color = RUN2COLORS[p["run"].__class__]
+        label = RUN2LABEL[p["run"].__class__]
+        plt.plot(p["run"].date, p['p21'], 'o', color=color, label=label)
+
+    plot_legend()

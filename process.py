@@ -110,8 +110,11 @@ def process_predict_times(runs):
 
     runs = [r for r in runs if DATE_START < r.date]
 
-    return {
-        'xs': [r.date for r in runs],
-        'ys_42': [estimate_time(r.distance, r.time_h, 42.2) for r in runs],
-        'ys_21': [estimate_time(r.distance, r.time_h, 21.1) for r in runs],
-    }
+    return [
+        {
+            "run": r,
+            "p42": estimate_time(r.distance, r.time_h, 42.2),
+            "p21": estimate_time(r.distance, r.time_h, 21.1),
+        }
+        for r in runs
+    ]
