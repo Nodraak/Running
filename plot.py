@@ -4,6 +4,8 @@ from calendar import monthrange
 from datetime import datetime, timedelta
 
 from matplotlib import pyplot as plt
+from matplotlib.dates import date2num
+from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
 from data import date2datetime, pd, RunShort, RunLong, RunRace
@@ -115,17 +117,39 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
 
 
 def plot_avg(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage_weekly):
-    plt.subplot(*subplot_args, sharex=plt.gca())
     plot_grid(dates_weekly)
     plt.ylabel("Speed (km/h)")
     plt.ylim((10.0, 15.5))
 
     for m, dic in mileage_monthly.items():
-        month_length = monthrange(m.year, m.month)[1]
-        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]], color="blue", label="Monthly")
+        if len(dic["speeds"]) == 0:
+            return
 
-    for w, dic in mileage_weekly.items():
-        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]], color="orange", label="Weekly")
+        # Note: "matplotlib uses its own representation of dates/times (floating number of days)"
+        x0 = date2num(m)+dic["length"]*0/4
+        x25 = date2num(m)+dic["length"]*1/4
+        x50 = date2num(m)+dic["length"]*2/4
+        x75 = date2num(m)+dic["length"]*3/4
+        x1 = date2num(m)+dic["length"]*4/4
+        mean = dic["avg_speed"]
+        std = dic["std_speed"]
+        mi = min(dic["speeds"])
+        ma = max(dic["speeds"])
+
+        # min-max vert line
+        plt.plot([x50, x50], [mi, ma], color="blue")
+
+        # min and max horiz lines
+        plt.plot([x25, x75], [mi, mi], color="blue")
+        plt.plot([x25, x75], [ma, ma], color="blue")
+
+        # std dev rectangle
+        dx = x1-x0
+        y0, dy = mean-std, 2*std
+        plt.gca().add_patch(Rectangle((x0, y0), dx, dy, color="blue", fill=False))
+
+        # mean horiz line
+        plt.plot([x0, x1], [mean, mean], color="blue")
 
     plot_legend()
 

@@ -1,12 +1,15 @@
 #!/usr/bin/env python3
 
+from calendar import monthrange
+import statistics
+
 from sklearn.linear_model import LinearRegression
 from sklearn.preprocessing import PolynomialFeatures
 
 from data import date2datetime, pd
 
 
-def process_mileage(runs, dates_monthly, dates_weekly):
+def process_mileage(all_runs, dates_monthly, dates_weekly):
     """
         Aggregate and return:
         * distance and speed (velocity)
@@ -24,32 +27,66 @@ def process_mileage(runs, dates_monthly, dates_weekly):
 
     ret_monthly = {}
     for month in dates_monthly:
-        ds = [r.distance for r in runs if date_ym_eq(r.date, month)]
-        ts = [r.time_h for r in runs if date_ym_eq(r.date, month)]
+        runs = [r for r in all_runs if date_ym_eq(r.date, month)]
 
-        avg_d = sum(ds)/len(ds) if len(ds) else 0
-        avg_v = sum(ds)/sum(ts) if len(ts) else 0
+        if len(runs) == 0:
+            ret_monthly[month] = {
+                "length": 0,
+                "dists": [],
+                "times": [],
+                "speeds": [],
+                "avg_dist": 0,
+                "avg_speed": 0,
+                "std_speed": 0,
+            }
+            continue
+
+        ds = [r.distance for r in runs]
+        ts = [r.time_h for r in runs]
+        ss = [d/t for d, t in zip(ds, ts)]
+
+        stdev = statistics.stdev(ss) if (len(runs) >= 2) else 0
 
         ret_monthly[month] = {
+            "length": monthrange(month.year, month.month)[1],
             "dists": ds,
             "times": ts,
-            "avg_dist": avg_d,
-            "avg_speed": avg_v,
+            "speeds": ss,
+            "avg_dist": sum(ds)/len(ds),
+            "avg_speed": sum(ds)/sum(ts),
+            "std_speed": stdev,
         }
 
     ret_weekly = {}
     for week in dates_weekly:
-        ds = [r.distance for r in runs if isocal_yw_eq(r.date, week)]
-        ts = [r.time_h for r in runs if isocal_yw_eq(r.date, week)]
+        runs = [r for r in all_runs if isocal_yw_eq(r.date, week)]
 
-        avg_d = sum(ds)/len(ds) if len(ds) else 0
-        avg_v = sum(ds)/sum(ts) if len(ts) else 0
+        if len(runs) == 0:
+            ret_weekly[week] = {
+                "length": 0,
+                "dists": [],
+                "times": [],
+                "speeds": [],
+                "avg_dist": 0,
+                "avg_speed": 0,
+                "std_speed": 0,
+            }
+            continue
+
+        ds = [r.distance for r in runs]
+        ts = [r.time_h for r in runs]
+        ss = [d/t for d, t in zip(ds, ts)]
+
+        stdev = statistics.stdev(ss) if (len(runs) >= 2) else 0
 
         ret_weekly[week] = {
+            "length": 7,
             "dists": ds,
             "times": ts,
-            "avg_dist": avg_d,
-            "avg_speed": avg_v,
+            "speeds": ss,
+            "avg_dist": sum(ds)/len(ds),
+            "avg_speed": sum(ds)/sum(ts),
+            "std_speed": stdev,
         }
 
     return ret_monthly, ret_weekly

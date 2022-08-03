@@ -50,7 +50,7 @@ def main():
     plt.savefig("build/trainings-2-speed-prog.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
-    plt.suptitle("Average speed")
+    plt.suptitle("Speed (monthly average)")
     plt.xlim((START, MID))
     plot_avg((1, 1, 1), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
     plt.savefig("build/trainings-3-speed-avg.png")
