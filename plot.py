@@ -16,6 +16,11 @@ RUN2COLORS = {
     RunLong: "green",
     RunRace: "brown",
 }
+RUN2LABEL = {
+    RunShort: "Short run",
+    RunLong: "Long run",
+    RunRace: "Race",
+}
 
 C_LINE = "#E0E0E0"
 C_TODAY = "#FF0000"
@@ -28,6 +33,18 @@ def plot_grid(dates_weekly):
         plt.axvline(d, color=C_LINE, label='_nolegend_')
 
     plt.axvline(TODAY, color=C_TODAY, label='_nolegend_')
+
+
+def plot_legend():
+    """
+    Show the legend:
+    * Labels deduplicated (with a dict)
+    * Sorted (by labels)
+    * In the top left corner
+    """
+    handles, labels = plt.gca().get_legend_handles_labels()
+    by_label = dict(sorted(zip(labels, handles), key=lambda tup: tup[0]))
+    plt.legend(by_label.values(), by_label.keys(), loc="upper left")
 
 
 def plot_distance(subplot_args, dates_weekly, runs):
@@ -47,7 +64,10 @@ def plot_distance(subplot_args, dates_weekly, runs):
 
     for run in runs:
         color = RUN2COLORS[run.__class__]
-        plt.bar(run.date, run.distance, align='edge', width=1, color=color)
+        label = RUN2LABEL[run.__class__]
+        plt.bar(run.date, run.distance, align='edge', width=1, color=color, label=label)
+
+    plot_legend()
 
 
 def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage_weekly):
@@ -76,7 +96,7 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
 
     ys = [sum(mileage_monthly[month]["dists"]) for month in dates_monthly]
     months_length = [monthrange(month.year, month.month)[1] for month in dates_monthly]
-    plt.bar(dates_monthly, ys, align='edge', width=months_length)
+    plt.bar(dates_monthly, ys, align='edge', width=months_length, label="Montly")
 
     print("\n== Milage (weekly) ==")
     for w in dates_weekly:
@@ -88,9 +108,9 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
         )
 
     ys = [sum(mileage_weekly[week]["dists"]) for week in dates_weekly]
-    plt.bar(dates_weekly, ys, align='edge', width=7)
+    plt.bar(dates_weekly, ys, align='edge', width=7, label="Weekly")
 
-    plt.legend(["Monthly", "Weekly"])
+    plot_legend()
 
 
 def plot_avg(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage_weekly):
@@ -101,10 +121,12 @@ def plot_avg(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage
 
     for m, dic in mileage_monthly.items():
         month_length = monthrange(m.year, m.month)[1]
-        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]], color="blue")
+        plt.plot([m, m+timedelta(days=month_length)], [dic["avg_speed"], dic["avg_speed"]], color="blue", label="Monthly")
 
     for w, dic in mileage_weekly.items():
-        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]], color="orange")
+        plt.plot([w, w+timedelta(days=7)], [dic["avg_speed"], dic["avg_speed"]], color="orange", label="Weekly")
+
+    plot_legend()
 
 
 def plot_speed_simple(subplot_args, dates_weekly, runs):
@@ -118,7 +140,10 @@ def plot_speed_simple(subplot_args, dates_weekly, runs):
 
     for run in runs:
         color = RUN2COLORS[run.__class__]
-        plt.plot(run.date, run.speed, 'x', color=color)
+        label = RUN2LABEL[run.__class__]
+        plt.plot(run.date, run.speed, 'x', color=color, label=label)
+
+    plot_legend()
 
 
 def plot_speed_prog(subplot_args, speed_regressions):
@@ -184,6 +209,8 @@ def plot_speed_prog(subplot_args, speed_regressions):
 
 
 def plot_temp(speed_regressions):
+    plt.ylabel("Temperature (°C)")
+
     plt.axhline(5, color=C_LINE)
     plt.axhline(15, color=C_LINE)
 
@@ -201,13 +228,20 @@ def plot_temp(speed_regressions):
 
             d = r.speed - (k1*date2datetime(r.date).timestamp() + k0)
             c = "gray"
+            l = "-"
             if d < -0.30:
                 c = "red"
+                l = "Much slower than usual"
             if d < -0.15:
                 c = "orange"
+                l = "Slower than usual"
             if d > +0.15:
                 c = "blue"
+                l = "A little faster than usual"
             if d > +0.30:
                 c = "green"
+                l = "Much faster than usual"
 
-            plt.plot(x, y, 'o', color=c)
+            plt.plot(x, y, 'o', color=c, label=l)
+
+    plot_legend()

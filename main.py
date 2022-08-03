@@ -33,12 +33,14 @@ def main():
     speed_regressions = process_speed(RUNS, t0, t1)
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Milage")
     plt.xlim((START, MID))
     plot_distance((2, 1, 1), dates_weekly, RUNS)
     plot_milage((2, 1, 2), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
     plt.savefig("build/trainings-1-milage.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Speed")
     plt.xlim((START, END))
     #plt.xlim((date2datetime(pd('2022-02-01')), date2datetime(pd('2023-05-01'))))
     plot_speed_simple((2, 1, 1), dates_weekly, RUNS)
@@ -46,11 +48,13 @@ def main():
     plt.savefig("build/trainings-2-speed-prog.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Average speed")
     plt.xlim((START, MID))
     plot_avg((1, 1, 1), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
     plt.savefig("build/trainings-3-speed-avg.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Temperature")
     plt.xlim((START, END))
     plot_temp(speed_regressions)
     plt.savefig("build/trainings-4-temp.png")
