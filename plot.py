@@ -171,8 +171,6 @@ def plot_speed_simple(subplot_args, dates_weekly, runs):
 
 
 def plot_speed_prog(subplot_args, speed_regressions):
-    REF_DISTS = [6, 9, 12, 15, 18, 21, 24]
-
     plt.subplot(*subplot_args, sharex=plt.gca())
     plt.ylabel("Speed (km/h)")
     plt.ylim((11.5, 15.5))
@@ -213,19 +211,17 @@ def plot_speed_prog(subplot_args, speed_regressions):
     plt.plot(pd('2023-04-02'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
 
     print("\n== Progress ==\nd (km)  progress (km/h) in 1 month")
-    for ref_dist in REF_DISTS:
-        sr_data = speed_regressions[ref_dist]
-
+    for dist_ref, sr_data in speed_regressions.items():
         xs, ys = [r.date for r in sr_data["runs"]], [r.speed for r in sr_data["runs"]]
 
         p, = plt.plot(xs, ys, 'o-')
-        legend.append((p, "%d km" % ref_dist))
+        legend.append((p, "%s km" % dist_ref))
 
         plt.plot([sr_data["t0"], sr_data["t1"]], [sr_data["y0"], sr_data["y1"]], '--', color=p.get_color())
 
         print(
-            "* Reg %d km: vel(t) = %3d*10**-9 * t + %.3f km/h => %5.2f km/h / month" % (
-                ref_dist, sr_data["k1"]*10**9, sr_data["k0"], sr_data["k1"]*86400*365/12,
+            "* Reg %s km: vel(t) = %3d*10**-9 * t + %.3f km/h => %5.2f km/h / month" % (
+                dist_ref, sr_data["k1"]*10**9, sr_data["k0"], sr_data["k1"]*86400*365/12,
             )
         )
 

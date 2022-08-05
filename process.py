@@ -97,20 +97,25 @@ def process_speed(RUNS, t0, t1):
         * runs, linear regression coefficients y(t) = t1*t+t0
         * by distance
     """
-    DISTS = [6, 9, 12, 15, 18, 21, 24]
+    DISTS_RANGES = {
+        "9-": (5, 10),
+        "12": (10, 14),
+        "15": (14, 16),
+        "18": (17, 19),
+        "21+": (19, 42),
+    }
     DATE_START = pd('2022-03-15')
 
-    def is_plus_minus_10_percent(ref, dist):
-        # TODO fix?
-        return abs(ref/dist - 1) < 0.10
+    def is_in_range(dist_range, dist):
+        return dist_range[0] < dist < dist_range[1]
 
     ret_regressions = {}
-    for ref_dist in DISTS:
+    for dist_ref, dist_range in DISTS_RANGES.items():
         runs = [
             r for r in RUNS
             if (
                 DATE_START < r.date
-                and is_plus_minus_10_percent(ref_dist, r.distance)
+                and is_in_range(dist_range, r.distance)
                 and r.temp is not None
             )
         ]
@@ -123,7 +128,7 @@ def process_speed(RUNS, t0, t1):
         k0 = model.intercept_[0]
         k1 = model.coef_[0][0]
 
-        ret_regressions[ref_dist] = {
+        ret_regressions[dist_ref] = {
             "runs": runs,
             "t0": t0,
             "t1": t1,
