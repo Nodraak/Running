@@ -210,20 +210,26 @@ def plot_speed_prog(subplot_args, speed_regressions):
     plt.plot(pd('2022-11-27'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
     plt.plot(pd('2023-04-02'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
 
-    print("\n== Progress ==\nd (km)  progress (km/h) in 1 month")
-    for dist_ref, sr_data in speed_regressions.items():
-        xs, ys = [r.date for r in sr_data["runs"]], [r.speed for r in sr_data["runs"]]
-
+    print("\n== Progress ==\n")
+    print("dist (km): progress in 3 -> 2 -> 1 (km/h/month)")
+    for dist_ref, sr_data_all in speed_regressions.items():
+        # plot all runs
+        sr_data = sr_data_all["all"]
+        xs, ys = [r.date for r in sr_data], [r.speed for r in sr_data]
         p, = plt.plot(xs, ys, 'o-')
         legend.append((p, "%s km" % dist_ref))
 
+        # plot reg
+        sr_data = sr_data_all[3]
         plt.plot([sr_data["t0"], sr_data["t1"]], [sr_data["y0"], sr_data["y1"]], '--', color=p.get_color())
 
-        print(
-            "* Reg %s km: vel(t) = %3d*10**-9 * t + %.3f km/h => %5.2f km/h / month" % (
-                dist_ref, sr_data["k1"]*10**9, sr_data["k0"], sr_data["k1"]*86400*365/12,
-            )
-        )
+        # print reg
+        print("* %-3s km: %5.2f -> %5.2f -> %5.2f km/h/month" % (
+            dist_ref,
+            sr_data_all[3]["k1"]*86400*365/12,
+            sr_data_all[2]["k1"]*86400*365/12,
+            sr_data_all[1]["k1"]*86400*365/12,
+        ))
 
     plt.legend([tup[0] for tup in legend], [tup[1] for tup in legend])
 
@@ -239,10 +245,15 @@ def plot_temp(speed_regressions):
     for m in range(1, 4+1):
         plt.axvline(pd('2023-%02d-01' % m), color=C_LINE, label='_nolegend_')
 
-    for sr in speed_regressions.values():
-        for r in sr["runs"]:
-            k1 = sr["k1"]
-            k0 = sr["k0"]
+    for sr_data_all in speed_regressions.values():
+        for r in sr_data_all["all"]:
+            if r not in sr_data_all[1]["runs"]:
+                x, y = r.date, r.temp
+                plt.plot(x, y, 'o', color="gray")
+
+        for r in sr_data_all[1]["runs"]:
+            k1 = sr_data_all[1]["k1"]
+            k0 = sr_data_all[1]["k0"]
 
             x, y = r.date, r.temp
 

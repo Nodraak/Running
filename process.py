@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 
 from calendar import monthrange
+import datetime
 import statistics
 
 from sklearn.linear_model import LinearRegression
@@ -104,44 +105,56 @@ def process_speed(RUNS, t0, t1):
         "18": (17, 19),
         "21+": (19, 42),
     }
-    DATE_START = pd('2022-03-15')
 
     def is_in_range(dist_range, dist):
         return dist_range[0] < dist < dist_range[1]
 
     ret_regressions = {}
     for dist_ref, dist_range in DISTS_RANGES.items():
-        runs = [
-            r for r in RUNS
-            if (
-                DATE_START < r.date
-                and is_in_range(dist_range, r.distance)
-                and r.temp is not None
-            )
-        ]
-
-        model = LinearRegression().fit(
-            [[date2datetime(r.date).timestamp()] for r in runs],
-            [[r.speed] for r in runs],
-        )
-
-        k0 = model.intercept_[0]
-        k1 = model.coef_[0][0]
-
         ret_regressions[dist_ref] = {
-            "runs": runs,
-            "t0": t0,
-            "t1": t1,
-            "k0": k0,
-            "k1": k1,
-            "y0": k1*t0.timestamp() + k0,
-            "y1": k1*t1.timestamp() + k0,
+            "all": [
+                r for r in RUNS
+                if (is_in_range(dist_range, r.distance) and r.temp is not None)
+            ]
         }
+        for dt in [3, 2, 1]:
+            DATE_START = datetime.date.today() - datetime.timedelta(30*dt)
+
+            runs = [
+                r for r in ret_regressions[dist_ref]["all"]
+                if (DATE_START < r.date)
+            ]
+
+            if len(runs) == 0:
+                k0 = 0
+                k1 = 0
+            else:
+                model = LinearRegression().fit(
+                    [[date2datetime(r.date).timestamp()] for r in runs],
+                    [[r.speed] for r in runs],
+                )
+
+                k0 = model.intercept_[0]
+                k1 = model.coef_[0][0]
+
+            ret_regressions[dist_ref][dt] = {
+                "runs": runs,
+                "t0": t0,
+                "t1": t1,
+                "k0": k0,
+                "k1": k1,
+                "y0": k1*t0.timestamp() + k0,
+                "y1": k1*t1.timestamp() + k0,
+            }
 
     return ret_regressions
 
 
 def process_predict_times(runs):
+    """
+    Based on Peter Riegel's 1981's formula: T2 = T1 * (D2/D1)**1.06
+    """
+
     def estimate_time(d1, t1, d2):
         b = 1.06
         t2 = t1 * (d2 / d1)**b
