@@ -87,12 +87,15 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
     plt.axhline(200, color=C_LINE, label='_nolegend_')
     plt.axhline(240, color=C_LINE, label='_nolegend_')
 
+    SCORE_MAX_WEEK = 1000  # Objective peak training: (12+12+15+30)*14.5 = 1000
+
     print("\n== Milage (monthly) ==")
     for m in dates_monthly:
         data = mileage_monthly[m]
+        score = 100 * sum(data["dists"])*data["avg_speed"] / (SCORE_MAX_WEEK*52/12)
         print(
-            "%s: %2dx - %3d km - AVG/run: %4.1f km - %4.1f km/h" % (
-                m, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"],
+            "%s: %2dx - %3d km - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
+                m, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"], score,
             )
         )
 
@@ -103,9 +106,10 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
     print("\n== Milage (weekly) ==")
     for w in dates_weekly:
         data = mileage_weekly[w]
+        score = 100 * sum(data["dists"])*data["avg_speed"] / SCORE_MAX_WEEK
         print(
-            "%s: %2dx - %3d km - AVG/run: %4.1f km - %4.1f km/h" % (
-                w, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"],
+            "%s: %2dx - %3d km - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
+                w, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"], score,
             )
         )
 
