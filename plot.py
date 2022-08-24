@@ -7,7 +7,7 @@ from matplotlib.dates import date2num
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
-from data import date2datetime, pd, RunShort, RunLong, RunRace
+from data import date2datetime, pd, RunShort, RunLong, RunRace, RunGoal
 
 
 TODAY = datetime.today()
@@ -17,11 +17,13 @@ RUN2COLORS = {
     RunShort: "blue",
     RunLong: "green",
     RunRace: "brown",
+    RunGoal: "gray",
 }
 RUN2LABEL = {
     RunShort: "Short run",
     RunLong: "Long run",
     RunRace: "Race",
+    RunGoal: "Goal",
 }
 
 C_LINE = "#E0E0E0"
@@ -283,18 +285,22 @@ def plot_temp(speed_regressions):
 
 
 def plot_predict_times(predicted_times):
-    def formatter(x, pos):
-        h = int(x)
-        mn = int((x-h)*60)
-        return f'{h}:{mn:02d}'
+    def formatter_factory(dist):
+        def formatter(x, pos):
+            h = int(x)
+            mn = int(60*x-60*h)
+            sec = int(3600*x-3600*h-60*mn)
+            speed = dist/x
+            return f'{h}:{mn:02d}:{sec:02d} - {speed:.2f}'
+        return formatter
 
     #
     # Marathon
     #
 
     plt.subplot(2, 1, 1, sharex=plt.gca())
-    plt.ylabel("Predicted time (h)")
-    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
+    plt.ylabel("Predicted time (h:m:s - km/h)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter_factory(42.2)))
 
     plt.ylim((2.50, 4.00))
 
@@ -313,8 +319,8 @@ def plot_predict_times(predicted_times):
     #
 
     plt.subplot(2, 1, 2, sharex=plt.gca())
-    plt.ylabel("Predicted time (h)")
-    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
+    plt.ylabel("Predicted time (h:m:s - km/h)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter_factory(21.1)))
 
     plt.ylim((1.25, 2.00))
 

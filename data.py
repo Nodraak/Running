@@ -23,6 +23,7 @@ class Run:
 class RunShort(Run): pass
 class RunLong(Run): pass
 class RunRace(Run): pass
+class RunGoal(Run): pass
 
 
 RUNS = (
@@ -156,4 +157,11 @@ RUNS = (
     RunShort(pd('2022-08-16'), 12, 51.00, 20),
     RunLong(pd('2022-08-20'), 15, 65.50, 21),
     RunShort(pd('2022-08-21'),  6, 24.80, 19),
+
+
+    # Goals
+    RunGoal(pd('2022-10-30'), 21.1, 90, None),
+    RunGoal(pd('2022-11-30'), 21.1, 90, None),
+    RunGoal(pd('2022-11-30'), 42.2, 180, None),
+    RunGoal(pd('2023-03-01'), 42.2, 180, None),
 )
