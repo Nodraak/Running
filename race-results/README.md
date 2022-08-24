@@ -90,10 +90,25 @@ Runners: 767
 |     20% |  1623 |      1:34:10 |    0:43:42 |
 |     50% |  4057 |      1:48:14 |    0:51:15 |
 
+### 2021-10 - 21.1 Muegelsee
+
+* Source: https://www.davengo.com/event/result/15-mueggelsee-halbmarathon-2021/
+* Runners: 994
+
+| Percent | Place | Time 21.1 km |
+|---------|-------|--------------|
+|       - |     1 |      1:15:32 |
+|      1% |    10 |      1:19:11 |
+|      5% |    50 |      1:28:40 |
+|     10% |    94 |      1:33:32 |
+|     15% |   149 |      1:36:52 |
+|     20% |   199 |      1:40:51 |
+|     50% |   497 |      1:54:50 |
+
 ### 2022 - 42 km Paris
 
 * Source: https://resultscui.active.com/api/results/events/SchneiderElectricMarathondeParis2022/participants?groupId=947610&routeId=170632&offset=0&limit=100
-Runners: 34 365
+* Runners: 34 365
 
 | Percent | Place | Speed | Time |
 |---------|-------|-------|------|
