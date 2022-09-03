@@ -38,7 +38,7 @@ def main():
     plt.suptitle("Milage")
     plt.xlim((START, MID))
     plot_distance((2, 1, 1), dates_weekly, RUNS)
-    plot_milage((2, 1, 2), dates_monthly, dates_weekly, mileage_monthly, mileage_weekly)
+    plot_milage((2, 1, 2), dates_monthly, dates_weekly, RUNS, mileage_monthly, mileage_weekly)
     plt.savefig("build/trainings-1-milage.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)

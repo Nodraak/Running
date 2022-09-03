@@ -74,7 +74,7 @@ def plot_distance(subplot_args, dates_weekly, runs):
     plot_legend()
 
 
-def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mileage_weekly):
+def plot_milage(subplot_args, dates_monthly, dates_weekly, runs, mileage_monthly, mileage_weekly):
     plt.subplot(*subplot_args, sharex=plt.gca())
     plot_grid(dates_weekly)
     plt.ylabel("Distance (km)")
@@ -89,15 +89,25 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
     plt.axhline(200, color=C_LINE, label='_nolegend_')
     plt.axhline(240, color=C_LINE, label='_nolegend_')
 
+    print("\n== Milage (yearly) ==")
+
+    for y in [2021, 2022]:
+        runs_2022 = [r for r in runs if pd('%d-01-01' % y) <= r.date <= pd('%d-12-31' % y)]
+        runs_2022_dist = sum([r.distance for r in runs_2022])
+        runs_2022_n = len(runs_2022)
+        runs_2022_t = sum([r.time_h for r in runs_2022])
+        print("Total %d: %d km - %d runs - %d h" % (y, runs_2022_dist, runs_2022_n, runs_2022_t))
+
     SCORE_MAX_WEEK = 1000  # Objective peak training: (12+12+15+30)*14.5 = 1000
 
     print("\n== Milage (monthly) ==")
     for m in dates_monthly:
         data = mileage_monthly[m]
         score = 100 * sum(data["dists"])*data["avg_speed"] / (SCORE_MAX_WEEK*52/12)
+        t = sum(data["dists"]) / data["avg_speed"] if data["avg_speed"] else 0
         print(
-            "%s: %2dx - %3d km - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
-                m, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"], score,
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
+                m, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score,
             )
         )
 
@@ -109,9 +119,10 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, mileage_monthly, mile
     for w in dates_weekly:
         data = mileage_weekly[w]
         score = 100 * sum(data["dists"])*data["avg_speed"] / SCORE_MAX_WEEK
+        t = sum(data["dists"]) / data["avg_speed"] if data["avg_speed"] else 0
         print(
-            "%s: %2dx - %3d km - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
-                w, len(data["dists"]), sum(data["dists"]), data["avg_dist"], data["avg_speed"], score,
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
+                w, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score,
             )
         )
 
