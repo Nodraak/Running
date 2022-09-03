@@ -85,6 +85,10 @@ python3 main.py
 
 ![](build/trainings-5-predict-marathon.png)
 
+**Predicted distance at 14.1 km/h**
+
+![](build/trainings-6-predict-dist.png)
+
 ### Races summary
 
 **Achieved and anticipated performances**

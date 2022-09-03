@@ -4,7 +4,7 @@ from dateutil import rrule
 from matplotlib import pyplot as plt
 
 from data import date2datetime, pd, RUNS
-from plot import plot_distance, plot_milage, plot_avg, plot_speed_simple, plot_speed_prog, plot_temp, plot_predict_times
+from plot import plot_distance, plot_milage, plot_avg, plot_speed_simple, plot_speed_prog, plot_temp, plot_predict_times, plot_predict_distances
 from process import process_mileage, process_speed, process_predict_times
 
 
@@ -66,6 +66,12 @@ def main():
     plt.xlim((START, END))
     plot_predict_times(predicted_times)
     plt.savefig("build/trainings-5-predict-marathon.png")
+
+    plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
+    plt.suptitle("Predicted distance (km) at 14.1 km/h")
+    plt.xlim((START, END))
+    plot_predict_distances(RUNS)
+    plt.savefig("build/trainings-6-predict-dist.png")
 
     plt.show()
 

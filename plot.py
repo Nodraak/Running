@@ -344,3 +344,40 @@ def plot_predict_times(predicted_times):
         plt.plot(p["run"].date, p['p21'], 'o', color=color, label=label)
 
     plot_legend()
+
+
+def plot_predict_distances(runs):
+
+    # TODO move to process
+
+    def calc_d(d1, t1):
+        """
+        Can not solve it mathematically, wolframalpha says:
+            d2 = 10**-19 * d1**(53/3) / t1**(50/3)
+        Big coeff are imprecise, using an iterative solution instead.
+        """
+        if d1/t1 < 14.1:
+            return 0
+
+        for d in range(1, 42200, 100):
+            d2 = d/1000
+
+            t2 = t1 * (d2 / d1)**1.06
+
+            if d2/t2 < 14.1:
+                return d2
+
+    ts = []
+    d1s = []
+    d2s = []
+    for r in runs:
+        ts.append(r.date)
+        d1s.append(r.distance)
+        d2s.append(calc_d(r.distance, r.time_h))
+
+    plt.ylabel("Predicted distance (km) at 14.1 km/h")
+
+    plt.axhline(21.1, color=C_LINE)
+    plt.axhline(42.2, color=C_LINE)
+    plt.plot(ts, d1s, "x", color=C_LINE)
+    plt.plot(ts, d2s, "o")
