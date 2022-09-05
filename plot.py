@@ -187,7 +187,7 @@ def plot_speed_simple(subplot_args, dates_weekly, runs):
     plot_legend()
 
 
-def plot_speed_prog(subplot_args, speed_regressions):
+def plot_speed_prog(subplot_args, runs, speed_regressions):
     plt.subplot(*subplot_args, sharex=plt.gca())
     plt.ylabel("Speed (km/h)")
     plt.ylim((11.5, 15.5))
@@ -223,9 +223,9 @@ def plot_speed_prog(subplot_args, speed_regressions):
         '--', color='#808080',
     )
 
-    plt.plot(pd('2022-07-24'), 20*60/90, 'o', color='#808080', label='_nolegend_')
-    plt.plot(pd('2022-11-27'), 21.1*60/90, 'o', color='#808080', label='_nolegend_')
-    plt.plot(pd('2023-04-02'), 21.1*60/90+1.0, 'o', color='#808080', label='_nolegend_')
+    for r in runs:
+        if isinstance(r, RunGoal):
+            plt.plot(r.date, r.speed, 'o', color='#808080', label='_nolegend_')
 
     print("\n== Progress ==\n")
     print("dist (km): progress in 3 -> 2 -> 1 (km/h/month)")

@@ -46,7 +46,7 @@ def main():
     plt.xlim((START, END))
     #plt.xlim((date2datetime(pd('2022-02-01')), date2datetime(pd('2023-05-01'))))
     plot_speed_simple((2, 1, 1), dates_weekly, RUNS)
-    plot_speed_prog((2, 1, 2), speed_regressions)
+    plot_speed_prog((2, 1, 2), RUNS, speed_regressions)
     plt.savefig("build/trainings-2-speed-prog.png")
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
