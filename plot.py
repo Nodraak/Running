@@ -56,10 +56,8 @@ def plot_distance(subplot_args, dates_weekly, runs):
     plot_grid(dates_weekly)
     plt.ylabel("Distance (km)")
 
-    plt.axhline(6, color=C_LINE)
-    plt.axhline(12, color=C_LINE)
-    plt.axhline(18, color=C_LINE)
-    plt.axhline(21, color=C_LINE)
+    for y in [6, 12, 18, 24, 30, 36]:
+        plt.axhline(y, color=C_LINE)
 
     # plt.plot([START, MID], [5, 30], color=C_LINE)
     # plt.plot([MID, END], [30, 25], color=C_LINE)
