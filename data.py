@@ -140,7 +140,7 @@ RUNS = (
     RunShort(pd('2022-07-05'), 12, 51.90, 19),
     RunShort(pd('2022-07-08'), 12, 49.83, 15), # PB - 12k: 14.45 km/h
     RunShort(pd('2022-07-09'), 15, 66.60, 18),
-    RunLong(pd('2022-07-12'), 18, 80.50, 16), # PB - 18k: 13.42 km/h
+    RunLong(pd('2022-07-12'), 18, 80.50, 16),
     RunShort(pd('2022-07-16'), 9, 42.00, 22),  # Note - mauvaise respiration
     RunShort(pd('2022-07-18'), 12, 53.00, 18),  # Note - mauvaise respiration
     RunShort(pd('2022-07-22'), 6, 25.90, 20),  # Note - 2x 25 m de denivele
@@ -157,13 +157,17 @@ RUNS = (
     RunShort(pd('2022-08-16'), 12, 51.00, 20),
     RunLong(pd('2022-08-20'), 15, 65.50, 21),
     RunShort(pd('2022-08-21'),  6, 24.80, 19),
-    RunShort(pd('2022-08-23'), 15, 65.00, 18), # PB - 18k: 13.70 km/h
+    RunShort(pd('2022-08-23'), 15, 65.00, 18),
     RunShort(pd('2022-08-26'), 15, 65.50, 21),
     RunLong(pd('2022-08-28'), 21, 95.00, 20),
     RunShort(pd('2022-08-30'), 15, 64.90, 16),
 
     # 12 runs - 220-240 km (TBC)
     RunShort(pd('2022-09-03'), 15, 67.90, 21),
+    RunShort(pd('2022-09-05'), 15, 63.50, 15), # PB - 15k: 14.17 km/h (12k: 14.36, 18k: 14.02, 21.1k: 13.88)
+    RunShort(pd('2022-09-08'), 15, 66.00, 15),
+    RunLong(pd('2022-09-10'), 25, 116.5, 19),
+
 
     # Goals
     RunGoal(pd('2022-10-23'), 21.1, 90, None), # Mueggelsee (1h30 half marathon)
