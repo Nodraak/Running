@@ -365,6 +365,8 @@ def plot_predict_distances(runs):
             if d2/t2 < 14.1:
                 return d2
 
+        return 42.2
+
     ts = []
     d1s = []
     d2s = []
