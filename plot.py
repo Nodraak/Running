@@ -98,14 +98,22 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, runs, mileage_monthly
 
     SCORE_MAX_WEEK = 1000  # Objective peak training: (12+12+15+30)*14.5 = 1000
 
+    # TODO move to process
+    def estimate_time(d1, t1, d2):
+        b = 1.06
+        t2 = t1 * (d2 / d1)**b
+        return t2
+
     print("\n== Milage (monthly) ==")
     for m in dates_monthly:
         data = mileage_monthly[m]
         score = 100 * sum(data["dists"])*data["avg_speed"] / (SCORE_MAX_WEEK*52/12)
         t = sum(data["dists"]) / data["avg_speed"] if data["avg_speed"] else 0
+        v21 = 21.1 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 21.1) if data["avg_speed"] else 0
+        v42 = 42.2 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 42.2) if data["avg_speed"] else 0
         print(
-            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
-                m, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score,
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
+                m, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score, v21, v42,
             )
         )
 
@@ -118,9 +126,11 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, runs, mileage_monthly
         data = mileage_weekly[w]
         score = 100 * sum(data["dists"])*data["avg_speed"] / SCORE_MAX_WEEK
         t = sum(data["dists"]) / data["avg_speed"] if data["avg_speed"] else 0
+        v21 = 21.1 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 21.1) if data["avg_speed"] else 0
+        v42 = 42.2 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 42.2) if data["avg_speed"] else 0
         print(
-            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%%" % (
-                w, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score,
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
+                w, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score, v21, v42,
             )
         )
 
