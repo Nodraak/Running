@@ -112,7 +112,7 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, runs, mileage_monthly
         v21 = 21.1 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 21.1) if data["avg_speed"] else 0
         v42 = 42.2 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 42.2) if data["avg_speed"] else 0
         print(
-            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %5.2f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
                 m, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score, v21, v42,
             )
         )
@@ -129,7 +129,7 @@ def plot_milage(subplot_args, dates_monthly, dates_weekly, runs, mileage_monthly
         v21 = 21.1 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 21.1) if data["avg_speed"] else 0
         v42 = 42.2 / estimate_time(data["avg_dist"], data["avg_dist"]/data["avg_speed"], 42.2) if data["avg_speed"] else 0
         print(
-            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %4.1f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
+            "%s: %2d runs - %3d km - %4.1f h - AVG/run: %4.1f km * %5.2f km/h - score: %3d%% - v21/42: %5.2f/%5.2f km/h" % (
                 w, len(data["dists"]), sum(data["dists"]), t, data["avg_dist"], data["avg_speed"], score, v21, v42,
             )
         )
