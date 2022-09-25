@@ -362,10 +362,9 @@ def plot_predict_distances(runs):
         """
         Can not solve it mathematically, wolframalpha says:
             d2 = 10**-19 * d1**(53/3) / t1**(50/3)
+            d2 = 10**-19 * d1**(1.06*50/3) / t1**(50/3)
         Big coeff are imprecise, using an iterative solution instead.
         """
-        if d1/t1 < 14.1:
-            return 0
 
         for d in range(1, 42200, 100):
             d2 = d/1000
