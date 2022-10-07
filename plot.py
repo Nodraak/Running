@@ -376,17 +376,14 @@ def plot_predict_distances(runs):
 
         return 42.2
 
-    ts = []
-    d1s = []
-    d2s = []
+    pds = []
     for r in runs:
-        ts.append(r.date)
-        d1s.append(r.distance)
-        d2s.append(calc_d(r.distance, r.time_h))
+        pds.append((r.date, r.distance, calc_d(r.distance, r.time_h), RUN2COLORS[r.__class__]))
 
     plt.ylabel("Predicted distance (km) at 14.1 km/h")
 
     plt.axhline(21.1, color=C_LINE)
     plt.axhline(42.2, color=C_LINE)
-    plt.plot(ts, d1s, "x", color=C_LINE)
-    plt.plot(ts, d2s, "o")
+    for (date, distance, dp, color) in pds:
+        plt.plot(date, distance, "x", color=C_LINE)
+        plt.plot(date, dp, "o", color=color)
