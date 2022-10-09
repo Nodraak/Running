@@ -6,7 +6,7 @@ import statistics
 
 from sklearn.linear_model import LinearRegression
 
-from data import date2datetime, pd
+from data import date2datetime, pd, RunGoal
 
 
 def process_mileage(all_runs, dates_monthly, dates_weekly):
@@ -27,7 +27,7 @@ def process_mileage(all_runs, dates_monthly, dates_weekly):
 
     ret_monthly = {}
     for month in dates_monthly:
-        runs = [r for r in all_runs if date_ym_eq(r.date, month)]
+        runs = [r for r in all_runs if date_ym_eq(r.date, month) and not isinstance(r, RunGoal)]
 
         if len(runs) == 0:
             ret_monthly[month] = {
@@ -59,7 +59,7 @@ def process_mileage(all_runs, dates_monthly, dates_weekly):
 
     ret_weekly = {}
     for week in dates_weekly:
-        runs = [r for r in all_runs if isocal_yw_eq(r.date, week)]
+        runs = [r for r in all_runs if isocal_yw_eq(r.date, week) and not isinstance(r, RunGoal)]
 
         if len(runs) == 0:
             ret_weekly[week] = {
