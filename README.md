@@ -59,35 +59,31 @@ https://github.com/viking-gps/viking
 python3 main.py
 ```
 
-**Milage**
+**Distance and milage**
 
 1. All trainings and races distances
 2. Distances by week and by month
 
-![](build/trainings-1-milage.png)
+![](build/trainings-1-distance-and-milage.png)
 
-**Speed**
+**Speed (progression)**
 
 1. All trainings and races speeds
 2. Speeds by distance, with a linear regression
 
 ![](build/trainings-2-speed-prog.png)
 
-**Average speed**
+**Speed (monthly average)**
 
 ![](build/trainings-3-speed-avg.png)
 
-**Temperature**
-
-![](build/trainings-4-temp.png)
-
 **Predicted marathon and half-marathon times**
 
-![](build/trainings-5-predict-marathon.png)
+![](build/trainings-4-predict-time.png)
 
-**Predicted distance at 14.1 km/h**
+**Predicted distance (km) at 14.1 km/h**
 
-![](build/trainings-6-predict-dist.png)
+![](build/trainings-5-predict-dist.png)
 
 ### Races summary
 

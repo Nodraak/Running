@@ -1,29 +1,9 @@
 #!/usr/bin/env python3
+"""
+Run data.
+"""
 
-from datetime import datetime
-
-
-def date2datetime(d):
-    return datetime.fromordinal(d.toordinal())
-
-
-def pd(s):
-    return datetime.strptime(s, '%Y-%m-%d').date()
-
-
-class Run:
-    def __init__(self, date, distance, time_mn, temp):
-        self.date = date
-        self.distance = distance
-        self.time_h = time_mn/60
-        self.temp = temp
-
-        self.speed = self.distance / self.time_h
-
-class RunShort(Run): pass
-class RunLong(Run): pass
-class RunRace(Run): pass
-class RunGoal(Run): pass
+from utils import pd, RunGoal, RunLong, RunRace, RunShort
 
 
 RUNS = (
@@ -183,5 +163,5 @@ RUNS = (
     # Goals
     RunGoal(pd('2022-10-23'), 21.1, 90, None), # Mueggelsee (1h30 half marathon)
     RunGoal(pd('2022-11-27'), 21.1, 88, None), # Boulogne (ready for 3h marathon)
-    RunGoal(pd('2023-03-02'), 42.2, 180, None), # Paris (3h marathon)
+    RunGoal(pd('2023-04-02'), 42.2, 180, None), # Paris (3h marathon)
 )
