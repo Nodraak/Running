@@ -119,7 +119,7 @@ def plot_all(data, start, end):
     plot_speed_prog(data, start, end)
     plt.savefig("build/trainings-2-speed-prog.png")
 
-    # (Real) Speed (all, monthly)
+    # Speed (all, monthly) (Real, Predicted)
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
     plt.suptitle("Speed (monthly average)")
     plot_speed_avg(data, start, end)
@@ -280,14 +280,20 @@ def plot_speed_prog(data, start, end):
 
 
 def plot_speed_avg(data, start, end):
+    #
+    # Speed (Real)
+    #
+
+    plt.subplot(2, 1, 1, sharex=plt.gca())
     plt.ylabel("Speed (km/h)")
     plt.xlim((start, end))
     plt.ylim((10.0, 15.5))
     plot_grid(data["weekly"]["dates"])
+    plt.axhline(14.1, color=C_LINE, label='_nolegend_')
 
     for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
         if len(dic["dist"]["all"]) == 0:
-            return
+            continue
 
         for r in data["runs"]:
             if date_ym_eq(r.date, m):
@@ -295,7 +301,26 @@ def plot_speed_avg(data, start, end):
 
         plot_err_bar(m, dic["duration_days"], dic["speed"])
 
-    plot_legend()
+    #
+    # Speed (Predicted)
+    #
+
+    plt.subplot(2, 1, 2, sharex=plt.gca())
+    plt.ylabel("Speed (km/h)")
+    plt.xlim((start, end))
+    plt.ylim((10.0, 15.5))
+    plot_grid(data["weekly"]["dates"])
+    plt.axhline(14.1, color=C_LINE, label='_nolegend_')
+
+    for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
+        if len(dic["dist"]["all"]) == 0:
+            continue
+
+        for r in data["runs"]:
+            if date_ym_eq(r.date, m):
+                plt.plot(r.date, r.hm_speed, "x", color="gray")
+
+        plot_err_bar(m, dic["duration_days"], dic["predicted"]["hm_speed"])
 
 
 def plot_predict_time(data, start, end):
