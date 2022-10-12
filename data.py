@@ -156,12 +156,16 @@ RUNS = (
 
     # 12 runs - 160-170 km (TBC)
     RunShort(pd('2022-10-04'), 15, 62.00, 11), # PB - 15k: 14.50 km/h (21.1k: 14.22)
-    RunShort(pd('2022-10-07'), 15, 65.75, 9),
+    RunShort(pd('2022-10-07'), 15, 65.75, 9),  # relax
     RunLong(pd('2022-10-09'), 21, 90.50, 15),
+    RunShort(pd('2022-10-12'), 15, 63.13, 15),
+    RunShort(pd('2022-10-14'), 15, 68.00, 15),  # relax
+    RunShort(pd('2022-10-19'), 15, 65.28, 13),  # relax
+    RunRace(pd('2022-10-23'), 21.1, 89.88, 15),  # Race Mueggelsee - 21.1k: 14.1 km/h
+
 
 
     # Goals
-    RunGoal(pd('2022-10-23'), 21.1, 90, None), # Mueggelsee (1h30 half marathon)
     RunGoal(pd('2022-11-27'), 21.1, 88, None), # Boulogne (ready for 3h marathon)
     RunGoal(pd('2023-04-02'), 42.2, 180, None), # Paris (3h marathon)
 )
