@@ -154,13 +154,19 @@ def process_stats_basic(values):
     }
     """
 
+    if len(values) < 5:
+        values_filtered = values
+    else:
+        # remove outliner (lowest value)
+        values_filtered = sorted(values)[1:]
+
     return {
         "all": values,
         "sum": sum(values),
-        "mean": sum(values)/len(values) if len(values) != 0 else 0,
-        "std": statistics.stdev(values) if (len(values) >= 2) else 0,
-        "min": min(values) if len(values) != 0 else 0,
-        "max": max(values) if len(values) != 0 else 0,
+        "mean": sum(values_filtered)/len(values_filtered) if len(values_filtered) != 0 else 0,
+        "std": statistics.stdev(values_filtered) if (len(values_filtered) >= 2) else 0,
+        "min": min(values_filtered) if len(values_filtered) != 0 else 0,
+        "max": max(values_filtered) if len(values_filtered) != 0 else 0,
     }
 
 
