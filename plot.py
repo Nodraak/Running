@@ -203,7 +203,7 @@ def plot_distance_and_mileage(data, start, end):
     # mileage
     #
 
-    plt.subplot(2, 1, 2)
+    plt.subplot(2, 1, 2, sharex=plt.gca())
     plt.ylabel("Distance (km)")
     plt.xlim((start, end))
     plot_grid(data["weekly"]["dates"])
