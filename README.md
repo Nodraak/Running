@@ -53,7 +53,7 @@ https://github.com/viking-gps/viking
 
 ## Quickstart
 
-### Trainings
+### Trainings analysis
 
 ```bash
 python3 main.py
@@ -160,9 +160,9 @@ dist (km): progress in 3 -> 2 -> 1 (km/h/month)
 * 21+ km:  0.57 ->  0.57 ->  0.00 km/h/month
 ```
 
-### Races summary
+### Races analysis - Achieved and anticipated performances
 
-**Achieved and anticipated performances**
+**Summary**
 
 | Date       | Speed (Time) | Result        | Race            |
 |------------|--------------|---------------|-----------------|
@@ -176,7 +176,7 @@ dist (km): progress in 3 -> 2 -> 1 (km/h/month)
 | 2023-07-23 | 15.0 (1h20)  | 4% (30/767)   | 20 km CDGR 20   |
 | 2023-04-02 | 14.5 (2h50)  | - (-)         | Berlin 42.2     |
 
-### Races details
+**Details**
 
 Runners performances with various percentiles and my own performance.
 
@@ -206,3 +206,11 @@ python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
 
 ![](build/race-results2022-10-23-Mueggelsee-21.1km-Figure_1.png)
 ![](build/race-results2022-10-23-Mueggelsee-21.1km-Figure_2.png)
+
+### Phone lockscreen
+
+To keep a time plan at hand.
+
+Example: 2022-10-23 Müggelsee's half marathon:
+
+<img src="build/lockscreen-race-2022-10-23-Mueggelsee.png" width="300px">
