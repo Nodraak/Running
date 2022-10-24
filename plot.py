@@ -147,7 +147,7 @@ def print_distance_and_mileage(data):
                 return
 
             print(
-                "%s: %2d runs - %3d km / %4.1f h - avg/run: %4.1f km, %5.2f km/h - predicted: %5.2f/%5.2f km/h" % (
+                "%s: %2d runs - %4d km / %4.1f h - avg/run: %4.1f km, %5.2f km/h - predicted: %5.2f/%5.2f km/h" % (
                     date,
                     len(dic["dist"]["all"]),
                     dic["dist"]["sum"], dic["time_h"]["sum"],
