@@ -99,6 +99,9 @@ def plot_err_bar(date, x_size, ys):
     # mean horiz line
     plt.plot([x0, x1], [y_mean, y_mean], color="blue")
 
+    # median
+    plt.plot(x50, ys["median"], "o", color="blue")
+
 #
 # plot
 #
@@ -152,7 +155,7 @@ def print_distance_and_mileage(data):
                     len(dic["dist"]["all"]),
                     dic["dist"]["sum"], dic["time_h"]["sum"],
                     dic["dist"]["mean"], dic["speed"]["mean"],
-                    dic["predicted"]["hm_speed"]["mean"], dic["predicted"]["m_speed"]["mean"],
+                    dic["predicted"]["hm_speed"]["median"], dic["predicted"]["m_speed"]["median"],
                 )
             )
 
