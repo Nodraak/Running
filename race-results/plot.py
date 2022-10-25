@@ -41,6 +41,8 @@ def main():
     ME_RANK = data["me_rank"]
     ME_LEGEND = data["me_legend"]
 
+    ME_COLOR = "gray"
+
     with open(FILEPATH_DATA) as f:
         print("Loading %s..." % FILEPATH_DATA)
         data = json.load(f)
@@ -72,8 +74,8 @@ def main():
         legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
         plt.plot(int(i)+1, t, "x", label=legend, color=c)
 
-    plt.axhline(ME_TIME, label=ME_LEGEND, color="orange")
-    plt.axvline(ME_RANK, label=ME_LEGEND, color="orange")
+    plt.axhline(ME_TIME, label=ME_LEGEND, color=ME_COLOR)
+    plt.axvline(ME_RANK, label=ME_LEGEND, color=ME_COLOR)
 
     plt.legend()
 
@@ -89,7 +91,12 @@ def main():
     plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(formatter))
 
     plt.hist(times_all, bins=N_BINS)
-    plt.axvline(ME_TIME, label=ME_LEGEND, color="orange")
+
+    for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
+        legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
+        plt.axvline(t, linestyle="--", label=legend, color=c)
+
+    plt.axvline(ME_TIME, label=ME_LEGEND, color=ME_COLOR)
 
     plt.legend()
 
