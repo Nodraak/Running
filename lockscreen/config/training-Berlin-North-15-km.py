@@ -1,20 +1,24 @@
 #!/usr/bin/env python3
 
-TEXT_TOP_LEFT = (
-    ("14.50 km/h = 4:08 / km", {"color": "red"}),
-    (" 4:08  1.0                 ", {"color": "green"}),
-    ("12:50  3.1                 ", {"color": "gray"}),
-    ("24:00  5.8                 ", {"color": "green"}),
-    ("39:20  9.5                 ", {"color": "gray"}),
-    ("51:20 12.4                 ", {"color": "green"}),
-    ("62:00 15.0                 ", {"color": "red"}),
-    ("-", {"color": "gray"}),
-)
-TEXT_BOTTOM_LEFT = (
-    ("13.20 km/h = 4:30 / km", {"color": "red"}),
-    ("14:05  3.1                 ", {"color": "gray"}),
-    ("26:30  5.8                 ", {"color": "green"}),
-    ("43:15  9.5                 ", {"color": "gray"}),
-    ("56:30 12.4                 ", {"color": "green"}),
-    ("68:10 15.0                 ", {"color": "red"}),
-)
+CONF = {
+    "RACE_DIST_KM": 15.0,
+    "RACE_GOAL_TIME_S": 60*60,
+    "TEXT_TOP_LEFT": (
+        {"fmt": "{race_goal_time:3.0f}  {race_goal_speed:.2f} km/h  {km_time:5s} /km", "kwargs": {}, "plt_kwargs": {"color": "red"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist":  1.0}, "plt_kwargs": {"color": "green"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist":  3.1}, "plt_kwargs": {"color": "gray"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist":  5.8}, "plt_kwargs": {"color": "green"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist":  9.5}, "plt_kwargs": {"color": "gray"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist": 12.4}, "plt_kwargs": {"color": "green"}},
+        {"fmt": "{time:5s}  {dist:4.1f}  -",        "kwargs": {"dist": 15.0}, "plt_kwargs": {"color": "red"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+    ),
+    "TEXT_BOTTOM_LEFT": (
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+        {"fmt": "-",                                "kwargs": {},             "plt_kwargs": {"color": "gray"}},
+    ),
+}
