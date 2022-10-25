@@ -128,10 +128,10 @@ def process_stats_complex(runs):
         "time_h": process_stats_basic([r.time_h for r in runs]),
         "speed": process_stats_basic([r.speed for r in runs]),  # TODO weights by dist
         "predicted": {
-            "hm_time": process_stats_basic([r.hm_time for r in runs]),
-            "hm_speed": process_stats_basic([21.1 / r.hm_time for r in runs]),
-            "m_time": process_stats_basic([r.m_time for r in runs]),
-            "m_speed": process_stats_basic([42.2 / r.m_time for r in runs]),
+            "hm_time": process_stats_basic(sorted([r.hm_time for r in runs])[-4:]),
+            "hm_speed": process_stats_basic(sorted([21.1 / r.hm_time for r in runs])[-4:]),
+            "m_time": process_stats_basic(sorted([r.m_time for r in runs])[-4:]),
+            "m_speed": process_stats_basic(sorted([42.2 / r.m_time for r in runs])[-4:]),
         },
     }
     r["predicted"]["dist_at_14_1_kmph"] = estimate_distance_at_14_1(r["dist"]["mean"], r["time_h"]["mean"])
@@ -163,6 +163,7 @@ def process_stats_basic(values):
     return {
         "all": values,
         "sum": sum(values),
+        "median": statistics.median(values) if len(values) != 0 else 0,
         "mean": sum(values_filtered)/len(values_filtered) if len(values_filtered) != 0 else 0,
         "std": statistics.stdev(values_filtered) if (len(values_filtered) >= 2) else 0,
         "min": min(values_filtered) if len(values_filtered) != 0 else 0,
