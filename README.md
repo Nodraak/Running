@@ -168,8 +168,8 @@ dist (km): progress in 3 -> 2 -> 1 (km/h/month)
 |------------|--------------|---------------|-----------------|
 | 2022-04-24 | 12.0 (1h45)  | 21% (94/436)  | Spreewald 21.1  |
 | 2022-07-24 | 13.5 (1h30)  | 12% (95/767)  | 20 km CDGR 20   |
+| 2022-10-23 | 14.1 (1h29)  | 4% (46/1164)  | Mueggelsee 21.1 |
 |            |              |               |                 |
-| 2022-10-23 | 14.0 (1h30)  | 6% (60/1000)  | Mueggelsee 21.1 |
 | 2022-11-27 | 14.5 (1h27)  | 10% (0.8k/8k) | Boulogne 21.1   |
 | 2023-04-02 | 14.0 (3h00)  | 5% (1.7k/34k) | Paris 42.2      |
 | 2023-04-30 | 14.0 (3h00)  | 2% (5/200)    | Spreewald 42.2  |
@@ -197,3 +197,12 @@ python3 race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/
 
 ![](build/race-results2022-07-24-20km-CDGR-20km-Figure_1.png)
 ![](build/race-results2022-07-24-20km-CDGR-20km-Figure_2.png)
+
+**2022-10-23 - 21.1 km Mueggelsee - 21.1 km**
+
+```bash
+python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
+```
+
+![](build/race-results2022-10-23-Mueggelsee-21.1km-Figure_1.png)
+![](build/race-results2022-10-23-Mueggelsee-21.1km-Figure_2.png)
