@@ -23,7 +23,12 @@ def main():
 
     N_BINS = 75
 
-    def formatter(x, pos=None):
+    def formatter_participants_factory(scale):
+        def formatter_participants(x, pos=None):
+            return "%d%% (N=%d)" % (x, x/scale)
+        return formatter_participants
+
+    def formatter_time(x, pos=None):
         h = int(x / 3600)
         m = int((x % 3600) / 60)
         s = int(x % 60)
@@ -52,9 +57,11 @@ def main():
     # prepare
     #
 
+    SCALE = 100/len(data)
+
     times_all = [tup["time_raw"] for tup in data]
 
-    indexes = [len(data)*p/100 for p in PERCENTS]
+    indexes = [p/SCALE for p in PERCENTS]
     times_slots = [data[int(i)]["time_raw"] for i in indexes]
 
     #
@@ -65,19 +72,22 @@ def main():
 
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
 
-    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(formatter))
+    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(formatter_participants_factory(SCALE)))
+    plt.gca().yaxis.set_major_formatter(ticker.FuncFormatter(formatter_time))
     plt.ylabel("Time")
     plt.xlabel("Runners")
 
-    plt.plot(range(1, len(times_all)+1), times_all)
+    xs = [i*SCALE for i in range(1, len(times_all)+1)]
+    plt.plot(xs, times_all)
+
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
-        legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
-        plt.plot(int(i)+1, t, "x", label=legend, color=c)
+        legend = "p=%d%% (%d), t=%s" % (p, i, formatter_time(t))
+        plt.plot((int(i)+1)*SCALE, t, "x", label=legend, color=c)
 
     plt.axhline(ME_TIME, label=ME_LEGEND, color=ME_COLOR)
-    plt.axvline(ME_RANK, label=ME_LEGEND, color=ME_COLOR)
+    plt.axvline(ME_RANK*SCALE, label=ME_LEGEND, color=ME_COLOR)
 
-    plt.legend()
+    plt.legend(loc="upper left")
 
     plt.savefig(FILEPATH_GRAPH_1)
 
@@ -88,17 +98,17 @@ def main():
     plt.ylabel("Runners (histogram)")
     plt.xlabel("Time")
 
-    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(formatter))
+    plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(formatter_time))
 
     plt.hist(times_all, bins=N_BINS)
 
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
-        legend = "p=%d%% (%d), t=%s" % (p, i, formatter(t))
+        legend = "p=%d%% (%d), t=%s" % (p, i, formatter_time(t))
         plt.axvline(t, linestyle="--", label=legend, color=c)
 
     plt.axvline(ME_TIME, label=ME_LEGEND, color=ME_COLOR)
 
-    plt.legend()
+    plt.legend(loc="upper left")
 
     plt.savefig(FILEPATH_GRAPH_2)
 
