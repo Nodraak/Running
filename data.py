@@ -154,7 +154,7 @@ RUNS = (
     RunShort(pd('2022-09-23'), 9, 36.63, 7),
     RunLong(pd('2022-09-25'), 15, 64.58, 17),
 
-    # 12 runs - 160-170 km (TBC)
+    # 9 runs - 140 km
     RunShort(pd('2022-10-04'), 15, 62.00, 11), # PB - 15k: 14.50 km/h (21.1k: 14.22)
     RunShort(pd('2022-10-07'), 15, 65.75, 9),  # relax
     RunLong(pd('2022-10-09'), 21, 90.50, 15),
@@ -162,6 +162,10 @@ RUNS = (
     RunShort(pd('2022-10-14'), 15, 68.00, 15),  # relax
     RunShort(pd('2022-10-19'), 15, 65.28, 13),  # relax
     RunRace(pd('2022-10-23'), 21.1, 89.88, 15),  # Race Mueggelsee - 21.1k: 14.1 km/h
+    RunShort(pd('2022-10-28'), 6, 26.75, 13),  # relax
+    RunShort(pd('2022-10-30'), 12, 52.20, 20),  # relax
+
+    # 12 runs - 160-180 km (TBC)
 
 
 
