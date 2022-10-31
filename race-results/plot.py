@@ -1,4 +1,30 @@
 #!/usr/bin/env python3
+"""
+## (Parsed) data format
+
+```py
+[
+  [
+    # basic
+    name,
+    gender,
+    time_raw
+    place_global,
+
+    # Spreewald
+    age,
+    registrationdate,
+    place_age,
+    speed,
+
+    # 20 km CDGR
+    place_cat,
+    time_net,
+    nat,
+  ],
+]
+```
+"""
 
 import json
 import sys
