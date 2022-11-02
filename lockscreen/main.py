@@ -76,6 +76,14 @@ def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time
 
     ret = "%2d:%02d" % (time_f_m, time_f_s)
 
+    # Print speed
+
+    if checkpoint_dist_km != 0:
+        dold, told = getattr(checkpoint_calc_and_format_time, "old", (0, 0))
+        d, t = checkpoint_dist_km, time_s
+        print("checkpoint_calc_and_format_time: cp=%4.1f dd=%4.1f dt=%4.0f v=%5.2f" % (d, d-dold, t-told, (d-dold)*3600/(t-told)))
+        checkpoint_calc_and_format_time.old = d, t
+
     return ret
 
 

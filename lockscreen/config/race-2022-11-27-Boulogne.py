@@ -1,4 +1,19 @@
 #!/usr/bin/env python3
+"""
+# Stdout
+
+RACE_GOAL_TIME_S=87:
+checkpoint_calc_and_format_time: cp= 5.0 dd= 5.0 dt=1266 v=14.22
+checkpoint_calc_and_format_time: cp=10.0 dd= 5.0 dt=1214 v=14.83
+checkpoint_calc_and_format_time: cp=15.0 dd= 5.0 dt=1229 v=14.64
+checkpoint_calc_and_format_time: cp=21.1 dd= 6.1 dt=1511 v=14.53
+
+RACE_GOAL_TIME_S=88:
+checkpoint_calc_and_format_time: cp= 5.0 dd= 5.0 dt=1280 v=14.06
+checkpoint_calc_and_format_time: cp=10.0 dd= 5.0 dt=1228 v=14.66
+checkpoint_calc_and_format_time: cp=15.0 dd= 5.0 dt=1244 v=14.47
+checkpoint_calc_and_format_time: cp=21.1 dd= 6.1 dt=1529 v=14.36
+"""
 
 CONF = {
     "RACE_DIST_KM": 21.1,
