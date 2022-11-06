@@ -22,6 +22,8 @@ Runners performances with various percentiles and my own performance.
 python3 race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/
 python3 race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/
 python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
+
+python3 race-results/plot-all.py
 ```
 
 **2022-04-24 - Spreewald - 21.1 km**
@@ -38,6 +40,10 @@ python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
 
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_1.png)
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_2.png)
+
+**All**
+
+![](../build/race-results-all.png)
 
 ## Statistics - Participated
 
