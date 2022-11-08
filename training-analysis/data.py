@@ -172,4 +172,6 @@ RUNS = (
     # Goals
     RunGoal(pd('2022-11-27'), 21.1, 88, None), # Boulogne (ready for 3h marathon)
     RunGoal(pd('2023-04-02'), 42.2, 180, None), # Paris (3h marathon)
+    RunGoal(pd('2023-04-02'), 21.1, 86.33, None), # Paris (3h marathon) = HM: 14.66
+    RunGoal(pd('2023-04-02'), 15, 60.13, None), # Paris (3h marathon) = 15 km: 14.97
 )
