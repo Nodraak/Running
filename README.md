@@ -50,7 +50,7 @@ python3 race-results/plot-all.py
 
 ### Lockscreen
 
-*Note: cf [lockscreen/README.md](lockscreen/README.me) to see all the graphs.*
+*Note: cf [lockscreen/README.md](lockscreen/README.md) to see all the graphs.*
 
 Generate backgrounds for my phone to keep a plan at hand.
 this plan consists of a list of distance-time checkpoints.
