@@ -36,7 +36,7 @@ python3 training-analysis/main.py
 == Milage (yearly) ==
 2020-01-01:  6 runs -   32 km /  3.0 h - avg/run:  5.9 km, 11.27 km/h - predicted: 10.74/10.31 km/h
 2021-01-01: 27 runs -  223 km / 19.4 h - avg/run:  8.5 km, 11.72 km/h - predicted: 11.92/11.44 km/h
-2022-01-01: 79 runs - 1037 km / 78.9 h - avg/run: 13.2 km, 13.24 km/h - predicted: 14.05/13.47 km/h
+2022-01-01: 84 runs - 1098 km / 83.2 h - avg/run: 13.2 km, 13.30 km/h - predicted: 14.05/13.47 km/h
 
 == Milage (monthly) ==
 2022-01-01:  2 runs -   15 km /  1.4 h - avg/run:  7.8 km, 11.14 km/h - predicted: 10.50/10.07 km/h
@@ -49,6 +49,7 @@ python3 training-analysis/main.py
 2022-08-01: 12 runs -  163 km / 11.9 h - avg/run: 14.3 km, 13.85 km/h - predicted: 13.62/13.06 km/h
 2022-09-01: 10 runs -  163 km / 11.9 h - avg/run: 17.1 km, 13.92 km/h - predicted: 13.91/13.34 km/h
 2022-10-01:  9 runs -  135 km /  9.7 h - avg/run: 16.1 km, 13.94 km/h - predicted: 14.03/13.46 km/h
+2022-11-01:  5 runs -   60 km /  4.3 h - avg/run: 13.6 km, 14.29 km/h - predicted: 13.77/13.21 km/h
 
 == Milage (weekly) ==
 2022-01-03:  1 runs -    7 km /  0.7 h - avg/run:  7.8 km, 11.14 km/h - predicted: 10.50/10.07 km/h
@@ -94,13 +95,18 @@ python3 training-analysis/main.py
 2022-10-10:  2 runs -   30 km /  2.2 h - avg/run: 15.0 km, 13.75 km/h - predicted: 13.47/12.92 km/h
 2022-10-17:  2 runs -   36 km /  2.6 h - avg/run: 18.1 km, 13.94 km/h - predicted: 13.80/13.23 km/h
 2022-10-24:  2 runs -   18 km /  1.3 h - avg/run:  9.0 km, 13.63 km/h - predicted: 12.91/12.38 km/h
+2022-10-31:  2 runs -   30 km /  2.1 h - avg/run: 15.0 km, 14.09 km/h - predicted: 13.80/13.24 km/h
+2022-11-07:  3 runs -   30 km /  2.1 h - avg/run: 10.1 km, 14.34 km/h - predicted: 13.66/13.10 km/h
 
 == Progress ==
 
-dist (km): progress in 3 -> 2 -> 1 (km/h/month)
-* 9-  km: -0.48 -> -1.12 ->  0.00 km/h/month
-* 12  km:  0.06 -> -0.24 ->  0.00 km/h/month
-* 15  km:  0.11 -> -0.17 -> -1.32 km/h/month
-* 18  km:  0.00 ->  0.00 ->  0.00 km/h/month
-* 21+ km:  0.60 ->  0.87 ->  0.35 km/h/month
+(f(month) = km/h/month ; by distance)
+
+        |    12     9     6     3     2     1
+--------+-------+-----+-----+-----+-----+-----+
+  9- km |   0.31  0.24  0.19 -0.04 -0.17 -4.47
+  12 km |   0.40  0.40  0.23  0.05  0.00  0.00
+  15 km |   0.35  0.35  0.35  0.25  0.03  0.00
+  18 km |   0.40  0.40  1.07  0.00  0.00  0.00
+ 21+ km |   0.29  0.29  0.25  0.60  0.78  0.00
 ```
