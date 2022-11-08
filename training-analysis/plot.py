@@ -173,11 +173,17 @@ def print_distance_and_mileage(data):
 
 def print_speed_prog(data):
     print("\n== Progress ==\n")
-    print("dist (km): progress in 3 -> 2 -> 1 (km/h/month)")
+    print("(f(month) = km/h/month ; by distance)")
+    print("")
+    print("        |    12     9     6     3     2     1")
+    print("--------+-------+-----+-----+-----+-----+-----+")
     for dist_ref, sr_data_all in data["regressions"].items():
         # print reg
-        print("* %-3s km: %5.2f -> %5.2f -> %5.2f km/h/month" % (
+        print("%4s km |  %5.2f %5.2f %5.2f %5.2f %5.2f %5.2f" % (
             dist_ref,
+            sr_data_all[12]["k1"]*86400*365/12,
+            sr_data_all[9]["k1"]*86400*365/12,
+            sr_data_all[6]["k1"]*86400*365/12,
             sr_data_all[3]["k1"]*86400*365/12,
             sr_data_all[2]["k1"]*86400*365/12,
             sr_data_all[1]["k1"]*86400*365/12,

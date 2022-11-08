@@ -209,7 +209,7 @@ def process_speed_regression(RUNS):
                 if is_in_range(dist_range, r.distance) and (r.temp is not None) and (not isinstance(r, RunRelax))
             ]
         }
-        for dt in [3, 2, 1]:
+        for dt in [12, 9, 6, 3, 2, 1]:
             runs = [
                 r for r in ret_regressions[dist_ref]["all"]
                 if (datetime.date.today() - r.date < datetime.timedelta(30*dt))
