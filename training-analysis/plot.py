@@ -13,23 +13,25 @@ from matplotlib.dates import date2num
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
-from utils import date2timestamp, date_ym_eq, RunShort, RunLong, RunRace, RunGoal
+from utils import date2timestamp, date_ym_eq, RunGoal, RunLong, RunRace, RunRelax, RunShort
 
 
 FIGSIZE = (1200, 900)
 DPI = 100
 
 RUN2COLORS = {
-    RunShort: "blue",
+    RunGoal: "orange",
     RunLong: "green",
     RunRace: "brown",
-    RunGoal: "gray",
+    RunRelax: "gray",
+    RunShort: "blue",
 }
 RUN2LABEL = {
-    RunShort: "Short run",
+    RunGoal: "Goal",
     RunLong: "Long run",
     RunRace: "Race",
-    RunGoal: "Goal",
+    RunRelax: "Relaxed run",
+    RunShort: "Short run",
 }
 
 C_LINE = "#E0E0E0"
@@ -268,7 +270,7 @@ def plot_speed_prog(data, start, end):
 
     for r in data["runs"]:
         if isinstance(r, RunGoal):
-            plt.plot(r.date, r.speed, 'o', color='#808080', label='_nolegend_')
+            plt.plot(r.date, r.speed, 'o', color=RUN2COLORS[RunGoal], label='_nolegend_')
 
     legend = []
     for dist_ref, sr_data_all in data["regressions"].items():

@@ -121,6 +121,11 @@ class RunRace(Run):
     pass
 
 
+class RunRelax(Run):
+    # pylint: disable=too-few-public-methods
+    pass
+
+
 class RunShort(Run):
     # pylint: disable=too-few-public-methods
     pass

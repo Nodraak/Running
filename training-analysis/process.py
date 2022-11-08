@@ -12,7 +12,7 @@ import statistics
 from dateutil import rrule
 from sklearn.linear_model import LinearRegression
 
-from utils import date2timestamp, pd, date_y_eq, date_ym_eq, date_yw_eq, estimate_distance_at_14_1, RunGoal
+from utils import date2timestamp, pd, date_y_eq, date_ym_eq, date_yw_eq, estimate_distance_at_14_1, RunGoal, RunRelax
 
 
 def process_all(all_runs, start, end):
@@ -206,7 +206,7 @@ def process_speed_regression(RUNS):
         ret_regressions[dist_ref] = {
             "all": [
                 r for r in RUNS
-                if (is_in_range(dist_range, r.distance) and r.temp is not None)
+                if is_in_range(dist_range, r.distance) and (r.temp is not None) and (not isinstance(r, RunRelax))
             ]
         }
         for dt in [3, 2, 1]:

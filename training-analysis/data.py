@@ -3,7 +3,7 @@
 Run data.
 """
 
-from utils import pd, RunGoal, RunLong, RunRace, RunShort
+from utils import pd, RunGoal, RunLong, RunRace, RunRelax, RunShort
 
 
 RUNS = (
@@ -121,9 +121,9 @@ RUNS = (
     RunShort(pd('2022-07-08'), 12, 49.83, 15),
     RunShort(pd('2022-07-09'), 15, 66.60, 18),
     RunLong(pd('2022-07-12'), 18, 80.50, 16),
-    RunShort(pd('2022-07-16'), 9, 42.00, 22),  # Note - mauvaise respiration
-    RunShort(pd('2022-07-18'), 12, 53.00, 18),  # Note - mauvaise respiration
-    RunShort(pd('2022-07-22'), 6, 25.90, 20),  # Note - 2x 25 m de denivele
+    RunRelax(pd('2022-07-16'), 9, 42.00, 22),  # Note - mauvaise respiration
+    RunRelax(pd('2022-07-18'), 12, 53.00, 18),  # Note - mauvaise respiration
+    RunRelax(pd('2022-07-22'), 6, 25.90, 20),  # Note - 2x 25 m de denivele
     RunRace(pd('2022-07-24'), 20, 89.33, 22), # Race CDGR - 20k: 13.43 km/h
     RunShort(pd('2022-07-26'), 6, 25.30, 19),
     RunShort(pd('2022-07-28'), 9, 37.66, 20),
@@ -156,14 +156,14 @@ RUNS = (
 
     # 9 runs - 140 km
     RunShort(pd('2022-10-04'), 15, 62.00, 11), # PB - 15k: 14.50 km/h (21.1k: 14.22)
-    RunShort(pd('2022-10-07'), 15, 65.75, 9),  # relax
+    RunRelax(pd('2022-10-07'), 15, 65.75, 9),
     RunLong(pd('2022-10-09'), 21, 90.50, 15),
     RunShort(pd('2022-10-12'), 15, 63.13, 15),
-    RunShort(pd('2022-10-14'), 15, 68.00, 15),  # relax
-    RunShort(pd('2022-10-19'), 15, 65.28, 13),  # relax
+    RunRelax(pd('2022-10-14'), 15, 68.00, 15),
+    RunRelax(pd('2022-10-19'), 15, 65.28, 13),
     RunRace(pd('2022-10-23'), 21.1, 89.88, 15),  # Race Mueggelsee - 21.1k: 14.1 km/h
-    RunShort(pd('2022-10-28'), 6, 26.75, 13),  # relax
-    RunShort(pd('2022-10-30'), 12, 52.20, 20),  # relax
+    RunRelax(pd('2022-10-28'), 6, 26.75, 13),
+    RunRelax(pd('2022-10-30'), 12, 52.20, 20),
 
     # 12 runs - 160-180 km (TBC)
 
