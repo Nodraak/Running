@@ -41,8 +41,8 @@ Data has to be preprocessed to convert it to the correct format.
 python3 race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/
 ```
 
-<img src="build/race-results2022-04-24-Spreewald-21.1km-Figure_1.png" width="300px">
-<img src="build/race-results2022-04-24-Spreewald-21.1km-Figure_2.png" width="300px">
+<img src="build/race-results-2022-04-24-Spreewald-21.1km-Figure_1.png" width="300px">
+<img src="build/race-results-2022-04-24-Spreewald-21.1km-Figure_2.png" width="300px">
 
 ### Lockscreen
 
