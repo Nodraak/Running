@@ -13,7 +13,7 @@ from matplotlib.dates import date2num
 from matplotlib.patches import Rectangle
 from matplotlib.ticker import FuncFormatter
 
-from utils import date2timestamp, date_ym_eq, RunGoal, RunLong, RunRace, RunRelax, RunShort
+from utils import date2timestamp, date_ym_eq, RunGoal, RunLong, RunRace, RunRelax, RunShort, RunCross
 
 
 FIGSIZE = (1200, 900)
@@ -25,6 +25,7 @@ RUN2COLORS = {
     RunRace: "brown",
     RunRelax: "gray",
     RunShort: "blue",
+    RunCross: "gray",
 }
 RUN2LABEL = {
     RunGoal: "Goal",
@@ -32,6 +33,7 @@ RUN2LABEL = {
     RunRace: "Race",
     RunRelax: "Relaxed run",
     RunShort: "Short run",
+    RunCross: "Cross training",
 }
 
 C_LINE = "#E0E0E0"

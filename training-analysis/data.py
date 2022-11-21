@@ -3,7 +3,7 @@
 Run data.
 """
 
-from utils import pd, RunGoal, RunLong, RunRace, RunRelax, RunShort
+from utils import pd, RunGoal, RunLong, RunRace, RunRelax, RunShort, RunCross
 
 
 RUNS = (

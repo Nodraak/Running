@@ -129,3 +129,11 @@ class RunRelax(Run):
 class RunShort(Run):
     # pylint: disable=too-few-public-methods
     pass
+
+
+class RunCross(RunRelax):
+    def __init__(self, date, time_mn):
+        speed = 12
+        distance = speed * (time_mn/60)  # km/h * (time_mn/60)
+        temp = None
+        super().__init__(date, distance, time_mn, temp)
