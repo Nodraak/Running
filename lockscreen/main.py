@@ -74,6 +74,8 @@ def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time
     time_f_m = int(time_s/60) % 60
     time_f_s = int(time_s/1) % 60
 
+    time_f_s = round(time_f_s/TIME_ROUND_S) * TIME_ROUND_S  # round to TIME_ROUND_S closest seconds
+
     ret = "%2d:%02d" % (time_f_m, time_f_s)
 
     # Print speed
