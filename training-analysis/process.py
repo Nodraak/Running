@@ -134,12 +134,12 @@ def process_stats_complex(runs):
             "m_speed": process_stats_basic(sorted([42.2 / r.m_time for r in runs])[-4:]),
         },
     }
-    r["predicted"]["dist_at_14_1_kmph"] = estimate_distance_at_14_1(r["dist"]["mean"], r["time_h"]["mean"])
+    r["predicted"]["dist_at_14_1_kmph"] = estimate_distance_at_14_1(r["dist"]["f_median"], r["time_h"]["f_median"])
 
     return r
 
 
-def process_stats_basic(values):
+def process_stats_basic(values_all):
     """
     Return an object looking like the following:
     {
@@ -154,20 +154,25 @@ def process_stats_basic(values):
     }
     """
 
-    if len(values) < 5:
-        values_filtered = values
-    else:
-        # remove outliner (lowest value)
-        values_filtered = sorted(values)[1:]
+    # avoid exceptions later
+    if len(values_all) == 0:
+        values_all = [0]
+
+    # remove outliners (lowest X% values)
+    to_remove = len(values_all) * 0.34
+    values_filtered = sorted(values_all)[int(to_remove):]
 
     return {
-        "all": values,
-        "sum": sum(values),
-        "median": statistics.median(values) if len(values) != 0 else 0,
-        "mean": sum(values_filtered)/len(values_filtered) if len(values_filtered) != 0 else 0,
-        "std": statistics.stdev(values_filtered) if (len(values_filtered) >= 2) else 0,
-        "min": min(values_filtered) if len(values_filtered) != 0 else 0,
-        "max": max(values_filtered) if len(values_filtered) != 0 else 0,
+        # for yearly/monthly/weekly stats
+        "a_all": values_all,
+        "a_sum": sum(values_all),
+        "a_mean": sum(values_all)/len(values_all),
+        # for progression stats
+        "f_median": statistics.median(values_filtered),
+        "f_mean": sum(values_filtered)/len(values_filtered),
+        "f_std": statistics.stdev(values_filtered) if (len(values_filtered) >= 2) else 0,
+        "f_min": min(values_filtered),
+        "f_max": max(values_filtered),
     }
 
 

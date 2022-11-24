@@ -77,7 +77,7 @@ def plot_err_bar(date, x_size, ys):
     * x_size: width of the box
     * ys: must contain min, max, mean and std
     """
-    y_min, y_max, y_mean, y_std = ys["min"], ys["max"], ys["mean"], ys["std"]
+    y_min, y_max, y_mean, y_std = ys["f_min"], ys["f_max"], ys["f_mean"], ys["f_std"]
 
     # Note: "matplotlib uses its own representation of dates/times (floating number of days)"
     x0 = date2num(date)+x_size*0/4
@@ -102,7 +102,7 @@ def plot_err_bar(date, x_size, ys):
     plt.plot([x0, x1], [y_mean, y_mean], color="blue")
 
     # median
-    plt.plot(x50, ys["median"], "o", color="blue")
+    plt.plot(x50, ys["f_median"], "o", color="blue")
 
 #
 # plot
@@ -152,12 +152,12 @@ def print_distance_and_mileage(data):
                 return
 
             print(
-                "%s: %2d runs - %4d km / %4.1f h - avg/run: %4.1f km, %5.2f km/h - predicted: %5.2f/%5.2f km/h" % (
+                "%s: %2d runs - %4d km / %4.1f h - a_avg/run: %4.1f km, %5.2f km/h - f_predicted_med: %5.2f/%5.2f km/h" % (
                     date,
-                    len(dic["dist"]["all"]),
-                    dic["dist"]["sum"], dic["time_h"]["sum"],
-                    dic["dist"]["mean"], dic["speed"]["mean"],
-                    dic["predicted"]["hm_speed"]["median"], dic["predicted"]["m_speed"]["median"],
+                    len(dic["dist"]["a_all"]),
+                    dic["dist"]["a_sum"], dic["time_h"]["a_sum"],
+                    dic["dist"]["a_mean"], dic["speed"]["a_mean"],
+                    dic["predicted"]["hm_speed"]["f_median"], dic["predicted"]["m_speed"]["f_median"],
                 )
             )
 
@@ -229,11 +229,11 @@ def plot_distance_and_mileage(data, start, end):
     plt.axhline(200, color=C_LINE, label='_nolegend_')
     plt.axhline(240, color=C_LINE, label='_nolegend_')
 
-    ys = [dic["dist"]["sum"] for dic in data["monthly"]["stats"]]
+    ys = [dic["dist"]["a_sum"] for dic in data["monthly"]["stats"]]
     months_length = [dic["duration_days"] for dic in data["monthly"]["stats"]]
     plt.bar(data["monthly"]["dates"], ys, align='edge', width=months_length, label="Monthly")
 
-    ys = [dic["dist"]["sum"] for dic in data["weekly"]["stats"]]
+    ys = [dic["dist"]["a_sum"] for dic in data["weekly"]["stats"]]
     weeks_length = [dic["duration_days"] for dic in data["weekly"]["stats"]]
     plt.bar(data["weekly"]["dates"], ys, align='edge', width=weeks_length, label="Weekly")
 
@@ -306,7 +306,7 @@ def plot_speed_avg(data, start, end):
     plt.axhline(14.1, color=C_LINE, label='_nolegend_')
 
     for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
-        if len(dic["dist"]["all"]) == 0:
+        if len(dic["dist"]["a_all"]) == 0:
             continue
 
         for r in data["runs"]:
@@ -327,7 +327,7 @@ def plot_speed_avg(data, start, end):
     plt.axhline(14.1, color=C_LINE, label='_nolegend_')
 
     for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
-        if len(dic["dist"]["all"]) == 0:
+        if len(dic["dist"]["a_all"]) == 0:
             continue
 
         for r in data["runs"]:
