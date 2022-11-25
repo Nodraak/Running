@@ -243,18 +243,29 @@ def plot_distance_and_mileage(data, start, end):
 
 
 def plot_speed_prog(data, start, end):
+
+    def formatter(x, _pos):
+        speed_kmph = x
+        pace_minpkm = 60 / speed_kmph
+        pace_minpkm_min = int(pace_minpkm)
+        pace_minpkm_sec = int(pace_minpkm*60) % 60
+
+        return f'{speed_kmph:.1f} - {pace_minpkm_min:d}:{pace_minpkm_sec:02d}'
+
     #
     # Speed all
     #
 
     plt.subplot(2, 1, 1, sharex=plt.gca())
-    plt.ylabel("Speed (km/h)")
+    plt.ylabel("Speed (km/h - min:sec / km)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
     plt.xlim((start, end))
-    plt.ylim((10.0, 15.5))
-    plot_grid(data["weekly"]["dates"])
+    plt.ylim((11.5, 15.5))
+
+    plot_grid(data["monthly"]["dates"])
 
     for s in range(11, 15+1):
-        plt.axhline(s, color=C_LINE)
+        plt.axhline(s, color=C_LINE, label='_nolegend_')
 
     for run in data["runs"]:
         plt.plot(run.date, run.speed, 'x', color=RUN2COLORS[run.__class__], label=RUN2LABEL[run.__class__])
@@ -266,15 +277,15 @@ def plot_speed_prog(data, start, end):
     #
 
     plt.subplot(2, 1, 2, sharex=plt.gca())
-    plt.ylabel("Speed (km/h)")
+    plt.ylabel("Speed (km/h - min:sec / km)")
+    plt.gca().yaxis.set_major_formatter(FuncFormatter(formatter))
     plt.xlim((start, end))
     plt.ylim((11.5, 15.5))
 
-    for v in range(120, 150+1, 5):
-        plt.axhline(v/10, color=C_LINE, label='_nolegend_')
+    plot_grid(data["monthly"]["dates"])
 
-    for m in data["monthly"]["dates"]:
-        plt.axvline(m, color=C_LINE, label='_nolegend_')
+    for s in range(11, 15+1):
+        plt.axhline(s, color=C_LINE, label='_nolegend_')
 
     for r in data["runs"]:
         if isinstance(r, RunGoal):
@@ -301,11 +312,14 @@ def plot_speed_avg(data, start, end):
     #
 
     plt.subplot(2, 1, 1, sharex=plt.gca())
-    plt.ylabel("Speed (km/h)")
+    plt.ylabel("Speed (raw) (km/h)")
     plt.xlim((start, end))
     plt.ylim((10.0, 15.5))
-    plot_grid(data["weekly"]["dates"])
-    plt.axhline(14.1, color=C_LINE, label='_nolegend_')
+
+    plot_grid(data["monthly"]["dates"])
+
+    for s in range(11, 15+1):
+        plt.axhline(s, color=C_LINE, label='_nolegend_')
 
     for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
         if len(dic["dist"]["a_all"]) == 0:
@@ -322,11 +336,14 @@ def plot_speed_avg(data, start, end):
     #
 
     plt.subplot(2, 1, 2, sharex=plt.gca())
-    plt.ylabel("Speed (km/h)")
+    plt.ylabel("Speed (half-marathon) (km/h)")
     plt.xlim((start, end))
     plt.ylim((10.0, 15.5))
-    plot_grid(data["weekly"]["dates"])
-    plt.axhline(14.1, color=C_LINE, label='_nolegend_')
+
+    plot_grid(data["monthly"]["dates"])
+
+    for s in range(11, 15+1):
+        plt.axhline(s, color=C_LINE, label='_nolegend_')
 
     for m, dic in zip(data["monthly"]["dates"], data["monthly"]["stats"]):
         if len(dic["dist"]["a_all"]) == 0:
