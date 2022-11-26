@@ -161,11 +161,11 @@ RUNS = (
     RunShort(pd('2022-10-12'), 15, 63.13, 15),
     RunRelax(pd('2022-10-14'), 15, 68.00, 15),
     RunRelax(pd('2022-10-19'), 15, 65.28, 13),
-    RunRace(pd('2022-10-23'), 21.1, 89.88, 15),  # Race Mueggelsee - 21.1k: 14.1 km/h
+    RunRace(pd('2022-10-23'), 21.1, 89.88, 15),  # Race Mueggelsee - 21.1k: 14.10 km/h
     RunRelax(pd('2022-10-28'), 6, 26.75, 13),
     RunRelax(pd('2022-10-30'), 12, 52.20, 20),
 
-    # 12 runs - 160-180 km (TBC)
+    # 11 runs - 140 km (TBC)
     RunShort(pd('2022-11-01'), 15, 63.97, 18),
     RunRelax(pd('2022-11-05'), 15, 63.78, 8),
     RunShort(pd('2022-11-08'), 6, 24.6, 10),
@@ -174,10 +174,12 @@ RUNS = (
     RunShort(pd('2022-11-14'), 15, 63.00, 7), # PB - 15k: 14.30/14.50 (slow start)
     RunCross(pd('2022-11-21'), 40),  # ice skating
     RunShort(pd('2022-11-24'), 12, 51.50, 6),
+    RunRelax(pd('2022-11-26'), 5.9, 26.50, 8),
+    RunRace(pd('2022-11-27'), 21.1, 89.47, 7), # Race Boulogne - 21.1k: 14.15 km/h
+
+    # 8 runs - 140 km (TBC)
 
 
-
-    RunGoal(pd('2022-11-27'), 21.1, 88, None), # Boulogne (on track for 3h marathon)
 
     # Goals
     RunGoal(pd('2023-04-02'), 42.2, 180, None), # Paris (3h marathon)
