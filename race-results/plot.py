@@ -94,6 +94,8 @@ def load(folder):
 
 
 def main():
+    assert len(sys.argv) == 2, "Usage: python3 race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/"
+
     graph_1_path = FILEPATH_GRAPH_1.format(path=sys.argv[1].strip("/").replace("/", "-"))
     graph_2_path = FILEPATH_GRAPH_2.format(path=sys.argv[1].strip("/").replace("/", "-"))
 
@@ -139,6 +141,7 @@ def main():
 
     plt.gca().xaxis.set_major_formatter(ticker.FuncFormatter(formatter_time))
 
+    print("binsize: %d sec" % ((times_all[-1]-times_all[0])/N_BINS))
     plt.hist(times_all, bins=N_BINS)
 
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
