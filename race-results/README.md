@@ -7,7 +7,7 @@
 | 2022-04-24 | 12.0 (1h45)  | 21% (94/436)  | Spreewald 21.1  |
 | 2022-07-24 | 13.5 (1h29)  | 12% (95/767)  | 20 km CDGR 20   |
 | 2022-10-23 | 14.1 (1h29)  | 4% (46/1164)  | Mueggelsee 21.1 |
-| 2022-11-27 | 14.1 (1h29)  | 15% (1.2k/8.1k) | Boulogne 21.1 |
+| 2022-11-27 | 14.1 (1h29)  | 15% (1.2k/8.2k) | Boulogne 21.1 |
 |            |              |               |                 |
 | 2023-04-02 | 14.0 (3h00)  | 5% (1.7k/34k) | Paris 42.2      |
 | 2023-04-30 | 14.0 (3h00)  | 2% (5/200)    | Spreewald 42.2  |
@@ -22,6 +22,7 @@ Runners performances with various percentiles and my own performance.
 python3 race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/
 python3 race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/
 python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
+python3 race-results/plot.py race-results/2022-11-27-Boulogne-21.1km/
 
 python3 race-results/plot-all.py
 ```
@@ -40,6 +41,11 @@ python3 race-results/plot-all.py
 
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_1.png)
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_2.png)
+
+**2022-11-27 - 21.1 km Boulogne - 21.1 km**
+
+![](../build/race-results-2022-11-27-Boulogne-21.1km-Figure_1.png)
+![](../build/race-results-2022-11-27-Boulogne-21.1km-Figure_2.png)
 
 **All**
 
@@ -86,12 +92,28 @@ python3 race-results/plot-all.py
 |---------|-------|----------|-------|
 |       - |     1 | 01:15:47 |  16.7 |
 |      1% |    12 | 01:21:22 |  15.6 |
-| **4%** | **46** | **01:29:53** | **14.1** |
+| **4%** | **46** | **01:29:53** | **14.10** |
 |      5% |    58 | 01:31:29 |  13.8 |
 |     10% |   116 | 01:36:35 |  13.1 |
 |     15% |   175 | 01:40:48 |  12.6 |
 |     20% |   233 | 01:43:35 |  12.2 |
 |     50% |   582 | 01:56:51 |  10.8 |
+
+### 2022-11-27 - 21.1 km Boulogne - 21.1 km
+
+* Source: https://www.sport-up.fr/www/resultat/partenaire-20190624003678-Semimarathon-de-BoulogneBillancourt.htm
+* Runners: 8160
+
+| Percent | Place | Time     | Speed |
+|---------|-------|----------|-------|
+|       - |     1 |  1:03:09 |  20.1 |
+|      1% |    82 |  1:11:25 |  17.7 |
+|      5% |   408 |  1:20:08 |  15.8 |
+|     10% |   816 |  1:25:52 |  14.7 |
+|     15% |  1224 |  1:29:19 |  14.2 |
+| **15%** | **1244** | **01:29:27** | **14.15** |
+|     20% |  1632 |  1:32:34 |  13.7 |
+|     50% |  4080 |  1:47:13 |  11.8 |
 
 ## Statistics - Others
 
