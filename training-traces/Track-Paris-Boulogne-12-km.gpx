@@ -5,7 +5,7 @@ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xmlns="http://www.topografix.com/GPX/1/0"
 xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
 <trk>
-  <name>Track-Paris-12km</name>
+  <name>Track-Paris-Boulogne-12km</name>
   <trkseg>
   <trkpt lat="48.886245529077506" lon="2.261749324388802">
     <ele>39</ele>

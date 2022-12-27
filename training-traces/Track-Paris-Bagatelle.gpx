@@ -1,0 +1,88 @@
+<?xml version="1.0"?>
+<gpx version="1.0"
+creator="Viking 1.7 -- http://viking.sf.net/"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://www.topografix.com/GPX/1/0"
+xsi:schemaLocation="http://www.topografix.com/GPX/1/0 http://www.topografix.com/GPX/1/0/gpx.xsd">
+<trk>
+  <name>Track-Paris-Bagatelle</name>
+  <trkseg>
+  <trkpt lat="48.88625285940975" lon="2.261752006597817">
+  </trkpt>
+  <trkpt lat="48.88609059849668" lon="2.261376497335732">
+  </trkpt>
+  <trkpt lat="48.88500766979002" lon="2.2607381315901875">
+  </trkpt>
+  <trkpt lat="48.88487715236892" lon="2.260979530401528">
+  </trkpt>
+  <trkpt lat="48.88461964402558" lon="2.2609205218032002">
+  </trkpt>
+  <trkpt lat="48.88448912559177" lon="2.260705945082009">
+  </trkpt>
+  <trkpt lat="48.88443268508246" lon="2.2604860039427876">
+  </trkpt>
+  <trkpt lat="48.8805099136317" lon="2.2586728306487203">
+  </trkpt>
+  <trkpt lat="48.88025943845795" lon="2.258750614710152">
+  </trkpt>
+  <trkpt lat="48.88009892201814" lon="2.2583643766120076">
+  </trkpt>
+  <trkpt lat="48.87671913759183" lon="2.2566477628424764">
+  </trkpt>
+  <trkpt lat="48.87428999699388" lon="2.2553898068144917">
+  </trkpt>
+  <trkpt lat="48.87433145390482" lon="2.255076658912003">
+  </trkpt>
+  <trkpt lat="48.87426000686668" lon="2.254805755801499">
+  </trkpt>
+  <trkpt lat="48.875491351422106" lon="2.2497739316895604">
+  </trkpt>
+  <trkpt lat="48.87425647861524" lon="2.2487761499360204">
+  </trkpt>
+  <trkpt lat="48.87424589385942" lon="2.248363089747727">
+  </trkpt>
+  <trkpt lat="48.8740253776039" lon="2.24741626996547">
+  </trkpt>
+  <trkpt lat="48.87388248255133" lon="2.24653382319957">
+  </trkpt>
+  <trkpt lat="48.87388071841228" lon="2.246527117677033">
+  </trkpt>
+  <trkpt lat="48.87402714173775" lon="2.2460993053391576">
+  </trkpt>
+  <trkpt lat="48.87405801407093" lon="2.2456875862553716">
+  </trkpt>
+  <trkpt lat="48.873969807354115" lon="2.2453898610547185">
+  </trkpt>
+  <trkpt lat="48.869271692895246" lon="2.2390491189435124">
+  </trkpt>
+  <trkpt lat="48.869102319659355" lon="2.238931101746857">
+  </trkpt>
+  <trkpt lat="48.86889765956769" lon="2.2390437545254827">
+  </trkpt>
+  <trkpt lat="48.86767673887036" lon="2.241280716843903">
+  </trkpt>
+  <trkpt lat="48.86759204962465" lon="2.2416454972699285">
+  </trkpt>
+  <trkpt lat="48.867625572468214" lon="2.242055875249207">
+  </trkpt>
+  <trkpt lat="48.8676714457967" lon="2.2422972740605474">
+  </trkpt>
+  <trkpt lat="48.8682325084886" lon="2.242959779687226">
+  </trkpt>
+  <trkpt lat="48.87003210108723" lon="2.2444725455716252">
+  </trkpt>
+  <trkpt lat="48.870582551778945" lon="2.2450089873746037">
+  </trkpt>
+  <trkpt lat="48.87268197157775" lon="2.246655863709748">
+  </trkpt>
+  <trkpt lat="48.87320769484414" lon="2.2469696821644902">
+  </trkpt>
+  <trkpt lat="48.87347761101917" lon="2.246953588910401">
+  </trkpt>
+  <trkpt lat="48.87372635600871" lon="2.246773880906403">
+  </trkpt>
+  <trkpt lat="48.873874543925254" lon="2.2465593041852117">
+  </trkpt>
+  </trkseg>
+</trk>
+</gpx>
