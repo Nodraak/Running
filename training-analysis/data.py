@@ -185,6 +185,15 @@ RUNS = (
     RunShort(pd('2022-12-27'), 11.9, 51.80, 8),
     RunShort(pd('2022-12-29'), 12, 50.3, 12),
 
+    #
+    # 2023
+    # Several half-marathon (sub 1h30). Preparing for Paris 2023-04 and Berlin 2023-09 (sub 3h).
+    #
+
+    # 12 runs - 200-240 km
+    RunRelax(pd('2023-01-03'), 12.0, 60, 7),
+    RunRelax(pd('2023-01-05'), 7.0, 35, 7),
+    RunLong(pd('2023-01-07'), 18.6, 78.50, 7),
 
 
     # Goals
