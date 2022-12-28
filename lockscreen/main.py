@@ -9,7 +9,6 @@ from matplotlib.patches import Rectangle
 import numpy as np
 
 
-FIGSIZE = (1024*1.3, 2048*1.3)
 DPI = 100
 
 """
@@ -18,12 +17,27 @@ Honor:
 Height: top=8, bottom=6
 Length: 27 char
 """
-
+"""
+FIGSIZE = (1024*1.3, 2048*1.3)
 FONTSIZE = 40
 LINEHEIGHT = FONTSIZE*1.5
 
 SCREEN_TEXTTOP_Y0 = 1230
 SCREEN_TEXTBOTTOM_Y0 = 430
+"""
+
+"""
+Fairphone:
+
+// Height: top=8, bottom=6
+// Length: 27 char
+"""
+FIGSIZE = (1080*1.3, 2340*1.3)  # Fairphone
+FONTSIZE = 40
+LINEHEIGHT = FONTSIZE*1.5
+
+SCREEN_TEXTTOP_Y0 = 840
+SCREEN_TEXTBOTTOM_Y0 = 380
 
 
 def checkpoint_calc_split_speeds(dtot, ttot_h, split_v):
@@ -38,7 +52,7 @@ def checkpoint_calc_split_speeds(dtot, ttot_h, split_v):
     return vs
 
 
-def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time_s):
+def checkpoint_calc_time(checkpoint_dist_km, total_dist_km, goal_time_s, split_42_dv):
     """
     Considerations:
 
@@ -47,13 +61,11 @@ def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time
         * Total distance split in 4 sections, assumed steady speed for each
     * Slow start: 1 mn
     """
-    SPLIT_42_DV = 0.8
     SLOW_START_S = 60
-    TIME_ROUND_S = 5
 
     # Split - Compute time taking into account 4 different velocities
 
-    vs = checkpoint_calc_split_speeds(total_dist_km, goal_time_s/3600, SPLIT_42_DV * total_dist_km/42.2)
+    vs = checkpoint_calc_split_speeds(total_dist_km, goal_time_s/3600, split_42_dv * total_dist_km/42.2)
 
     time_split_s = 0
     for i, v in enumerate(vs):
@@ -69,6 +81,15 @@ def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time
 
     time_s = time_split_s + time_adjust_slow_start_s
 
+    return time_s
+
+
+def checkpoint_format_time(checkpoint_dist_km, time_s):
+    TIME_ROUND_S = 5
+
+    if not hasattr(checkpoint_format_time, "old"):
+        checkpoint_format_time.old = (0, 0)
+
     # Format
 
     time_f_m = int(time_s/60) % 60
@@ -81,10 +102,11 @@ def checkpoint_calc_and_format_time(checkpoint_dist_km, total_dist_km, goal_time
     # Print speed
 
     if checkpoint_dist_km != 0:
-        dold, told = getattr(checkpoint_calc_and_format_time, "old", (0, 0))
+        dold, told = checkpoint_format_time.old
         d, t = checkpoint_dist_km, time_s
-        print("checkpoint_calc_and_format_time: cp=%4.1f dd=%4.1f dt=%4.0f v=%5.2f" % (d, d-dold, t-told, (d-dold)*3600/(t-told)))
-        checkpoint_calc_and_format_time.old = d, t
+        v = (d-dold)*3600/(t-told) if t-told else 0
+        print("checkpoint_format_time: cp=%4.1f dd=%4.1f dt=%4.0f v=%5.2f" % (d, d-dold, t-told, v))
+        checkpoint_format_time.old = d, t
 
     return ret
 
@@ -113,17 +135,24 @@ def _racescreen_lines(conf, lines, x0, y0):
         y = y0 + LINEHEIGHT * (len(lines) - (i + 0.5))
 
         km_time = conf["RACE_GOAL_TIME_S"] / conf["RACE_DIST_KM"]
+        time_s = checkpoint_calc_time(
+            line["kwargs"].get("dist", 0),
+            conf["RACE_DIST_KM"],
+            conf["RACE_GOAL_TIME_S"],
+            conf["SPLIT_42_DV"],
+        )
 
         kwargs = line["kwargs"].copy()
         kwargs.update({
             "race_goal_time": conf["RACE_GOAL_TIME_S"] / 60,
             "race_goal_speed": conf["RACE_DIST_KM"] * 3600 / conf["RACE_GOAL_TIME_S"],
             "km_time": "%2d:%02d" % (km_time/60, km_time%60),
-            "time": checkpoint_calc_and_format_time(line["kwargs"].get("dist", 0), conf["RACE_DIST_KM"], conf["RACE_GOAL_TIME_S"]),
+            "time": checkpoint_format_time(line["kwargs"].get("dist", 0), time_s),
+            "speed": line["kwargs"].get("dist", 0)/time_s*3600,
         })
 
         txt = line["fmt"].format(**kwargs)
-        assert len(txt) <= 27, "Line is too long: '%s' -> '%s'" % (line["fmt"], txt)
+        assert len(txt) <= 27, "Line is too long (): %d <= %d '%s' -> '%s'" % (len(txt), 27, line["fmt"], txt)
 
         plt.text(x, y, txt, fontname="monospace", weight="bold", fontsize=FONTSIZE, ha="left", va="center", **line["plt_kwargs"])
 
