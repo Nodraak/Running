@@ -177,16 +177,13 @@ RUNS = (
     RunRelax(pd('2022-11-26'), 5.9, 26.50, 8),
     RunRace(pd('2022-11-27'), 21.1, 89.47, 7), # Race Boulogne - 21.1k: 14.15 km/h
 
-    # 8 runs - 100-140 km (TBC)
+    # 6 runs - 55 km
     RunCross(pd('2022-12-01'), 40),  # ice skating
     RunRelax(pd('2022-12-10'), 9.6, 48.00, -1),  # track
     RunShort(pd('2022-12-14'), 5.9, 24.50, -3),  # KMN
     RunRelax(pd('2022-12-21'), 8.8, 40.00, 10),
     RunShort(pd('2022-12-27'), 11.9, 51.80, 8),
-
-    # RunShort(pd('2022-12-29'), 15, xx, 10),
-    # RunShort(pd('2022-12-30'), 9, xx, 8),
-    # RunShort(pd('2022-12-31'), 21, xx, 12),
+    RunShort(pd('2022-12-29'), 12, 50.3, 12),
 
 
 
