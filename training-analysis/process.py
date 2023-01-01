@@ -154,9 +154,20 @@ def process_stats_basic(values_all):
     }
     """
 
-    # avoid exceptions later
     if len(values_all) == 0:
-        values_all = [0]
+        return {
+            # for yearly/monthly/weekly stats
+            "a_all": [],
+            "a_sum": 0,
+            "a_mean": 0,
+            # for progression stats
+            "f_median": 0,
+            "f_mean": None,
+            "f_std": None,
+            "f_min": None,
+            "f_max": None,
+        }
+
 
     # remove outliners (lowest X% values)
     to_remove = len(values_all) * 0.34
