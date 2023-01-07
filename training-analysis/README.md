@@ -36,7 +36,8 @@ python3 training-analysis/main.py
 == Milage (yearly) ==
 2020-01-01:  6 runs -   32 km /  3.0 h - a_avg/run:  5.5 km, 10.89 km/h - f_predicted_med: 10.86/10.42 km/h
 2021-01-01: 27 runs -  223 km / 19.4 h - a_avg/run:  8.3 km, 11.55 km/h - f_predicted_med: 11.92/11.44 km/h
-2022-01-01: 87 runs - 1133 km / 85.8 h - a_avg/run: 13.0 km, 13.28 km/h - f_predicted_med: 14.09/13.51 km/h
+2022-01-01: 95 runs - 1216 km / 91.9 h - a_avg/run: 12.8 km, 13.29 km/h - f_predicted_med: 14.15/13.57 km/h
+2023-01-01:  3 runs -   37 km /  2.9 h - a_avg/run: 12.5 km, 12.74 km/h - f_predicted_med: 12.85/12.33 km/h
 
 == Milage (monthly) ==
 2022-01-01:  2 runs -   15 km /  1.4 h - a_avg/run:  7.8 km, 11.14 km/h - f_predicted_med: 10.50/10.07 km/h
@@ -49,18 +50,20 @@ python3 training-analysis/main.py
 2022-08-01: 12 runs -  163 km / 11.9 h - a_avg/run: 13.6 km, 13.80 km/h - f_predicted_med: 13.65/13.09 km/h
 2022-09-01: 10 runs -  163 km / 11.9 h - a_avg/run: 16.3 km, 13.82 km/h - f_predicted_med: 13.93/13.36 km/h
 2022-10-01:  9 runs -  135 km /  9.7 h - a_avg/run: 15.0 km, 13.86 km/h - f_predicted_med: 14.09/13.51 km/h
-2022-11-01:  8 runs -   95 km /  6.8 h - a_avg/run: 11.9 km, 13.93 km/h - f_predicted_med: 13.83/13.26 km/h
+2022-11-01: 10 runs -  122 km /  8.8 h - a_avg/run: 12.2 km, 13.90 km/h - f_predicted_med: 14.00/13.43 km/h
+2022-12-01:  6 runs -   56 km /  4.2 h - a_avg/run:  9.4 km, 13.29 km/h - f_predicted_med: 13.39/12.84 km/h
+2023-01-01:  3 runs -   37 km /  2.9 h - a_avg/run: 12.5 km, 12.74 km/h - f_predicted_med: 12.85/12.33 km/h
 
 == Milage (weekly) ==
 2022-01-03:  1 runs -    7 km /  0.7 h - a_avg/run:  7.8 km, 11.14 km/h - f_predicted_med: 10.50/10.07 km/h
-2022-01-10:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
-2022-01-17:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
-2022-01-24:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
-2022-01-31:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-01-10:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-01-17:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-01-24:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-01-31:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
 2022-02-07:  1 runs -    6 km /  0.5 h - a_avg/run:  6.0 km, 12.00 km/h - f_predicted_med: 11.13/10.67 km/h
 2022-02-14:  1 runs -    5 km /  0.5 h - a_avg/run:  5.8 km, 12.89 km/h - f_predicted_med: 11.93/11.44 km/h
 2022-02-21:  1 runs -   11 km /  0.9 h - a_avg/run: 11.2 km, 12.22 km/h - f_predicted_med: 11.76/11.28 km/h
-2022-02-28:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-02-28:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
 2022-03-07:  2 runs -   24 km /  2.0 h - a_avg/run: 12.0 km, 12.00 km/h - f_predicted_med: 11.60/11.13 km/h
 2022-03-14:  1 runs -   12 km /  1.0 h - a_avg/run: 12.0 km, 12.00 km/h - f_predicted_med: 11.60/11.13 km/h
 2022-03-21:  1 runs -   12 km /  1.0 h - a_avg/run: 12.0 km, 12.00 km/h - f_predicted_med: 11.60/11.13 km/h
@@ -90,7 +93,7 @@ python3 training-analysis/main.py
 2022-09-05:  3 runs -   55 km /  4.1 h - a_avg/run: 18.3 km, 13.56 km/h - f_predicted_med: 13.62/13.07 km/h
 2022-09-12:  3 runs -   54 km /  3.9 h - a_avg/run: 18.0 km, 13.86 km/h - f_predicted_med: 13.81/13.25 km/h
 2022-09-19:  3 runs -   39 km /  2.8 h - a_avg/run: 13.0 km, 14.23 km/h - f_predicted_med: 13.86/13.30 km/h
-2022-09-26:  1 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
+2022-09-26:  0 runs -    0 km /  0.0 h - a_avg/run:  0.0 km,  0.00 km/h - f_predicted_med:  0.00/ 0.00 km/h
 2022-10-03:  3 runs -   51 km /  3.6 h - a_avg/run: 17.0 km, 14.04 km/h - f_predicted_med: 14.07/13.50 km/h
 2022-10-10:  2 runs -   30 km /  2.2 h - a_avg/run: 15.0 km, 13.75 km/h - f_predicted_med: 13.47/12.92 km/h
 2022-10-17:  2 runs -   36 km /  2.6 h - a_avg/run: 18.1 km, 13.94 km/h - f_predicted_med: 13.80/13.23 km/h
@@ -98,7 +101,13 @@ python3 training-analysis/main.py
 2022-10-31:  2 runs -   30 km /  2.1 h - a_avg/run: 15.0 km, 14.09 km/h - f_predicted_med: 13.80/13.24 km/h
 2022-11-07:  3 runs -   30 km /  2.1 h - a_avg/run: 10.1 km, 14.34 km/h - f_predicted_med: 13.71/13.15 km/h
 2022-11-14:  1 runs -   15 km /  1.1 h - a_avg/run: 15.0 km, 14.29 km/h - f_predicted_med: 14.00/13.43 km/h
-2022-11-21:  2 runs -   20 km /  1.5 h - a_avg/run: 10.0 km, 12.99 km/h - f_predicted_med: 12.42/11.91 km/h
+2022-11-21:  4 runs -   47 km /  3.5 h - a_avg/run: 11.8 km, 13.37 km/h - f_predicted_med: 13.52/12.96 km/h
+2022-11-28:  1 runs -    8 km /  0.7 h - a_avg/run:  8.0 km, 12.00 km/h - f_predicted_med: 11.32/10.86 km/h
+2022-12-05:  1 runs -    9 km /  0.8 h - a_avg/run:  9.6 km, 12.00 km/h - f_predicted_med: 11.45/10.98 km/h
+2022-12-12:  1 runs -    5 km /  0.4 h - a_avg/run:  5.9 km, 14.45 km/h - f_predicted_med: 13.39/12.84 km/h
+2022-12-19:  1 runs -    8 km /  0.7 h - a_avg/run:  8.8 km, 13.20 km/h - f_predicted_med: 12.53/12.02 km/h
+2022-12-26:  2 runs -   23 km /  1.7 h - a_avg/run: 11.9 km, 14.05 km/h - f_predicted_med: 13.58/13.02 km/h
+2023-01-02:  3 runs -   37 km /  2.9 h - a_avg/run: 12.5 km, 12.74 km/h - f_predicted_med: 12.85/12.33 km/h
 
 == Progress ==
 
@@ -106,9 +115,9 @@ python3 training-analysis/main.py
 
         |    12     9     6     3     2     1
 --------+-------+-----+-----+-----+-----+-----+
-  9- km |   0.31  0.25  0.19 -0.17 -4.47 -4.47
-  12 km |   0.33  0.34  0.06 -0.08  0.00  0.00
-  15 km |   0.34  0.34  0.30  0.23 -0.17  0.51
-  18 km |   0.40  0.40  1.22  0.00  0.00  0.00
- 21+ km |   0.29  0.29  0.25  0.60  0.35  0.00
+  9- km |   0.24  0.22  0.03 -0.04  0.10  0.00
+  12 km |   0.25  0.18  0.04  0.08  0.08  8.07
+  15 km |   0.34  0.32  0.25  0.00  0.00  0.00
+  18 km |   0.27  0.27  0.14  0.00  0.00  0.00
+ 21+ km |   0.29  0.29  0.26  0.06  0.00  0.00
 ```
