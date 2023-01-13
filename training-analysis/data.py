@@ -190,10 +190,21 @@ RUNS = (
     # Several half-marathon (sub 1h30). Preparing for Paris 2023-04 and Berlin 2023-09 (sub 3h).
     #
 
-    # 12 runs - 200-240 km
+    # 12 runs - 180 km
     RunRelax(pd('2023-01-03'), 12.0, 60, 7),
     RunRelax(pd('2023-01-05'), 7.0, 35, 7),
     RunLong(pd('2023-01-07'), 18.6, 78.50, 7),
+    RunShort(pd('2023-01-10'), 9.7, 40.8, 8),
+    RunCross(pd('2023-01-10'), 30),  # ice skating - with new ice skates, very nice
+    RunShort(pd('2023-01-13'), 13.4, 60.0, 10),  # strides, best 1.1 / 4:10 = 15.8
+    RunLong(pd('2023-01-14'), 15.0, 64.0, 8),
+    RunRelax(pd('2023-01-18'), 12.0, 57, 1),
+    RunRelax(pd('2023-01-19'), 7.0, 34, 3),
+    RunLong(pd('2023-01-20'), 24.9, 115.0, 0),
+    RunShort(pd('2023-01-24'), 12.0, 50.5, 1),
+    RunRelax(pd('2023-01-26'), 14.8, 68.75, 1),
+    RunLong(pd('2023-01-28'), 27.5, 123.0, 1),
+
 
 
     # Goals
