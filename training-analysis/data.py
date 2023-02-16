@@ -186,7 +186,7 @@ RUNS = (
     RunShort(pd('2022-12-29'), 12, 50.3, 12),
 
     #
-    # 2023
+    # 2023-S1
     # Several half-marathon (sub 1h30). Preparing for Paris 2023-04 and Berlin 2023-09 (sub 3h).
     #
 
@@ -205,7 +205,7 @@ RUNS = (
     RunRelax(pd('2023-01-26'), 14.8, 68.75, 1),
     RunLong(pd('2023-01-28'), 27.5, 123.0, 1),
 
-    # 15-18 runs - 250-280 km
+    # 16 runs - 250 km
     RunShort(pd('2023-02-02'), 15.0, 67.25, 7),
     RunRelax(pd('2023-02-03'), 12.0, 52.0, 7),
     RunLong(pd('2023-02-04'), 25.3, 115.0, 3),
@@ -216,12 +216,42 @@ RUNS = (
     RunShort(pd('2023-02-13'), 15.0, 61.7, 8),  # PB - 15k: 14.60 (21.1k: 14.30 km/h)
     RunCross(pd('2023-02-13'), 45),  # ice skating - (inner) schnell bahn
     RunRelax(pd('2023-02-14'), 11.3, 49.0, 7),
+    RunCross(pd('2023-02-15'), 60),  # 2h swing
+    RunLong(pd('2023-02-16'), 34.0, 156.0, 11),
+    RunRelax(pd('2023-02-19'), 6.3, 30.0, 5),
+    RunRelax(pd('2023-02-21'), 15.0, 65.0, 11),
+    RunLong(pd('2023-02-22'), 25.4, 119.0, 8),
+    RunCross(pd('2023-02-22'), 30),  # 1h swing
+
+    RunCross(pd('2023-02-26'), 30),  # ski 6h
+    RunCross(pd('2023-02-27'), 30),  # ski 6h
+    RunCross(pd('2023-02-28'), 30),  # ski 6h
+    RunCross(pd('2023-02-28'), 40),  # piscine 40 mn
+
+    # 8 runs - 70 km
+    RunCross(pd('2023-03-02'), 30),  # ski 4h
+    RunCross(pd('2023-03-03'), 30),  # ski 4h
+    RunCross(pd('2023-03-03'), 60),  # rando 2h
+    RunRelax(pd('2023-03-11'), 6.0, 26.0, 2),
+    RunRelax(pd('2023-03-16'), 15.0, 67.25, 9),
+    RunRelax(pd('2023-03-17'), 9.1, 39.0, 13),
+    RunLong(pd('2023-03-19'), 26.2, 120.0, 14),
+    RunRelax(pd('2023-03-31'), 6.0, 30.0, None),
 
 
-    # 18-20 runs - 220-250 km
 
     # Goals
     RunGoal(pd('2023-04-02'), 42.2, 180, None), # Paris (3h marathon)
     RunGoal(pd('2023-04-02'), 21.1, 86.33, None), # Paris (3h marathon) = HM: 14.66
     RunGoal(pd('2023-04-02'), 15, 60.13, None), # Paris (3h marathon) = 15 km: 14.97
+
+    # (3:15 +/- 5 min)
+    # 42.2      195 (190-200)   13.0 (12.7-13.3)
+    # 21.1      93 (91-96)      13.6 (13.2-13.9)
+    # 15        65 (63-67)      13.8 (13.5-14.2)
+
+    # Plan: 30/13.2 + 12.2/10.0 = 3:30
+    # Plan: 30/13.2 + 12.2/12.0 = 3:17
+    # Plan: 30/13.2 + 12.2/13.0 = 3:13
+    # Plan: 30/13.2 + 12.2/14.0 = 3:09
 )
