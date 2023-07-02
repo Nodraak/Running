@@ -8,8 +8,8 @@
 | 2022-07-24 | 13.5 (1h29)  | 12% (95/767)  | 20 km CDGR 20   |
 | 2022-10-23 | 14.1 (1h29)  | 4% (46/1164)  | Mueggelsee 21.1 |
 | 2022-11-27 | 14.1 (1h29)  | 15% (1.2k/8.2k) | Boulogne 21.1 |
+| 2023-04-02 | 11.3 (3h44)  | 32% (16k/50k) | Paris 42.2      |
 |            |              |               |                 |
-| 2023-04-02 | 13.0 (3h15)  | 10% (3.4k/34k) | Paris 42.2     |
 | 2023-07-23 | 14.5 (1h23)  | 5% (35/767)   | 20 km CDGR 20   |
 | 2023-04-02 | 14.0 (3h00)  | - (-)         | Berlin 42.2     |
 
@@ -22,6 +22,7 @@ python3 race-results/plot.py race-results/2022-04-24-Spreewald-21.1km/
 python3 race-results/plot.py race-results/2022-07-24-20km-CDGR-20km/
 python3 race-results/plot.py race-results/2022-10-23-Mueggelsee-21.1km/
 python3 race-results/plot.py race-results/2022-11-27-Boulogne-21.1km/
+python3 race-results/plot.py race-results/2023-04-02-Paris-42.2km/
 
 python3 race-results/plot-all.py
 ```
@@ -36,15 +37,20 @@ python3 race-results/plot-all.py
 ![](../build/race-results-2022-07-24-20km-CDGR-20km-Figure_1.png)
 ![](../build/race-results-2022-07-24-20km-CDGR-20km-Figure_2.png)
 
-**2022-10-23 - 21.1 km Mueggelsee - 21.1 km**
+**2022-10-23 - Mueggelsee - 21.1 km**
 
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_1.png)
 ![](../build/race-results-2022-10-23-Mueggelsee-21.1km-Figure_2.png)
 
-**2022-11-27 - 21.1 km Boulogne - 21.1 km**
+**2022-11-27 - Boulogne - 21.1 km**
 
 ![](../build/race-results-2022-11-27-Boulogne-21.1km-Figure_1.png)
 ![](../build/race-results-2022-11-27-Boulogne-21.1km-Figure_2.png)
+
+**2023-04-02 - Paris - 42.2 km**
+
+![](../build/race-results-2023-04-02-Paris-42.2km-Figure_1.png)
+![](../build/race-results-2023-04-02-Paris-42.2km-Figure_2.png)
 
 **All**
 
@@ -82,7 +88,7 @@ python3 race-results/plot-all.py
 |     20% |   153 | 01:34:24 |  12.8 |
 |     50% |   383 | 01:50:44 |  10.9 |
 
-### 2022-10-23 - 21.1 km Muegelsee - 21.1 km
+### 2022-10-23 - Muegelsee - 21.1 km
 
 * Source: https://www.davengo.com/event/result/16-mueggelsee-halbmarathon-2022/search?category=Halbmarathon
 * Runners: 1164
@@ -98,7 +104,7 @@ python3 race-results/plot-all.py
 |     20% |   233 | 01:43:35 |  12.2 |
 |     50% |   582 | 01:56:51 |  10.8 |
 
-### 2022-11-27 - 21.1 km Boulogne - 21.1 km
+### 2022-11-27 - Boulogne - 21.1 km
 
 * Source: https://www.sport-up.fr/www/resultat/partenaire-20190624003678-Semimarathon-de-BoulogneBillancourt.htm
 * Runners: 8160
@@ -113,6 +119,23 @@ python3 race-results/plot-all.py
 | **15%** | **1244** | **01:29:27** | **14.15** |
 |     20% |  1632 |  1:32:34 |  13.7 |
 |     50% |  4080 |  1:47:13 |  11.8 |
+
+### 2023-04-02 - Paris - 42.2 km
+
+* Source: https://resultscui.active.com/events/SchneiderElectricMarathondeParis2023
+* Runners: 50 708
+
+| Percent | Place |   Time   | Speed |
+|---------|-------|----------|-------|
+|       - |     1 |  2:07:15 |  19.9 |
+|      1% |   508 |  2:44:18 |  15.4 |
+|      5% |  2538 |  3:00:42 |  14.0 |
+|     10% |  5076 |  3:14:40 |  13.0 |
+|     15% |  7614 |  3:23:38 |  12.4 |
+|     20% | 10152 |  3:29:39 |  12.1 |
+| **32.4%** | **16432** | **3:44:42** | **11.3** |
+|     50% | 25379 |  4:00:38 |  10.5 |
+|    100% | 50756 |  8:59:43 |   4.7 |
 
 ## Statistics - Others
 
@@ -167,13 +190,13 @@ python3 race-results/plot-all.py
 
 | Percent | Place | Speed | Time |
 |---------|-------|-------|------|
-|       - |    1  |  20.2 | 2:05 |
-|      1% |  344  |  15.4 | 2:44 |
-|      5% | 1718  |  14.0 | 3:00 |
-|     10% | 3437  |  13.0 | 3:14 |
-|     15% | 5155  |  12.4 | 3:24 |
-|     20% | 6873  |  12.0 | 3:30 |
-32% 11000 11.3 3:45
+|       - |     1 |  20.2 | 2:05 |
+|      1% |   344 |  15.4 | 2:44 |
+|      5% |  1718 |  14.0 | 3:00 |
+|     10% |  3437 |  13.0 | 3:14 |
+|     15% |  5155 |  12.4 | 3:24 |
+|     20% |  6873 |  12.0 | 3:30 |
+|     32% | 11000 |  11.3 | 3:45 |
 |     50% | 17183 |  10.5 | 4:01 |
 
 ### 2022-04-24 - Spreewald - 42.2 km

@@ -39,11 +39,11 @@ FILEPATH_DATA = "{path}/data.json"
 FILEPATH_GRAPH_1 = "build/{path}-Figure_1.png"
 FILEPATH_GRAPH_2 = "build/{path}-Figure_2.png"
 
-PERCENTS = [1, 5, 10, 15, 20, 50]
-COLORS = ["r", "r", "g", "g", "g", "orange"]
+PERCENTS = [0, 1, 5, 10, 15, 20, 50, 99.999]
+COLORS = ["r", "r", "r", "g", "g", "g", "orange", "black"]
 ME_COLOR = "gray"
 
-N_BINS = 75
+N_BINS = 2*75  # TODO scale based on distance or nb of participants
 
 FIGSIZE = (1200, 900)
 DPI = 100
@@ -87,8 +87,8 @@ def load(folder):
     times_all = [tup["time_raw"] for tup in data]
 
     scale = 100/len(data)
-    indexes = [p/scale for p in PERCENTS]
-    times_slots = [times_all[int(i)] for i in indexes]
+    indexes = [int(p/scale) for p in PERCENTS]
+    times_slots = [times_all[i] for i in indexes]
 
     return metadata, times_all, scale, indexes, times_slots
 
@@ -118,15 +118,18 @@ def main():
     plt.ylabel("Time")
     plt.xlabel("Runners")
 
-    xs = [i*scale for i in range(1, len(times_all)+1)]
+    xs = [(i+1)*scale for i in range(len(times_all))]
     plt.plot(xs, times_all)
 
+    print("| Percent | Place |   Time   | Speed |")
+    print("|---------|-------|----------|-------|")
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
-        legend = "p=%d%% (%d), t=%s" % (p, i, formatter_time(t))
-        plt.plot((int(i)+1)*scale, t, "x", label=legend, color=c)
+        legend = "p=%d%% (%d), t=%s" % (p, i+1, formatter_time(t))
+        print("|    %3d%% | %5d |  %s |  %4.1f |" % (p, i+1, formatter_time(t), 42.2*3600/t))  # TODO: load dist from metadata
+        plt.plot((i+1)*scale, t, "x", label=legend, color=c)
 
     plt.axhline(metadata["me_time"], label=metadata["me_legend"], color=ME_COLOR)
-    plt.axvline(metadata["me_rank"]*scale, label=metadata["me_legend"], color=ME_COLOR)
+    plt.axvline(metadata["me_rank"]*scale, label="_nolabel", color=ME_COLOR)
 
     plt.legend(loc="upper left")
 
@@ -145,7 +148,7 @@ def main():
     plt.hist(times_all, bins=N_BINS)
 
     for p, c, i, t in zip(PERCENTS, COLORS, indexes, times_slots):
-        legend = "p=%d%% (%d), t=%s" % (p, i, formatter_time(t))
+        legend = "p=%d%% (%d), t=%s" % (p, i+1, formatter_time(t))
         plt.axvline(t, linestyle="--", label=legend, color=c)
 
     plt.axvline(metadata["me_time"], label=metadata["me_legend"], color=ME_COLOR)
