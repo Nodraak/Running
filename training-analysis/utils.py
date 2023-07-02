@@ -60,7 +60,7 @@ def estimate_time(d1, t1, d2):
     return t2
 
 
-def estimate_distance_at_14_1(d1, t1):
+def estimate_distance(d1, t1, v2):
     """
     Estimate the distance that can be achieved by running at 14.1 km/h, based on
     the performance (distance, time) (d1, t1), using Peter Riegel's 1981's
@@ -79,7 +79,7 @@ def estimate_distance_at_14_1(d1, t1):
         d2 = d/1000
         t2 = estimate_time(d1, t1, d2)
 
-        if d2/t2 < 14.1:
+        if d2/t2 < v2:
             return d2
 
         # t2 = estimate_time(d1, t1, d2) + 10/60/42.2*d2
@@ -107,7 +107,9 @@ class Run:
         self.hm_speed = 21.1 / self.hm_time
         self.m_time = estimate_time(self.distance, self.time_h, 42.2)
         self.m_speed = 42.2 / self.m_time
-        self.dist_at_14_1_kmph = estimate_distance_at_14_1(self.distance, self.time_h)
+        self.dist_at_14_1_kmph = estimate_distance(self.distance, self.time_h, 14.1)
+        self.dist_at_13_0_kmph = estimate_distance(self.distance, self.time_h, 13.0)
+        self.dist_at_12_1_kmph = estimate_distance(self.distance, self.time_h, 12.1)
 
 
 class RunGoal(Run):

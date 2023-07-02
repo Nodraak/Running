@@ -140,7 +140,7 @@ def plot_all(data, start, end):
 
     # (Predicted) Distance (all, monthly)
     plt.figure(figsize=(FIGSIZE[0]/DPI, FIGSIZE[1]/DPI), dpi=DPI)
-    plt.suptitle("Predicted distance (km) at 14.1 km/h")
+    plt.suptitle("Predicted distance (km) at given speed")
     plot_predict_distance(data, start, end)
     plt.savefig("build/trainings-5-predict-dist.png")
 
@@ -406,12 +406,26 @@ def plot_predict_time(data, start, end):
 
 
 def plot_predict_distance(data, start, end):
-    plt.ylabel("Predicted distance (km) at 14.1 km/h")
-    plt.xlim((start, end))
 
-    plt.axhline(21.1, color=C_LINE)
-    plt.axhline(42.2, color=C_LINE)
+    def plot(label, getter):
+        plt.ylabel(label)
+        plt.xlim((start, end))
 
-    for r in data["runs"]:
-        plt.plot(r.date, r.distance, "x", color=C_LINE)
-        plt.plot(r.date, r.dist_at_14_1_kmph, "o", color=RUN2COLORS[r.__class__])
+        plt.axhline(21.1, color=C_LINE)
+        plt.axhline(42.2, color=C_LINE)
+
+        for r in data["runs"]:
+            plt.plot(r.date, r.distance, "x", color=C_LINE)
+            plt.plot(r.date, getter(r), "o", color=RUN2COLORS[r.__class__])
+
+    # 3h00 = 14.1
+    plt.subplot(3, 1, 1, sharex=plt.gca())
+    plot("14.1 km/h (42 km / 3h00)", lambda r: r.dist_at_14_1_kmph)
+
+    # 3h15 = 13.0
+    plt.subplot(3, 1, 2, sharex=plt.gca())
+    plot("13.0 km/h (42 km / 3h15)", lambda r: r.dist_at_13_0_kmph)
+
+    # 3h30 = 12.1
+    plt.subplot(3, 1, 3, sharex=plt.gca())
+    plot("12.1 km/h (42 km / 3h30)", lambda r: r.dist_at_12_1_kmph)

@@ -12,7 +12,7 @@ import statistics
 from dateutil import rrule
 from sklearn.linear_model import LinearRegression
 
-from utils import date2timestamp, pd, date_y_eq, date_ym_eq, date_yw_eq, estimate_distance_at_14_1, RunGoal, RunRelax
+from utils import date2timestamp, pd, date_y_eq, date_ym_eq, date_yw_eq, estimate_distance, RunGoal, RunRelax
 
 
 def process_all(all_runs, start, end):
@@ -113,6 +113,7 @@ def process_dates(start, end):
     """
     Generate monthly and weekly dates lists.
     """
+    assert start.weekday() == 0, "Date is not Monday: %s" % start
     start_weekly = start.replace(day=start.day-start.weekday())
     start_monthly = start.replace(day=1)
 
@@ -134,7 +135,7 @@ def process_stats_complex(runs):
             "m_speed": process_stats_basic(sorted([42.2 / r.m_time for r in runs])[-4:]),
         },
     }
-    r["predicted"]["dist_at_14_1_kmph"] = estimate_distance_at_14_1(r["dist"]["f_median"], r["time_h"]["f_median"])
+    r["predicted"]["dist_at_14_1_kmph"] = estimate_distance(r["dist"]["f_median"], r["time_h"]["f_median"], 14.1)
 
     return r
 
