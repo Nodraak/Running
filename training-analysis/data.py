@@ -247,10 +247,34 @@ RUNS = (
 
     RunRelax(pd('2023-04-24'), 12.0, 56, 15),
 
+    RunRelax(pd('2023-05-11'), 6.0, 28, 18),
+    RunRelax(pd('2023-05-13'), 6.0, 27, 18),
+    RunRelax(pd('2023-05-17'), 12.0, 54.5, 15),
+    RunLong(pd('2023-05-20'), 18.6, 91.5, 15),
+    RunShort(pd('2023-05-24'), 12.0, 54.5, 15),
+
+    # 9 runs - 60 km
+    RunShort(pd('2023-06-02'), 6.0, 28, 14),
+    RunShort(pd('2023-06-04'), 6.3, 29.5, 17),
+    RunShort(pd('2023-06-07'), 6.0, 28, None),
+    RunShort(pd('2023-06-10'), 6.0, 26.3, 19),
+    RunShort(pd('2023-06-14'), 6.0, 26.5, 19),
+    RunShort(pd('2023-06-22'), 6.0, 27.0, 25),
+    RunShort(pd('2023-06-24'), 6.0, 25.9, 18),
+    RunRelax(pd('2023-06-27'), 9.0, 40.0, 15),
+    RunRelax(pd('2023-06-30'), 9.0, 41.5, 19),
+
+    # (12-16 runs - 180-250 km)
+    RunLong(pd('2023-07-01'), 9.0, 41, 22),
+
+
+    # (16-20 runs - 250-300 km)
+    # (8-12 runs - 70-150 km)
+
 
 
     # Goals
-    RunGoal(pd('2023-09-20'), 42.2, 180, None), # Paris (3h marathon)
-    RunGoal(pd('2023-09-20'), 21.1, 86.33, None), # Paris (3h marathon) = HM: 14.66
-    RunGoal(pd('2023-09-20'), 15, 60.13, None), # Paris (3h marathon) = 15 km: 14.97
+    RunGoal(pd('2023-09-24'), 42.2, 180, None), # Berlin (3h marathon)
+    RunGoal(pd('2023-09-24'), 21.1, 86.33, None), # Berlin (3h marathon) = HM: 14.66
+    RunGoal(pd('2023-09-24'), 15, 60.13, None), # Berlin (3h marathon) = 15 km: 14.97
 )
