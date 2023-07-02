@@ -240,6 +240,17 @@ RUNS = (
 
     RunRace(pd('2023-04-02'), 42.2, 3*60 + 44 + 42/60, 8),
 
+    #
+    # 2023-S2
+    # Preparing for Berlin 2023-09 (goal sub 3h)
+    #
+
+    RunRelax(pd('2023-04-24'), 12.0, 56, 15),
+
+
 
     # Goals
+    RunGoal(pd('2023-09-20'), 42.2, 180, None), # Paris (3h marathon)
+    RunGoal(pd('2023-09-20'), 21.1, 86.33, None), # Paris (3h marathon) = HM: 14.66
+    RunGoal(pd('2023-09-20'), 15, 60.13, None), # Paris (3h marathon) = 15 km: 14.97
 )
