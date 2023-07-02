@@ -82,6 +82,10 @@ def estimate_distance_at_14_1(d1, t1):
         if d2/t2 < 14.1:
             return d2
 
+        # t2 = estimate_time(d1, t1, d2) + 10/60/42.2*d2
+        # if d2/t2 < 13.0:
+        #     return d2
+
     return 42.2
 
 
@@ -133,7 +137,7 @@ class RunShort(Run):
 
 class RunCross(RunRelax):
     def __init__(self, date, time_mn):
-        speed = 12
-        distance = speed * (time_mn/60)  # km/h * (time_mn/60)
+        speed_kph = 12
+        distance_km = speed_kph * (time_mn/60)
         temp = None
-        super().__init__(date, distance, time_mn, temp)
+        super().__init__(date, distance_km, time_mn, temp)
